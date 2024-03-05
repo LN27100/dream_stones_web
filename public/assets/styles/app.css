@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+/*   font-family: "Macondo", cursive; */
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+/*   font-family: "Varela Round", sans-serif; */
+
+
+/* PAGE HOME */
+
+/* NAVBAR */
+
+
+.navbar .form-inline {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem; 
+}
+
+.navbar .navbar-nav {
+  flex-grow: 1; /* les éléments prennent autant d'espace possible dans la navbar */
+}
+
+.navbar .form-inline {
+  flex-grow: 0; 
+  margin-left: auto; /* aligner le formulaire à droite */
+  padding: 1rem;
+}
+
+#top > nav > form > button {
+  margin-right: 0.5rem;
+}
+
+.navbar {
+  background-color: #0B533D;
+}
+
+#navbarsExample11>ul>li>a {
+  color: white;
+  font-family: "Varela Round", sans-serif;
+}
+
+#navbarsExample11>ul>li.nav-item.dropdown>ul {
+  background-color: #0B533D;
+}
+
+#navbarsExample11>ul>li>ul>li>a:hover {
+  background-color: #24916A;
+}
+
+#navbarsExample11>ul>li.nav-item.dropdown>ul>li>a {
+  color: white;
+  font-family: "Varela Round", sans-serif;
+}
+
+#navbarsExample11>a {
+  font-family: "Macondo", cursive;
+  font-size: 2rem;
+}
+
+/* CORPS DE LA PAGE HOME */
+
+.hidden {
+  display: none;
+}
+
+body > div.container4 > h3 {
+margin-top: 1rem;
+}
+
+/* CARROUSEL ACCUEIL */
+
+.carousel-item img {
+  width: 20rem;
+  display: block;
+  margin: auto;
+}
+
+h3 {
+  font-family: "Macondo", cursive;
+  text-align: center;
+}
+
+.carousel-text {
+  font-family: "Varela Round", sans-serif;
+  text-align: justify;
+  padding: 2rem;
+}
+
+.card-container {
+  margin-bottom: 4rem;
+}
+
+body>div.container.card-container>div {
+  border-radius: 20px;
+  width: 60rem;
+  margin: 0 auto;
+  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 14%, rgba(91, 189, 158, 1) 60%);
+  /* ombrage card */
+  -webkit-box-shadow: 10px 15px 5px 3px #6eb59d;
+  -moz-box-shadow: 10px 15px 5px 3px #6eb59d;
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=10, OffY=15, Color='#6eb59d', Positive='true');
+  zoom: 1;
+  box-shadow: 10px 15px 5px 3px #6eb59d;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+
+/* contour carrousel */
+.outer-border {
+  border: 2px solid #239670;
+  height: 99%;
+  width: 98%;
+  padding: 6px;
+  margin: 0 auto;
+}
+
+.mid-border {
+  border: 6px solid #239670;
+  height: 100%;
+  width: 100%;
+  padding: 6px;
+  margin: auto;
+}
+
+.inner-border {
+  position: relative;
+  border: 2px solid #24916A;
+  height: 100%;
+  width: 100%;
+  margin: auto;
+}
+
+
+
+
+
+/* PANIER */
+
+
+.product img {
+  width: 5rem;
+  height: auto;
+}
+
+.quantity-input {
+  width: 3.2rem;
+}
+
+.remove-btn {
+  font-family: "Varela Round", sans-serif;
+  padding: 0.2rem;
+  font-size: 0.8rem;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 5px;
+  background-color: rgb(185, 90, 90);
+  box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.remove-btn:hover {
+  background-color: rgb(168, 109, 109);
+}
+
+
+.img-fluid {
+  max-width: 5rem;
+}
+
+#offcanvasExample {
+  background-color: #0B533D;
+}
+
+.btn2 {
+  background-color: #24916A;
+  font-family: "Varela Round", sans-serif;
+  padding: 0.2rem;
+  font-size: 1rem;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 1px #000;
+  border-radius: 5px;
+  box-shadow:
+    inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+    inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.btn2:hover {
+  background-color: #57BC9A;
+}
+
+.pan {
+  font-family: "Varela Round", sans-serif;
+  text-align: center;
+  font-weight: bolder;
+}
+
+#cart {
+  overflow-y: auto;
+}
+
+#cart::-webkit-scrollbar {
+  width: 0.8rem;
+  background-color: #0B533D;
+  border: 2px solid #24916A;
+}
+
+#cart::-webkit-scrollbar-thumb {
+  background-color: #0B533D;
+}
+
+
+/* SCROLLBAR PERSONNALISEE */
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(74, 168, 85, 0.3);
+  background-color: #24916A;
+
+}
+
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #0B533D;
+  border: 2px solid #24916A;
+
+  background-image: -webkit-linear-gradient(90deg,
+      transparent,
+      rgba(94, 92, 92, 0.4) 70%,
+      transparent,
+      transparent)
+}
+
+/* PAGE RECHERCHE */
+
+#search-results .result-card {
+  width: 20rem;
+  margin: 0 auto;
+}
+
+/* Utiliser Flexbox pour créer une grille flexible */
+#search-results .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;;
+}
+
+/* Pour que les cartes utilisent tout l'espace disponible */
+#search-results .col-4 {
+  flex: 1;
+}
+
+/* Si une seule carte est présente, lui donner une largeur fixe */
+#search-results .row .col-4:first-child:nth-last-child(1) .result-card {
+  width: 50rem;
+}
+
+/* Ajuster la taille de l'image lorsque la carte est de 50rem de large */
+#search-results .row .col-4:first-child:nth-last-child(1) .result-card .card-image img {
+  max-width: 20rem;
+}
+
+#search-results > div > div > div > h3 > div.card-image > img {
+  padding: 1rem;
+}
+
+/* Centrer l'image à l'intérieur de la carte */
+#search-results .result-card .card-image {
+  display: flex;
+  justify-content: center;
+}
+
+/* FOOTER */
+
+.returnHomeFooter {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  text-align: center;
+  width: 8rem;
+  padding: 0.3rem 0.2rem;
+  font-size: 0.8rem;
+  background-color: #0B533D;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+}
+
+main {
+  flex-grow: 1; 
+}
+
+footer {
+  background-color: #0B533D;
+  color: white;
+  font-family: "Macondo", cursive;
+  text-align: center;
+}
+
+body>footer>footer>div.container>section>div>div>h6>a {
+  text-decoration: none;
+}
+
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl,
+.container-xxl {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+body>footer>div>footer>div.text-center.p-3 {
+  color: white;
+  font-family: "Varela Round", sans-serif;
+}
+
+.containerUsage {
+  align-items: center;
+  padding: 1rem 15rem 1rem 15rem;
+  text-align: justify;
+  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 14%, rgba(91, 189, 158, 1) 60%);
+  width: 80rem;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.tittleUsage {
+  text-align: center;
+}
+
+footer {
+  font-family: "Macondo", cursive;
+}
+
+p {
+  font-family: "Varela Round", sans-serif;
+}
+
+/* CSS GENERALES DES PAGES */
+
+h1 {
+  font-family: "Macondo", cursive;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+p {
+  font-family: "Varela Round", sans-serif;
+}
