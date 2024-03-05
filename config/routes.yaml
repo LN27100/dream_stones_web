@@ -25,3 +25,15 @@ app_register:
 products_by_color:
     path: /products/{color}
     controller: App\Controller\ProductController::productsByColor
+
+# routes pour récupération des pierres de couleur bleue
+
+app_blue_stones:
+    path: /products/blue
+    controller: App\Controller\ProductController::blueStones
+
+# routes pour récupération des pierres de couleur verte
+
+app_green_stones:
+    path: /products/green
+    controller: App\Controller\ProductController::greenStones

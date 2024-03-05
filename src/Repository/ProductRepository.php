@@ -1,6 +1,5 @@
 <?php
 
-// src/Repository/ProductRepository.php
 
 namespace App\Repository;
 
@@ -15,16 +14,13 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    /**
-     * @return Product[] Returns an array of Product objects
-     */
     public function findBlueStones()
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.color = :color')
+            ->andWhere('p.productColor = :color')
             ->setParameter('color', 'blue')
-            ->orderBy('p.name', 'ASC')
             ->getQuery()
             ->getResult();
     }
 }
+

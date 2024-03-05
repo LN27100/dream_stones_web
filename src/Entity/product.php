@@ -13,27 +13,27 @@ class Product
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="PRODUCT_ID", type="integer")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="PRODUCT_NAME", type="string", length=255)
      */
     private $productName;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="PRODUCT_COLOR",type="string", length=255)
      */
     private $productColor;
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(name="PRODUCT_UNIT_PRICE",type="float")
      */
     private $productPrice;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(name="TYPE_ID", type="int", length=255)
      */
     private $productType;
 
@@ -89,12 +89,12 @@ class Product
         return $this;
     }
 
-    public function getProductType(): ?string
+    public function getProductType(): ?int
     {
         return $this->productType;
     }
 
-    public function setProductType(string $productType): self
+    public function setProductType(int $productType): self
     {
         $this->productType = $productType;
 
