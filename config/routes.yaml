@@ -6,7 +6,7 @@ app_page:
     path: /app
     controller: App\Controller\DefaultController::app
 
-# Routes pour login and logout
+# Routes pour se connecter et déconnecter
 login:
     path: /login
     controller: App\Controller\LoginController::login
@@ -14,3 +14,8 @@ login:
 logout:
     path: /logout
     controller: App\Controller\LoginController::logout
+
+    # routes pour s'enregistrer
+app_register:
+    path: /register
+    controller: App\Controller\RegistrationController::register

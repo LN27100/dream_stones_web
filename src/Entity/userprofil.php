@@ -11,68 +11,68 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class Userprofil implements UserInterface
 {
-
     public function getUserIdentifier(): string
-    {
-        return $this->pseudo;
-    }
+{
+    return $this->pseudo;
+}
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="USERPROFIL_ID")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50, name="USERPROFIL_PHONE")
      */
-    private $name;
+    private $phone;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $firstname;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $pseudo;
-
-    /**
-     * @ORM\Column(type="string", length=255, unique=true)
-     */
-    private $email;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $password;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $zipcode;
-
-    /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50, name="USERPROFIL_STREET_NAME")
      */
     private $streetName;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=50, unique=true, name="USERPROFIL_MAIL")
      */
-    private $additionalAdress;
+    private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50, unique=true, name="USERPROFIL_PSEUDO")
+     */
+    private $pseudo;
+
+    /**
+     * @ORM\Column(type="string", length=50, name="USERPROFIL_ADITTIONAL_ADRESS")
+     */
+    private $additionalAddress;
+
+    /**
+     * @ORM\Column(type="string", length=50, name="USERPROFIL_ZIPCODE")
+     */
+    private $zipcode;
+
+    /**
+     * @ORM\Column(type="string", length=255, name="USERPROFIL_PASSWORD")
+     */
+    private $password;
+
+    /**
+     * @ORM\Column(type="string", length=50, name="USERPROFIL_CITY")
      */
     private $city;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=50, name="USERPROFIL_FIRSTNAME")
      */
-    private $phone;
+    private $firstname;
 
+    /**
+     * @ORM\Column(type="string", length=50, name="USERPROFIL_NAME")
+     */
+    private $name;
+    
     // Ajoutez vos getters et setters ici
 
     public function getId(): ?int
@@ -82,6 +82,8 @@ class Userprofil implements UserInterface
 
     public function getName(): ?string
     {
+        var_dump($this->name);
+
         return $this->name;
     }
 
@@ -164,14 +166,14 @@ class Userprofil implements UserInterface
         return $this;
     }
 
-    public function getAdditionalAdress(): ?string
+    public function getAdditionalAddress(): ?string
     {
-        return $this->additionalAdress;
+        return $this->additionalAddress;
     }
 
-    public function setAdditionalAdress(?string $additionalAdress): self
+    public function setAdditionalAddress(?string $additionalAddress): self
     {
-        $this->additionalAdress = $additionalAdress;
+        $this->additionalAddress = $additionalAddress;
 
         return $this;
     }
