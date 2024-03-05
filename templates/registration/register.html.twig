@@ -1,0 +1,21 @@
+{# templates/registration/register.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inscription</title>
+</head>
+<body>
+    <h1>Formulaire d'inscription</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.userprofil_name) }}
+        {{ form_row(form.userprofil_firstname) }}
+        {# Ajoutez d'autres champs de formulaire pour les attributs de votre entité Userprofil #}
+        {{ form_row(form.userprofil_mail) }}
+        {{ form_row(form.userprofil_password) }}
+        {{ form_row(form.conf_mot_de_passe) }}
+        {{ form_row(form.cgu) }}
+        {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+</body>
+</html>

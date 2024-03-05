@@ -60,12 +60,11 @@
                     </li>
                 <?php endif; ?>
 
-                <!-- Onglet connexion masqué si l'utilisateur est connecté -->
-                <?php if (!isset($_SESSION['user'])) : ?>
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" href="/controllers/controller-signin.php" aria-current="page">Me connecter</a>
-                    </li>
-                <?php endif; ?>
+                {% if not app.user %}
+                <li class="nav-item">
+                    <a class="nav-link active text-light" href="{{ path('app_login') }}">Me connecter</a>
+                </li>
+                {% endif %}
 
                 <!-- Panier d'achat -->
                 <li class="nav-item">
@@ -77,11 +76,11 @@
         </div>
     </div>
 
-   <!-- Formulaire de recherche -->
-<form id="search-form" class="form-inline col-lg-2" action="/controllers/controller-search.php" method="GET">
-    <button id="search-btn" class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
-    <input id="search-input" name="search" class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
-</form>
+    <!-- Formulaire de recherche -->
+    <form id="search-form" class="form-inline col-lg-2" action="/controllers/controller-search.php" method="GET">
+        <button id="search-btn" class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
+        <input id="search-input" name="search" class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+    </form>
 
 
 

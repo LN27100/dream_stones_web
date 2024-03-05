@@ -1,5 +1,16 @@
 # config/routes.yaml
 
+# Routes pour la page d'accueil
+
 app_page:
     path: /app
     controller: App\Controller\DefaultController::app
+
+# Routes pour login and logout
+login:
+    path: /login
+    controller: App\Controller\LoginController::login
+
+logout:
+    path: /logout
+    controller: App\Controller\LoginController::logout
