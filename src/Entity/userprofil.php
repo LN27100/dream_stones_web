@@ -68,10 +68,7 @@ class Userprofil implements UserInterface
      */
     private $firstname;
 
-    /**
-     * @ORM\Column(type="string", length=50, name="USERPROFIL_NAME")
-     */
-    private $name;
+   
     
     // Ajoutez vos getters et setters ici
 
@@ -80,19 +77,7 @@ class Userprofil implements UserInterface
         return $this->id;
     }
 
-    public function getName(): ?string
-    {
-        var_dump($this->name);
-
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
+    
 
     public function getFirstname(): ?string
     {
