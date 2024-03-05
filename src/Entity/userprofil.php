@@ -82,7 +82,6 @@ class Userprofil implements UserInterface
 
     public function getName(): ?string
     {
-        var_dump($this->name);
 
         return $this->name;
     }

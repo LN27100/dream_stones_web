@@ -19,3 +19,9 @@ logout:
 app_register:
     path: /register
     controller: App\Controller\RegistrationController::register
+
+# routes pour récupération des pierres par couleur
+
+products_by_color:
+    path: /products/{color}
+    controller: App\Controller\ProductController::productsByColor
