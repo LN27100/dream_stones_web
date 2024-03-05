@@ -1,0 +1,89 @@
+{# templates/home/my_home.html.twig #}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil Dream Stones</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        {% include 'header.php' %}
+    </header>
+
+    <h1>PIERRE DU MOMENT</h1>
+
+    <div class="container card-container">
+        <div class="outer-border">
+            <div class="mid-border">
+                <div class="inner-border">
+                    <div class="text carousel-text">
+                        <h3>La malachite</h3>
+                    </div>
+                    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/assets/img/malachite.jpg" class="d-block w-100" alt="Image 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite2.jpg" class="d-block w-100" alt="Image 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite3.jpg" class="d-block" alt="Image 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite4.jpg" class="d-block" alt="Image 4">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite5.jpg" class="d-block" alt="Image 5">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite6.jpg" class="d-block" alt="Image 6">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite7.jpg" class="d-block" alt="Image 7">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite8.jpg" class="d-block" alt="Image 8">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite9.jpg" class="d-block" alt="Image 9">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite10.jpg" class="d-block" alt="Image 10">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite11.jpg" class="d-block" alt="Image 11">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/img/malachite12.jpg" class="d-block" alt="Image 12">
+                            </div>
+                        </div>                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+
+                    <div class="text carousel-text">
+                        <p>Aujourd'hui nous allons parler de la malachite. Une pierre verte très originale de par ses dessins. Elle possède de nombreuses vertus tant physiques, émotionnelles que spirituelles. Côté physique, elle soutient les maladies articulaires et inflammatoires en soulageant les douleurs liées à celles-ci.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        {% include 'footer.php' %}
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('assets/js/script.js') }}"></script>
+    </body>
+</html>

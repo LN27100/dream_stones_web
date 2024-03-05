@@ -1,3 +1,9 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+# config/routes.yaml
+
+app_page:
+    path: /app
+    controller: App\Controller\HomeController::myHome
