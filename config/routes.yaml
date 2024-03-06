@@ -6,6 +6,9 @@ app:
     path: /app
     controller: App\Controller\DefaultController::app
 
+
+
+
 # Routes pour se connecter et déconnecter
 app_login:
     path: /login

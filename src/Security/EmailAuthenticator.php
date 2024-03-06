@@ -57,8 +57,7 @@ class EmailAuthenticator extends AbstractLoginFormAuthenticator
             return new RedirectResponse($targetPath);
         }
 
-        // Redirect to a default route if no target path is available
-        return new RedirectResponse($this->urlGenerator->generate('default_route'));
+        return new RedirectResponse($this->urlGenerator->generate('app'));
     }
 
     protected function getLoginUrl(Request $request): string
