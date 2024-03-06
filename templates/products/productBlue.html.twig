@@ -14,9 +14,8 @@
 
 <body>
     <header id="top">
-{% include 'includes/header.php' %}
+        {% include 'includes/header.php' %}
     </header>
-
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
         <div class="offcanvas-header">
@@ -44,46 +43,38 @@
             </div>
         </div>
     </div>
-    </div>
 
+    <main>
+        <h1>Nos pierres bleues</h1>
 
-
-{% block body %}
-    <h1>Nos pierres bleues</h1>
-
-    <div class="container">
-        <div class="row">
-            {% for stone in blueStones %}
+        <div class="container">
+            <div class="row">
+                {% for stone in blueStones %}
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-image">
-                            <img src="/assets/img/{{ stone.PRODUCT_PICTURE }}" alt="Image de {{ stone.PRODUCT_NAME }}">
-                            <a href="../controllers/controller-seemore.php?product_id={{ stone.PRODUCT_ID }}" class="btn-view-more"><i class="bi bi-plus"></i></a>
+                            <img src="{{ asset('assets/images/' ~ stone.productPicture) }}" alt="Image de {{ stone.productName }}">
+                            {# <a href="{{ path('product_detail', { 'id': stone.id }) }}" class="btn-view-more"><i class="bi bi-plus"></i></a> #}
                         </div>
                         <div class="card-details">
-                            <h2>{{ stone.PRODUCT_NAME }}</h2>
-                            <p>Prix : {{ stone.PRODUCT_UNIT_PRICE }} €</p>
-                            <p>Quantité en stock : {{ stone.PRODUCT_STOCK }}</p>
-                            <button class="btn-add-to-cart" data-id="{{ stone.PRODUCT_ID }}" data-name="{{ stone.PRODUCT_NAME }}" data-price="{{ stone.PRODUCT_UNIT_PRICE }}" data-picture="{{ stone.PRODUCT_PICTURE }}"><i class="bi bi-cart-fill"></i> Ajouter au panier</button>
+                            <h2>{{ stone.productName }}</h2>
+                            <p>Prix : {{ stone.productPrice }} €</p>
+                            <p>Quantité en stock : {{ stone.productStock }}</p>
+                            <button class="btn-add-to-cart" data-id="{{ stone.id }}" data-name="{{ stone.productName }}" data-price="{{ stone.productPrice }}" data-picture="{{ stone.productPicture }}"><i class="bi bi-cart-fill"></i> Ajouter au panier</button>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-{% endblock %}
-
+    </main>
 
     <footer>
-{% include 'includes/footer.php' %}
+        {% include 'includes/footer.php' %}
     </footer>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/js/script.js') }}"></script>
-
-    
-    
 </body>
 
 </html>

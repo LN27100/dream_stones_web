@@ -1,7 +1,5 @@
 <?php
 
-
-
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,7 +14,7 @@ class ProductController extends AbstractController
      */
     public function productsByColorBlue(ProductRepository $productRepository): Response
     {
-        $blueStones = $productRepository->findBlueStones();
+        $blueStones = $productRepository->findBy(['productColor' => 'bleue']);
 
         return $this->render('products/productBlue.html.twig', [
             'blueStones' => $blueStones,
