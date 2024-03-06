@@ -33,7 +33,7 @@
                         Nos pierres par catégories
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/controllers/controller-roulees.php">Pierres roulées</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_category_rolled_stones') }}">Pierres roulées</a></li>
                         <li><a class="dropdown-item" href="/controllers/controller-brutes.php">Pierres brutes</a></li>
                         <li><a class="dropdown-item" href="/controllers/controller-spheres.php">Sphères</a></li>
                         <li><a class="dropdown-item" href="/controllers/controller-pointes.php">Pointes</a></li>

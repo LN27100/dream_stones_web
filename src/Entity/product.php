@@ -193,4 +193,24 @@ class Product
 
         return $this;
     }
+
+     /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Type")
+     * @ORM\JoinColumn(name="TYPE_ID", referencedColumnName="TYPE_ID")
+     */
+    private $type;
+
+    // Getters and setters
+
+    public function getType(): ?Type
+    {
+        return $this->type;
+    }
+
+    public function setType(?Type $type): self
+    {
+        $this->type = $type;
+
+        return $this;
+    }
 }

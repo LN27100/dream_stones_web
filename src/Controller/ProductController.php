@@ -6,9 +6,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ProductRepository;
+use App\Entity\Type; // Import de l'entité Type
 
 class ProductController extends AbstractController
 {
+
+    // RECUPERATION DES PIERRES PAR COULEURS
+
     /**
      * @Route("/products/blue", name="products_by_color_blue")
      */
@@ -93,5 +97,85 @@ class ProductController extends AbstractController
         ]);
     }
 
+
+    // RECUPERATION DES PIERRES PAR CATEGORIES
+
+    /**
+     * @Route("/products/category/pierres-roulees", name="products_by_category_rolled_stones")
+     */
+    public function productsByRolledStones(ProductRepository $productRepository): Response
+    {
+        // Récupérer les produits par catégorie "pierres roulées"
+        $rolledStones = $productRepository->findByCategory('pierres roulées');
+
+        return $this->render('products/productRolledStones.html.twig', [
+            'rolledStones' => $rolledStones,
+        ]);
+    }
+
+    /**
+     * @Route("/products/category/pierres-brutes", name="products_by_category_raw_stones")
+     */
+    public function productsByRawStones(ProductRepository $productRepository): Response
+    {
+        // Récupérer les produits par catégorie "pierres brutes"
+        $rawStones = $productRepository->findByCategory('pierres brutes');
+
+        return $this->render('products/productRawStones.html.twig', [
+            'rawStones' => $rawStones,
+        ]);
+    }
+
+    /**
+     * @Route("/products/category/bijoux", name="products_by_category_jewelry")
+     */
+    public function productsByJewelry(ProductRepository $productRepository): Response
+    {
+        // Récupérer les produits par catégorie "bijoux"
+        $jewelryStones = $productRepository->findByCategory('bijoux');
+
+        return $this->render('products/productJewelry.html.twig', [
+            'jewelryStones' => $jewelryStones,
+        ]);
+    }
+
+    /**
+     * @Route("/products/category/geodes", name="products_by_category_geodes")
+     */
+    public function productsByGeodes(ProductRepository $productRepository): Response
+    {
+        // Récupérer les produits par catégorie "géodes"
+        $geodesStones = $productRepository->findByCategory('géodes');
+
+        return $this->render('products/productGeodes.html.twig', [
+            'geodesStones' => $geodesStones,
+        ]);
+    }
+
+    /**
+     * @Route("/products/category/spheres", name="products_by_category_spheres")
+     */
+    public function productsBySpheres(ProductRepository $productRepository): Response
+    {
+        // Récupérer les produits par catégorie "sphères"
+        $spheresStones = $productRepository->findByCategory('sphères');
+
+        return $this->render('products/productSpheres.html.twig', [
+            'spheresStones' => $spheresStones,
+        ]);
+    }
+
+    /**
+     * @Route("/products/category/pointes", name="products_by_category_points")
+     */
+    public function productsByPoints(ProductRepository $productRepository): Response
+    {
+        // Récupérer les produits par catégorie "pointes"
+        $pointsStones = $productRepository->findByCategory('pointes');
+
+        return $this->render('products/productPoints.html.twig', [
+            'pointsStones' => $pointsStones,
+        ]);
+    }
 
 }

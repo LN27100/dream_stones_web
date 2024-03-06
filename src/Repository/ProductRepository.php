@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Repository;
 
 use App\Entity\Product;
@@ -14,13 +13,15 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    public function findBlueStones()
+  
+    // Méthode pour récupérer les produits par catégorie
+    public function findByCategory($category)
     {
         return $this->createQueryBuilder('p')
-            ->andWhere('p.productColor = :color')
-            ->setParameter('color', 'blue')
+            ->join('p.type', 't')
+            ->andWhere('t.typeCategory = :category')
+            ->setParameter('category', $category)
             ->getQuery()
             ->getResult();
     }
 }
-

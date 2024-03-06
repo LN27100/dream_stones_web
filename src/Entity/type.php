@@ -13,9 +13,31 @@ class Type
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", name="TYPE_ID")
      */
     private $id;
 
-    // Ajoutez ici d'autres propriétés et méthodes nécessaires
+    /**
+     * @ORM\Column(type="string", length=255, name="TYPE_CATEGORY")
+     */
+    private $typeCategory;
+
+    // Ajoutez ici les méthodes getters et setters
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTypeCategory(): ?string
+    {
+        return $this->typeCategory;
+    }
+
+    public function setTypeCategory(string $typeCategory): self
+    {
+        $this->typeCategory = $typeCategory;
+
+        return $this;
+    }
 }
