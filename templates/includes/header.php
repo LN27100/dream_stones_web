@@ -13,7 +13,7 @@
                         Nos pierres par couleur
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{{ path('products_by_color', {'color': 'blue'}) }}" data-categoryId="1">Bleues</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_blue') }}" data-categoryId="1">Bleues</a></li>
                         <li><a class="dropdown-item" href="/controllers/controller-green.php" data-categoryId="2">Vertes</a></li>
                         <li><a class="dropdown-item" href="/controllers/controller-purple.php" data-categoryId="3">Violettes</a></li>
                         <li><a class="dropdown-item" href="/controllers/controller-white.php" data-categoryId="3">Blanches</a></li>

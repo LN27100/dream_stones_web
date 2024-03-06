@@ -1,5 +1,5 @@
 {
   "build/app.js": "http://localhost:8080/build/app.js",
   "build/runtime.js": "http://localhost:8080/build/runtime.js",
-  "build/vendors-node_modules_vue-loader_dist_exportHelper_js-node_modules_vue_dist_vue_esm-bundler_js-7cac63.js": "http://localhost:8080/build/vendors-node_modules_vue-loader_dist_exportHelper_js-node_modules_vue_dist_vue_esm-bundler_js-7cac63.js"
+  "build/vendors-node_modules_vue_dist_vue_esm-bundler_js-node_modules_webpack-dev-server_client_index-7dad9d.js": "http://localhost:8080/build/vendors-node_modules_vue_dist_vue_esm-bundler_js-node_modules_webpack-dev-server_client_index-7dad9d.js"
 }

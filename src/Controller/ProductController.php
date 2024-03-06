@@ -1,6 +1,7 @@
 <?php
 
 
+
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -11,17 +12,14 @@ use App\Repository\ProductRepository;
 class ProductController extends AbstractController
 {
     /**
-     * @Route("/products/{color}", name="products_by_color")
+     * @Route("/products/blue", name="products_by_color_blue")
      */
-    public function productsByColor($color, ProductRepository $productRepository): Response
+    public function productsByColorBlue(ProductRepository $productRepository): Response
     {
-        // Récupérer les produits par couleur
-        $products = $productRepository->findBy(['productColor' => $color]);
+        $blueStones = $productRepository->findBlueStones();
 
-      
-        // Passer les données à la vue Twig
-        return $this->render('product/products_by_color.html.twig', [
-            'products' => $products,
+        return $this->render('products/productBlue.html.twig', [
+            'blueStones' => $blueStones,
         ]);
     }
 }

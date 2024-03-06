@@ -1,7 +1,7 @@
 // assets/app.js
 
 import { createApp } from 'vue';
-import App from './js/app.vue';
+import App from './assets/js/app.vue';
 
 createApp(App).mount('#vue-app');
 

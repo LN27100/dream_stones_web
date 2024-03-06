@@ -19,7 +19,9 @@ export default {
 </script>
 
 <template>
-  <input type="text" v-model="name">
-  <button @click="refreshHello">Demander un bonjour !</button>
-  <h1 v-show="!!hello">{{ hello }}</h1>
+  <div>
+    <input type="text" v-model="name">
+    <button @click="refreshHello">Demander un bonjour !</button>
+    <h1 v-show="!!hello">{{ hello }}</h1>
+  </div>
 </template>

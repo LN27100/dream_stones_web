@@ -14,7 +14,7 @@
 
 <body>
     <header id="top">
-        {% include 'header.php' %}
+{% include 'includes/header.php' %}
     </header>
 
 
@@ -47,12 +47,13 @@
     </div>
 
 
-    <h1>Nos pierres bleues</h1>
 
+{% block body %}
+    <h1>Nos pierres bleues</h1>
 
     <div class="container">
         <div class="row">
-            {% for stone in products %}
+            {% for stone in blueStones %}
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-image">
@@ -70,11 +71,11 @@
             {% endfor %}
         </div>
     </div>
-
+{% endblock %}
 
 
     <footer>
-        {% include 'footer.php' %}
+{% include 'includes/footer.php' %}
     </footer>
 
 
