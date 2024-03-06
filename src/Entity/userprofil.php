@@ -11,11 +11,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class Userprofil implements UserInterface
 {
-    public function getUserIdentifier(): string
-{
-    return $this->pseudo;
-}
-
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -43,10 +38,11 @@ class Userprofil implements UserInterface
      */
     private $pseudo;
 
-    /**
-     * @ORM\Column(type="string", length=50, name="USERPROFIL_ADITTIONAL_ADRESS")
-     */
-    private $additionalAddress;
+  /**
+ * @ORM\Column(type="string", length=50, name="USERPROFIL_ADITTIONAL_ADRESS")
+ */
+private $additionalAddress;
+
 
     /**
      * @ORM\Column(type="string", length=50, name="USERPROFIL_ZIPCODE")
@@ -73,120 +69,11 @@ class Userprofil implements UserInterface
      */
     private $name;
     
-    // Ajoutez vos getters et setters ici
+    // Implémentation des méthodes de l'interface UserInterface
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getName(): ?string
-    {
-
-        return $this->name;
-    }
-
-    public function setName(string $name): self
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    public function getFirstname(): ?string
-    {
-        return $this->firstname;
-    }
-
-    public function setFirstname(string $firstname): self
-    {
-        $this->firstname = $firstname;
-
-        return $this;
-    }
-
-    public function getPseudo(): ?string
-    {
-        return $this->pseudo;
-    }
-
-    public function setPseudo(string $pseudo): self
-    {
-        $this->pseudo = $pseudo;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    public function getZipcode(): ?string
-    {
-        return $this->zipcode;
-    }
-
-    public function setZipcode(string $zipcode): self
-    {
-        $this->zipcode = $zipcode;
-
-        return $this;
-    }
-
-    public function getStreetName(): ?string
-    {
-        return $this->streetName;
-    }
-
-    public function setStreetName(string $streetName): self
-    {
-        $this->streetName = $streetName;
-
-        return $this;
-    }
-
-    public function getAdditionalAddress(): ?string
-    {
-        return $this->additionalAddress;
-    }
-
-    public function setAdditionalAddress(?string $additionalAddress): self
-    {
-        $this->additionalAddress = $additionalAddress;
-
-        return $this;
-    }
-
-    public function getCity(): ?string
-    {
-        return $this->city;
-    }
-
-    public function setCity(string $city): self
-    {
-        $this->city = $city;
-
-        return $this;
     }
 
     public function getPhone(): ?string
@@ -194,15 +81,104 @@ class Userprofil implements UserInterface
         return $this->phone;
     }
 
-    public function setPhone(string $phone): self
+    public function setPhone(string $phone): void
     {
         $this->phone = $phone;
-
-        return $this;
     }
 
-    // Implémentation des méthodes de UserInterface
-    public function getRoles()
+    public function getStreetName(): ?string
+    {
+        return $this->streetName;
+    }
+
+    public function setStreetName(string $streetName): void
+    {
+        $this->streetName = $streetName;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): void
+    {
+        $this->email = $email;
+    }
+
+    public function getPseudo(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo(string $pseudo): void
+    {
+        $this->pseudo = $pseudo;
+    }
+
+    public function getAdditionalAddress(): ?string
+    {
+        return $this->additionalAddress;
+    }
+
+    public function setAdditionalAddress(string $additionalAddress): void
+    {
+        $this->additionalAddress = $additionalAddress;
+    }
+
+    public function getZipcode(): ?string
+    {
+        return $this->zipcode;
+    }
+
+    public function setZipcode(string $zipcode): void
+    {
+        $this->zipcode = $zipcode;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): void
+    {
+        $this->city = $city;
+    }
+
+    public function getFirstname(): ?string
+    {
+        return $this->firstname;
+    }
+
+    public function setFirstname(string $firstname): void
+    {
+        $this->firstname = $firstname;
+    }
+
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
+    }
+    
+    // Implémentation des méthodes de l'interface UserInterface
+    
+    public function getRoles(): array
     {
         return ['ROLE_USER'];
     }
@@ -217,8 +193,13 @@ class Userprofil implements UserInterface
         // Vous pouvez ignorer cette méthode si vous ne supprimez pas les données sensibles de l'utilisateur
     }
 
-    public function getUsername()
+    public function getUsername(): string
     {
         return $this->pseudo;
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->email;
     }
 }

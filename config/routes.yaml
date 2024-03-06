@@ -2,33 +2,30 @@
 
 # Routes pour la page d'accueil
 
-app_page:
+app:
     path: /app
     controller: App\Controller\DefaultController::app
 
 # Routes pour se connecter et déconnecter
-login:
+app_login:
     path: /login
     controller: App\Controller\LoginController::login
 
-logout:
+app_logout:
     path: /logout
     controller: App\Controller\LoginController::logout
 
-    # routes pour s'enregistrer
+# Routes pour s'enregistrer
 app_register:
     path: /register
     controller: App\Controller\RegistrationController::register
 
-
-# routes pour récupération des pierres de couleur bleue
-
+# Routes pour récupération des pierres de couleur bleue
 app_blue_stones:
     path: /products/blue
     controller: App\Controller\ProductController::blueStones
 
-# routes pour récupération des pierres de couleur verte
-
+# Routes pour récupération des pierres de couleur verte
 app_green_stones:
     path: /products/green
     controller: App\Controller\ProductController::greenStones
