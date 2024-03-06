@@ -14,17 +14,17 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ path('products_by_color_blue') }}" data-categoryId="1">Bleues</a></li>
-                        <li><a class="dropdown-item" href="/controllers/controller-green.php" data-categoryId="2">Vertes</a></li>
-                        <li><a class="dropdown-item" href="/controllers/controller-purple.php" data-categoryId="3">Violettes</a></li>
-                        <li><a class="dropdown-item" href="/controllers/controller-white.php" data-categoryId="3">Blanches</a></li>
-                        <li><a class="dropdown-item" href="/controllers/controller-red.php" data-categoryId="3">Rouges</a></li>
-                        <li><a class="dropdown-item" href="/controllers/controller-brown.php" data-categoryId="3">Marrons</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_green') }}" data-categoryId="1">Vertes</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_purple') }}" data-categoryId="3">Violettes</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_white') }}" data-categoryId="3">Blanches</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_red') }}" data-categoryId="3">Rouges</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_brown') }}" data-categoryId="3">Marrons</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_multicolor') }}" data-categoryId="3">Multicolores</a></li>
                         <li><a class="dropdown-item" data-categoryId="3">Jaunes</a></li>
                         <li><a class="dropdown-item" data-categoryId="3">Grises</a></li>
                         <li><a class="dropdown-item" data-categoryId="3">Noires</a></li>
                         <li><a class="dropdown-item" data-categoryId="3">Oranges</a></li>
                         <li><a class="dropdown-item" data-categoryId="3">Roses</a></li>
-                        <li><a class="dropdown-item" data-categoryId="3">Multicolores</a></li>
                     </ul>
                 </li>
 
