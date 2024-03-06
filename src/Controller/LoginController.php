@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Userprofil;
+use App\Repository\UserprofilRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -10,7 +10,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use Symfony\Component\Security\Core\Exception\BadCredentialsException;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use App\Repository\UserprofilRepository;
 
 class LoginController extends AbstractController
 {
@@ -45,7 +44,7 @@ class LoginController extends AbstractController
             $password = $request->request->get('password');
 
             // Rechercher l'utilisateur dans la base de données
-            $user = $this->userRepository->findOneByEmail($email);
+            $user = $this->userRepository->loadUserByUsername($email);
 
             // Vérifier si l'utilisateur existe et si le mot de passe est correct
             if (!$user || !$this->passwordHasher->isPasswordValid($user, $password)) {

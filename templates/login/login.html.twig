@@ -54,7 +54,8 @@
         <form class="row" method="POST" action="{{ path('app_login') }}" novalidate>
             <div class="form-group col-md-6">
                 <label for="email" class="form-label">Email :</label>
-                <input type="email" class="form-control {% if error %}is-invalid{% endif %}" id="inputEmail" name="email" placeholder="Adresse email" required autofocus>
+                <input type="email" class="form-control {% if error %}is-invalid{% endif %}" id="email" name="email" placeholder="Adresse email" required autofocus autocomplete="email">
+
                 {% if error %}
                 <div class="invalid-feedback">
                     {{ error.messageKey|trans(error.messageData, 'security') }}
@@ -62,8 +63,9 @@
                 {% endif %}
             </div>
             <div class="form-group col-md-6">
-                <label for="inputPassword" class="form-label">Mot de passe :</label>
-                <input type="password" class="form-control {% if error %}is-invalid{% endif %}" id="inputPassword" name="password" placeholder="Mot de passe" required>
+               <label for="inputPassword" class="form-label">Mot de passe :</label>
+                <input type="password" class="form-control {% if error %}is-invalid{% endif %}" id="inputPassword" name="password" placeholder="Mot de passe" required autocomplete="current-password">
+
                 {% if error %}
                 <div class="invalid-feedback">
                     {{ error.messageKey|trans(error.messageData, 'security') }}

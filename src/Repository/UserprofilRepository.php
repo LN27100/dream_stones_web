@@ -16,10 +16,24 @@ class UserprofilRepository extends ServiceEntityRepository
 
     public function findOneByEmail(string $email): ?Userprofil
     {
-        return $this->createQueryBuilder('u')
+        // Débogage : Affichez l'email recherché
+        dump('Searching for user with email: ' . $email);
+
+        // Recherchez l'utilisateur dans la base de données par son email
+        $user = $this->createQueryBuilder('u')
             ->andWhere('u.email = :email')
             ->setParameter('email', $email)
             ->getQuery()
             ->getOneOrNullResult();
+
+        // Débogage : Affichez le résultat de la recherche
+        if ($user) {
+            dump('User found:');
+            dump($user);
+        } else {
+            dump('User not found.');
+        }
+
+        return $user;
     }
 }
