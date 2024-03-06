@@ -46,19 +46,15 @@
                     <a class="nav-link active text-light" aria-current="page" href="{{ path('products_by_category_jewelry') }}">Nos bracelets</a>
                 </li>
 
-                <!-- Onglet profil masqué si l'utilisateur n'est pas connecté -->
-                <?php if (isset($_SESSION['user'])) : ?>
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" aria-current="page" href="/controllers/controller-profil.php">Profil utilisateur</a>
+                
+                    <a class="nav-link active text-light" href="{{ path('app_profil') }}">Profil utilisateur</a>
                     </li>
-                <?php endif; ?>
+             
 
-                <!-- Onglet historique des commandes masqué si l'utilisateur n'est pas connecté -->
-                <?php if (isset($_SESSION['user'])) : ?>
                     <li class="nav-item">
                         <a class="nav-link active text-light" href="/controllers/controller-historycom.php">Historique commandes</a>
                     </li>
-                <?php endif; ?>
+               
 
                 <li class="nav-item">
     <a class="nav-link active text-light" href="{{ path('app_login') }}">Me connecter</a>
