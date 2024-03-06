@@ -29,6 +29,8 @@ security:
             logout:
                 path: app_logout
                 target: app_login
+            custom_authenticator: App\Security\EmailAuthenticator
+            entry_point: App\Security\EmailAuthenticator
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

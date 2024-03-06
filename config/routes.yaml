@@ -9,11 +9,11 @@ app:
 # Routes pour se connecter et déconnecter
 app_login:
     path: /login
-    controller: App\Controller\LoginController::login
+    controller: App\Controller\AuthentificationController::login
 
 app_logout:
     path: /logout
-    controller: App\Controller\LoginController::logout
+    controller: App\Controller\AuthentificationController::logout
 
 # Routes pour s'enregistrer
 app_register:

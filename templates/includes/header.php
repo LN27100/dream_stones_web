@@ -60,11 +60,10 @@
                     </li>
                 <?php endif; ?>
 
-                {% if not app.user %}
                 <li class="nav-item">
-                    <a class="nav-link active text-light" href="{{ path('app_login') }}">Me connecter</a>
-                </li>
-                {% endif %}
+    <a class="nav-link active text-light" href="{{ path('app_login') }}">Me connecter</a>
+</li>
+
 
                 <!-- Panier d'achat -->
                 <li class="nav-item">
