@@ -5,7 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse d-lg-flex " id="navbarsExample11">
-            <a class="navbar-brand col-lg-3 me-0 text-light" href="/controllers/controller-home.php">DREAM STONES</a>
+            <a class="navbar-brand col-lg-3 me-0 text-light" href="{{ path('app') }}">DREAM STONES</a>
             <ul class="navbar-nav col-lg-6 justify-content-lg-center">
 
                 <li class="nav-item dropdown">
@@ -34,16 +34,16 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ path('products_by_category_rolled_stones') }}">Pierres roulées</a></li>
-                        <li><a class="dropdown-item" href="/controllers/controller-brutes.php">Pierres brutes</a></li>
-                        <li><a class="dropdown-item" href="/controllers/controller-spheres.php">Sphères</a></li>
-                        <li><a class="dropdown-item" href="/controllers/controller-pointes.php">Pointes</a></li>
-                        <li><a class="dropdown-item" href="/controllers/controller-bijoux.php">Bijoux</a></li>
-                        <li><a class="dropdown-item" href="/controllers/controller-geodes.php">Géodes</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_category_raw_stones') }}">Pierres brutes</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_category_spheres') }}">Sphères</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_category_points') }}">Pointes</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_category_jewelry') }}">Bijoux</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_category_geodes') }}">Géodes</a></li>
                     </ul>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="/controllers/controller-jewels.php">Nos bracelets</a>
+                    <a class="nav-link active text-light" aria-current="page" href="{{ path('products_by_category_jewelry') }}">Nos bracelets</a>
                 </li>
 
                 <!-- Onglet profil masqué si l'utilisateur n'est pas connecté -->
