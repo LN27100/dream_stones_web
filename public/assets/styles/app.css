@@ -337,6 +337,7 @@ body > div.container > div {
 
 /* PAGE PROFIL */
 
+
 .highlight {
   color: #0B533D; 
   font-weight: bold;
@@ -345,6 +346,7 @@ body > div.container > div {
 
 .containerBtn {
   margin:1rem;
+  margin-bottom: 0;
 }
 
 .card {
@@ -362,9 +364,20 @@ body > div.container > div {
   -webkit-border-radius: 20px;
   border-radius: 20px;
   margin-bottom: 4rem;
-
 }
 
 .card-body {
   margin: auto;
 } 
+
+/* PAGE INSCRIPTION */
+
+.containerReg {
+  margin-top: 4rem;
+}
+
+body > div.containerReg > div > div > form > div > div > label {
+  color: #0B533D;
+  font-weight: bold;
+  text-decoration: underline;
+}
