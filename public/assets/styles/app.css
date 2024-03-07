@@ -396,3 +396,39 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
   color: #0B533D;
   font-size: 1.2rem;
 }
+
+/* PAGE PIERRES PAR COULEUR */
+
+
+/* Cards */
+.cardStones {
+  border-radius: 20px;
+  width: 18rem;
+  margin: 0 auto;
+  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 14%, rgba(91, 189, 158, 1) 60%);
+ 
+  zoom: 1;
+  border-radius: 20px;
+  margin-bottom: 40px; 
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Limite le nombre de cards à 4 par ligne */
+.col-md-4 {
+  flex: 1 0 25%; 
+  max-width: 25%; 
+}
+.card-image {
+  text-align: center; 
+}
+
+.card-image img {
+  border-radius: 10px;
+  margin: 1rem;
+  width: 15rem; 
+  height: 15rem; 
+}
