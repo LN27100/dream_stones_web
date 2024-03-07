@@ -74,10 +74,16 @@ body>div.container4>h3 {
 /* CARROUSEL ACCUEIL */
 
 .carousel-item img {
-  width: 20rem;
   display: block;
-  margin: auto;
+  margin: 0 auto; 
 }
+
+.carousel-img {
+  width: 40%; 
+  height: 19rem; 
+  object-fit: cover; /* conserver le ratio d'aspect sans déformation */
+}
+
 
 h3 {
   font-family: "Macondo", cursive;
