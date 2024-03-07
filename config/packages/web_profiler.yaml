@@ -1,8 +1,10 @@
-# Configuration du profiler Symfony pour l'environnement de développement
+# Fichier: config/packages/dev/web_profiler.yaml
+
 web_profiler:
-    toolbar: false
+    toolbar: true  # Activer la barre d'outils Symfony
     intercept_redirects: false
 
+# Activer la configuration du profiler pour tous les environnements
 framework:
     profiler:
         collect: true
