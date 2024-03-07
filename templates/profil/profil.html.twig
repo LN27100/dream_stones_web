@@ -47,7 +47,9 @@
     </div>
 
 <div class="container mt-3">
-    <a href="{{ path('app_logout') }}" class="btn btn-primary">Logout</a>
+    <form action="{{ path('app_logout') }}" method="post">
+        <button type="submit" class="btn2">Logout</button>
+    </form>
 </div>
 
     <div class="container mt-5">
@@ -62,7 +64,9 @@
                 <p class="card-text">Complément d'adresse: {{ user.getAdditionalAddress() }}</p>
                 <p class="card-text">Code postal: {{ user.getZipcode() }}</p>
                 <p class="card-text">Ville: {{ user.getCity() }}</p>
-                <a href="#" class="btn btn-primary">Modifier</a>
+                <form action="#" method="post">
+                    <button type="submit" class="btn2">Modifier</button>
+                </form>
             </div>
         </div>
     </div>

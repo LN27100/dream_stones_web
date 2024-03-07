@@ -58,8 +58,8 @@
         {{ form_row(form.zipcode) }}
         {{ form_row(form.city) }}
         {{ form_row(form.phone) }}
-        {{ form_row(form.submit) }}
-    {{ form_end(form) }}
+        {{ form_row(form.submit, {'attr': {'class': 'btn2'}}) }}
+        {{ form_end(form) }}
 
     <footer>
         {% include 'includes/footer.php' %}

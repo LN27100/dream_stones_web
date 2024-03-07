@@ -10,7 +10,7 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Nos pierres par couleur
+                        Pierres par couleur
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ path('products_by_color_blue') }}" data-categoryId="1">Bleues</a></li>
@@ -30,7 +30,7 @@
 
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Nos pierres par catégories
+                        Pierres par catégories
                     </a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ path('products_by_category_rolled_stones') }}">Pierres roulées</a></li>
@@ -43,10 +43,10 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link active text-light" aria-current="page" href="{{ path('products_by_category_jewelry') }}">Nos bracelets</a>
+                    <a class="nav-link active text-light" aria-current="page" href="{{ path('products_by_category_jewelry') }}">Bracelets</a>
                 </li>
 
-                
+                <li class="nav-item">
                     <a class="nav-link active text-light" href="{{ path('app_profil') }}">Profil utilisateur</a>
                     </li>
              

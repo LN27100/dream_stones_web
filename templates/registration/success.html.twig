@@ -46,8 +46,9 @@
 
     <h1>Inscription réussie !</h1>
     <p>Votre inscription a été effectuée avec succès.</p>
-    <a href="{{ path('app_login') }}">Se connecter</a>
-
+<div class="container text-center mt-3">
+    <p>Vous n'avez pas de compte? <button class="btn2" onclick="window.location.href='{{ path('app_login') }}'">Se connecter</button></p>
+</div>
 
 <footer>
         {% include 'includes/footer.php' %}
