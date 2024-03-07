@@ -1,15 +1,9 @@
-when@dev:
-    web_profiler:
-        toolbar: true
-        intercept_redirects: false
+# Configuration du profiler Symfony pour l'environnement de développement
+web_profiler:
+    toolbar: false
+    intercept_redirects: false
 
-    framework:
-        profiler: { only_exceptions: false }
-
-when@test:
-    web_profiler:
-        toolbar: false
-        intercept_redirects: false
-
-    framework:
-        profiler: { collect: false }
+framework:
+    profiler:
+        collect: true
+        only_exceptions: false
