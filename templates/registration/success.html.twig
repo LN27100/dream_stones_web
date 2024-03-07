@@ -46,19 +46,27 @@
 			</div>
 		</div>
 
-		<div class="containerProf">
-			{% block content %}
-				<div class="card">
-					<h1>Inscription réussie !</h1>
-					<p>Votre inscription a été effectuée avec succès.</p>
-					<div class="container text-center mt-3">
-						<p>Vous n'avez pas de compte?
-							<button class="btn2" onclick="window.location.href='{{ path('app_login') }}'">Se connecter</button>
-						</p>
-					</div>
-				</div>
-			{% endblock %}
-		</div>
+		<div class="containerSuc">
+    {% block content %}
+        <div class="card">
+            <h1>Inscription réussie !</h1>
+            <p class="text-center">Votre inscription a été effectuée avec succès.</p>
+            <div class="container text-center mt-3">
+                <div class="row">
+                    <div class="col">
+                        <p>Cliquez pour vous connecter</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <button class="btn2" onclick="window.location.href='{{ path('app_login') }}'">Se connecter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+</div>
+    <div style="height: 148px; background-color: transparent;"></div>
 
 		<footer>
 			{% block footer %}

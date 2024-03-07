@@ -337,7 +337,6 @@ body > div.container > div {
 
 /* PAGE PROFIL */
 
-
 .highlight {
   color: #0B533D; 
   font-weight: bold;
@@ -380,4 +379,20 @@ body > div.containerReg > div > div > form > div > div > label {
   color: #0B533D;
   font-weight: bold;
   text-decoration: underline;
+}
+
+/* PAGE SUCCESS INSCRIPTION */
+
+.containerSuc {
+  margin-top: 4rem;
+}
+
+body > div.containerSuc > div > div > div:nth-child(2) > div > button {
+  margin-bottom: 1rem;
+}
+
+body > div.containerSuc > div > p,
+body > div.containerSuc > div > div > div:nth-child(1) > div > p {
+  color: #0B533D;
+  font-size: 1.2rem;
 }
