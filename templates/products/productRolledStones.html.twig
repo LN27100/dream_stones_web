@@ -54,7 +54,7 @@
                     <div class="cardStones">
                         <div class="card-image">
                             <img src="{{ asset('assets/images/' ~ stone.productPicture) }}" alt="Image de {{ stone.productName }}">
-                            {# <a href="{{ path('product_detail', { 'id': stone.id }) }}" class="btn-view-more"><i class="bi bi-plus"></i></a> #}
+                                <a href="{{ path('app_seemore', {'id': stone.id}) }}" class="btn-view-more"><i class="bi bi-plus"></i></a>
                         </div>
                         <div class="card-details">
                             <h3>{{ stone.productName }}</h3>
