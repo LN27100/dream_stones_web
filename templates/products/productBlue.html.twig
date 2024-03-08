@@ -29,9 +29,9 @@
                     {% for stone in blueStones %}
                         <div class="col-md-4">
                             <div class="cardStones">
-                                <div class="card-image">
+                               <div class="card-image position-relative">
                                     <img src="{{ asset('assets/images/' ~ stone.productPicture) }}" alt="Image de {{ stone.productName }}">
-                                <a href="{{ path('app_seemore', {'id': stone.id}) }}" class="btn-view-more"><i class="bi bi-plus"></i></a>
+                                    <a href="{{ path('app_seemore', {'id': stone.id}) }}" class="btn-view-more"><i class="bi bi-plus"></i></a>
                                 </div>
                                 <div class="card-details">
                                     <h2>{{ stone.productName }}</h2>

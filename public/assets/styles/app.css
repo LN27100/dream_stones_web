@@ -121,7 +121,7 @@ body>div.container.card-container>div {
   border: 2px solid #239670;
   height: 99%;
   width: 98%;
-  padding: 6px;
+  padding: 0.4rem;
   margin: 0 auto;
 }
 
@@ -129,7 +129,7 @@ body>div.container.card-container>div {
   border: 6px solid #239670;
   height: 100%;
   width: 100%;
-  padding: 6px;
+  padding: 0.4rem;
   margin: auto;
 }
 
@@ -403,10 +403,9 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
   font-size: 1.2rem;
 }
 
+
 /* PAGE PIERRES PAR CATEGORIES */
 
-
-/* Cards */
 .cardStones {
   border-radius: 20px;
   width: 18rem;
@@ -414,7 +413,7 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
   background: linear-gradient(0deg, rgba(34, 193, 195, 1) 14%, rgba(91, 189, 158, 1) 60%);
   zoom: 1;
   border-radius: 20px;
-  margin-bottom: 40px; 
+  margin-bottom: 2.5rem; 
 }
 
 .row {
@@ -427,6 +426,7 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
   flex: 1 0 25%; 
   max-width: 25%; 
 }
+
 .card-image {
   text-align: center; 
 }
@@ -450,3 +450,39 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
 
 /* PAGE VOIR PLUS */
 
+.card-image {
+  position: relative;
+}
+
+.btn-view-more {
+  position: absolute;
+  bottom: 1.25rem; 
+  right: 2rem; 
+  background-color: #24916A;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  /* transition d'animation*/
+  transition: background-color 0.3s;
+}
+
+.btn-view-more i {
+  font-size: 1.2rem;
+}
+
+.btn-view-more:hover {
+  background-color: #1e7e59;
+}
+
+body > div.card > div.card-image > img {
+  border-radius: 10px;
+  margin: 1rem;
+  width: 20rem; 
+  height: 20rem; 
+}
