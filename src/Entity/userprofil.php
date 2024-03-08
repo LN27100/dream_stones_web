@@ -3,13 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="userprofil")
  */
-class Userprofil implements UserInterface
+class Userprofil implements UserInterface, PasswordAuthenticatedUserInterface
 {
     /**
      * @ORM\Id
@@ -38,11 +39,10 @@ class Userprofil implements UserInterface
      */
     private $pseudo;
 
-  /**
- * @ORM\Column(type="string", length=50, name="USERPROFIL_ADITTIONAL_ADRESS")
- */
-private $additionalAddress;
-
+    /**
+     * @ORM\Column(type="string", length=50, name="USERPROFIL_ADITTIONAL_ADRESS")
+     */
+    private $additionalAddress;
 
     /**
      * @ORM\Column(type="string", length=50, name="USERPROFIL_ZIPCODE")
@@ -68,7 +68,7 @@ private $additionalAddress;
      * @ORM\Column(type="string", length=50, name="USERPROFIL_NAME")
      */
     private $name;
-    
+
     // Implémentation des méthodes de l'interface UserInterface
 
     public function getId(): ?int
@@ -175,9 +175,9 @@ private $additionalAddress;
     {
         $this->name = $name;
     }
-    
+
     // Implémentation des méthodes de l'interface UserInterface
-    
+
     public function getRoles(): array
     {
         return ['ROLE_USER'];
@@ -195,7 +195,7 @@ private $additionalAddress;
 
     public function getUsername(): string
     {
-        return $this->pseudo;
+        return $this->email;
     }
 
     public function getUserIdentifier(): string

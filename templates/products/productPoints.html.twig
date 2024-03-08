@@ -57,11 +57,12 @@
                             {# <a href="{{ path('product_detail', { 'id': stone.id }) }}" class="btn-view-more"><i class="bi bi-plus"></i></a> #}
                         </div>
                         <div class="card-details">
-                            <h2>{{ stone.productName }}</h2>
+                            <h3>{{ stone.productName }}</h3>
                             <p>Prix : {{ stone.productPrice }} €</p>
                             <p>Quantité en stock : {{ stone.productStock }}</p>
-                            <button class="btn-add-to-cart" data-id="{{ stone.id }}" data-name="{{ stone.productName }}" data-price="{{ stone.productPrice }}" data-picture="{{ stone.productPicture }}"><i class="bi bi-cart-fill"></i> Ajouter au panier</button>
-                        </div>
+ <div class="container text-center mt-3">
+                            <button class="btn2 btn-add-to-cart" data-id="{{ stone.id }}" data-name="{{ stone.productName }}" data-price="{{ stone.productPrice }}" data-picture="{{ stone.productPicture }}"><i class="bi bi-cart-fill"></i> Ajouter au panier</button>
+                        </div>                        </div>
                     </div>
                 </div>
                 {% endfor %}

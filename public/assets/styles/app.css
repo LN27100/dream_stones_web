@@ -403,7 +403,7 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
   font-size: 1.2rem;
 }
 
-/* PAGE PIERRES PAR COULEUR */
+/* PAGE PIERRES PAR CATEGORIES */
 
 
 /* Cards */
@@ -436,4 +436,14 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
   margin: 1rem;
   width: 15rem; 
   height: 15rem; 
+}
+
+.card-details > p {
+  color: #0B533D;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.card-details > div > button {
+  margin:1rem
 }
