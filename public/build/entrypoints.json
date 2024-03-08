@@ -3,7 +3,7 @@
     "app": {
       "js": [
         "http://localhost:8080/build/runtime.js",
-        "http://localhost:8080/build/vendors-node_modules_vue_dist_vue_esm-bundler_js-node_modules_webpack-dev-server_client_index-7dad9d.js",
+        "http://localhost:8080/build/vendors-node_modules_vue-loader_dist_exportHelper_js-node_modules_vue_dist_vue_esm-bundler_js-50feab.js",
         "http://localhost:8080/build/app.js"
       ]
     }
