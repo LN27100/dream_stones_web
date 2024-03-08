@@ -94,13 +94,17 @@
                 {{ user.getCity() }}
             </p>
 
-            <!-- Bouton pour afficher le formulaire de modification -->
-            <button class="btn2 btn-primary" id="btnModifier">Modifier</button>
-
-             <!-- Bouton pour supprimer le profil -->
-            <form action="{{ path('app_profile_delete') }}" method="post" id="formDelete">
-                <button type="submit" class="btn2 btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre profil ?');">Supprimer</button>
-            </form>
+           <div class="text-center">
+                <div class="btn-group">
+                    <!-- Bouton "Modifier" pour afficher le formulaire de modification -->
+                    <button class="btn2 btn-primary btn-spacing" id="btnModifier">Modifier</button>
+                    
+                    <!-- Bouton "Supprimer" pour supprimer le profil -->
+                    <form action="{{ path('app_profile_delete') }}" method="post" id="formDelete">
+                        <button type="submit" class="btn2 btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre profil ?');">Supprimer</button>
+                    </form>
+                </div>
+            </div>
 
             <!-- Formulaire de modification (initialement caché) -->
             <form action="{{ path('app_profile_update') }}" method="post" id="formModification" style="display: none;">
@@ -130,8 +134,12 @@
                     <div class="form-group">
                         {{ form_row(form.city, {'attr': {'class': 'form-control'}}) }}
                     </div>
-                    <button type="submit" class="btn2 btn-primary">Enregistrer</button>
-                    {{ form_end(form) }}
+                        <div class="text-center">
+                            <button type="submit" class="btn2 btn-primary">Enregistrer</button>
+                            <button type="button" class="btn2 btn-secondary" onclick="cancelModification()">Annuler</button>
+
+                        </div>                    
+                        {{ form_end(form) }}
                 </div>
             </form>
         </div>
@@ -153,6 +161,14 @@
             document.getElementById('formModification').style.display = 'block';
             this.style.display = 'none';
         });
+
+        function cancelModification() {
+        // Demande confirmation à l'utilisateur avant d'annuler les modifications
+        if (confirm('Voulez-vous annuler les modifications et revenir au profil ?')) {
+            // Rediriger vers le profil
+            window.location.href = "{{ path('app_profil') }}";
+        }
+    }
     </script>
 </body>
 

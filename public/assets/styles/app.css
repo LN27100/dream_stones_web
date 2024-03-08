@@ -381,6 +381,10 @@ body > div.container > div {
   margin: auto;
 } 
 
+.btn-group .btn-spacing {
+  margin-right: 10px; 
+}
+
 /* PAGE INSCRIPTION */
 
 .containerReg {
