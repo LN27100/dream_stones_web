@@ -13,11 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
 class Product
 {
     /**
- * @ORM\Id
- * @ORM\GeneratedValue
- * @ORM\Column(name="PRODUCT_ID", type="integer")
- */
-private $id;
+     * @ORM\Id
+     * @ORM\GeneratedValue
+     * @ORM\Column(name="PRODUCT_ID", type="integer")
+     */
+    private $id;
 
 
     /**
@@ -206,11 +206,13 @@ private $id;
     }
 
     /**
-     * @return Collection|ProductImage[]
+     * @return array
      */
-    public function getImages(): Collection
+    public function getImagePaths(): array
     {
-        return $this->images;
+        return $this->images->map(function (ProductImage $image) {
+            return $image->getImagePath();
+        })->toArray();
     }
 
     public function addImage(ProductImage $image): self
@@ -226,7 +228,6 @@ private $id;
     public function removeImage(ProductImage $image): self
     {
         if ($this->images->removeElement($image)) {
-            // Définissez le propriétaire du côté inverse à null (sauf si la relation est bidirectionnelle)
             if ($image->getProduct() === $this) {
                 $image->setProduct(null);
             }
