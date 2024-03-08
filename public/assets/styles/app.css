@@ -343,6 +343,12 @@ body > div.container > div {
 
 /* PAGE PROFIL */
 
+.containerProf {
+  max-width: 960px; 
+  margin: 0 auto; 
+  padding: 0 15px; 
+}
+
 .highlight {
   color: #0B533D; 
   font-weight: bold;
@@ -486,3 +492,103 @@ body > div.card > div.card-image > img {
   width: 20rem; 
   height: 20rem; 
 }
+
+
+/* RESPONSIVE */
+
+/* Pour les écrans de taille moyenne (tablette en mode portrait) */
+@media (max-width: 992px) {
+  .col-md-4 {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+  .card {
+      width: 80%;
+  }
+
+  .containerProf {
+    max-width: 768px;
+}
+
+  .carousel-img {
+      width: 70%;
+  }
+}
+
+/* Pour les écrans de petite taille (téléphones) */
+@media (max-width: 768px) {
+
+  .card-image img {
+    width: 100%;
+}
+
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+  .card {
+      width: 90%;
+  }
+
+  .carousel-img {
+      width: 100%;
+  }
+
+  .container4 {
+      padding: 1rem;
+  }
+}
+
+/* Pour les écrans de très petite taille (téléphones en mode portrait) */
+@media (max-width: 576px) {
+
+  .card-image img {
+    width: 100%;
+}
+
+  .card {
+      width: 100%;
+      border-radius: 10px;
+
+  }
+
+  .containerProf {
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+.card-body {
+    padding: 15px;
+}
+
+  .carousel-img {
+      width: 100%;
+  }
+
+  .container4 {
+      padding: 0.5rem;
+  }
+
+  .navbar .form-inline {
+      margin-top: 0;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .container {
+      padding-left: 0;
+      padding-right: 0;
+  }
+
+  .card-image img {
+    width: 100%;
+}
+}
+
