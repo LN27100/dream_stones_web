@@ -94,8 +94,13 @@
                 {{ user.getCity() }}
             </p>
 
-            <!-- Bouton "Modifier" pour afficher le formulaire de modification -->
+            <!-- Bouton pour afficher le formulaire de modification -->
             <button class="btn2 btn-primary" id="btnModifier">Modifier</button>
+
+             <!-- Bouton pour supprimer le profil -->
+            <form action="{{ path('app_profile_delete') }}" method="post" id="formDelete">
+                <button type="submit" class="btn2 btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer votre profil ?');">Supprimer</button>
+            </form>
 
             <!-- Formulaire de modification (initialement caché) -->
             <form action="{{ path('app_profile_update') }}" method="post" id="formModification" style="display: none;">
