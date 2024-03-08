@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,63 +13,72 @@ use Doctrine\ORM\Mapping as ORM;
 class Product
 {
     /**
-     * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(name="PRODUCT_ID", type="integer")
-     */
-    private $id;
+ * @ORM\Id
+ * @ORM\GeneratedValue
+ * @ORM\Column(name="PRODUCT_ID", type="integer")
+ */
+private $id;
+
 
     /**
-     * @ORM\Column(name="PRODUCT_NAME", type="string", length=100, nullable=true)
+     * @ORM\Column(name="product_name", type="string", length=100, nullable=true)
      */
     private $productName;
 
     /**
-     * @ORM\Column(name="PRODUCT_COLOR", type="string", length=50, nullable=true)
+     * @ORM\Column(name="product_color", type="string", length=50, nullable=true)
      */
     private $productColor;
 
     /**
-     * @ORM\Column(name="PRODUCT_UNIT_PRICE", type="decimal", precision=9, scale=2)
+     * @ORM\Column(name="product_unit_price", type="decimal", precision=9, scale=2)
      */
     private $productPrice;
 
     /**
-     * @ORM\Column(name="PRODUCT_PICTURE", type="string", length=50, nullable=true)
+     * @ORM\Column(name="product_picture", type="string", length=50, nullable=true)
      */
     private $productPicture;
 
     /**
-     * @ORM\Column(name="PRODUCT_DESC", type="string", length=750)
+     * @ORM\Column(name="product_desc", type="string", length=750)
      */
     private $productDescription;
 
     /**
-     * @ORM\Column(name="PRODUCT_ORIGIN_COUNTRY", type="string", length=50)
+     * @ORM\Column(name="product_origin_country", type="string", length=50)
      */
     private $productOriginCountry;
 
     /**
-     * @ORM\Column(name="PRODUCT_REF", type="string", length=50, unique=true)
+     * @ORM\Column(name="product_ref", type="string", length=50, unique=true)
      */
     private $productReference;
 
     /**
-     * @ORM\Column(name="PRODUCT_STOCK", type="integer")
+     * @ORM\Column(name="product_stock", type="integer")
      */
     private $productStock;
 
     /**
-     * @ORM\Column(name="SPL_ID", type="integer")
+     * @ORM\Column(name="spl_id", type="integer")
      */
     private $supplierId;
 
     /**
-     * @ORM\Column(name="TYPE_ID", type="integer")
+     * @ORM\Column(name="type_id", type="integer")
      */
     private $productType;
 
-    // Getters and setters
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\ProductImage", mappedBy="product", cascade={"persist", "remove"})
+     */
+    private $images;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -194,22 +205,32 @@ class Product
         return $this;
     }
 
-     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Type")
-     * @ORM\JoinColumn(name="TYPE_ID", referencedColumnName="TYPE_ID")
+    /**
+     * @return Collection|ProductImage[]
      */
-    private $type;
-
-    // Getters and setters
-
-    public function getType(): ?Type
+    public function getImages(): Collection
     {
-        return $this->type;
+        return $this->images;
     }
 
-    public function setType(?Type $type): self
+    public function addImage(ProductImage $image): self
     {
-        $this->type = $type;
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setProduct($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(ProductImage $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // Définissez le propriétaire du côté inverse à null (sauf si la relation est bidirectionnelle)
+            if ($image->getProduct() === $this) {
+                $image->setProduct(null);
+            }
+        }
 
         return $this;
     }

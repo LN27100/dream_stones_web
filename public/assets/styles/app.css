@@ -439,7 +439,7 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
 }
 
 .card-details > p {
-  color: #0B533D;
+  color: hsl(162, 77%, 18%);
   margin-left: 1rem;
   font-weight: bold;
 }
@@ -447,3 +447,6 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
 .card-details > div > button {
   margin:1rem
 }
+
+/* PAGE VOIR PLUS */
+
