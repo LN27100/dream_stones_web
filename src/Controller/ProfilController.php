@@ -57,7 +57,7 @@ class ProfilController extends AbstractController
     // Suppression du profil
     
      /**
-     * @Route("/profil/delete", name="app_profile_delete", methods={"DELETE"})
+ * @Route("/profil/delete", name="app_profile_delete", methods={"GET", "POST", "DELETE"})
      */
     public function delete(Request $request): Response
     {
@@ -68,7 +68,7 @@ class ProfilController extends AbstractController
             $entityManager->flush();
             
             // Rediriger vers une page d'accueil après la suppression
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('app');
         } else {
             // Rediriger vers la page de connexion si pas connecté
             return $this->redirectToRoute('app_login');
