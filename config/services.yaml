@@ -20,5 +20,11 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+   # Configuration des traductions
+parameters:
+    translator.default_path: '%kernel.project_dir%/translations'
+    translator.default_locale: 'en'
+    translator.fallbacks: ['en']
+
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

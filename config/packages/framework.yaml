@@ -19,9 +19,5 @@ framework:
 
     messenger:
         reset_on_message: true # Setting this option explicitly to avoid deprecation warning
-
-when@test:
-    framework:
-        test: true
-        session:
-            storage_factory_id: session.storage.factory.mock_file
+    
+    translator: true # Activation des traductions

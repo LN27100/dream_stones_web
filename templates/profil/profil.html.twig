@@ -56,65 +56,83 @@
         {% endblock %}
     </div>
 
-    <div class="containerProf">
-        {% block content %}
-        <div class="card">
-            <h1>Votre Profil</h1>
-            <div class="card-body">
-                <p class="card-text">
-                    <span class="highlight">Email:</span>
-                    {{ user.getEmail() }}
-                </p>
-                <p class="card-text">
-                    <span class="highlight">Nom:</span>
-                    {{ user.getName() }}
-                </p>
-                <p class="card-text">
-                    <span class="highlight">Prénom:</span>
-                    {{ user.getFirstname() }}
-                </p>
-                <p class="card-text">
-                    <span class="highlight">Téléphone:</span>
-                    {{ user.getPhone() }}
-                </p>
-                <p class="card-text">
-                    <span class="highlight">Adresse:</span>
-                    {{ user.getStreetName() }}
-                </p>
-                <p class="card-text">
-                    <span class="highlight">Complément d'adresse:</span>
-                    {{ user.getAdditionalAddress() }}
-                </p>
-                <p class="card-text">
-                    <span class="highlight">Code postal:</span>
-                    {{ user.getZipcode() }}
-                </p>
-                <p class="card-text">
-                    <span class="highlight">Ville:</span>
-                    {{ user.getCity() }}
-                </p>
+   <div class="containerProf">
+    {% block content %}
+    <div class="card">
+        <h1>Votre Profil</h1>
+        <div class="card-body">
+            <p class="card-text">
+                <span class="highlight">Email:</span>
+                {{ user.getEmail() }}
+            </p>
+            <p class="card-text">
+                <span class="highlight">Nom:</span>
+                {{ user.getName() }}
+            </p>
+            <p class="card-text">
+                <span class="highlight">Prénom:</span>
+                {{ user.getFirstname() }}
+            </p>
+            <p class="card-text">
+                <span class="highlight">Téléphone:</span>
+                {{ user.getPhone() }}
+            </p>
+            <p class="card-text">
+                <span class="highlight">Adresse:</span>
+                {{ user.getStreetName() }}
+            </p>
+            <p class="card-text">
+                <span class="highlight">Complément d'adresse:</span>
+                {{ user.getAdditionalAddress() }}
+            </p>
+            <p class="card-text">
+                <span class="highlight">Code postal:</span>
+                {{ user.getZipcode() }}
+            </p>
+            <p class="card-text">
+                <span class="highlight">Ville:</span>
+                {{ user.getCity() }}
+            </p>
 
-                <!-- Bouton "Modifier" pour afficher le formulaire de modification -->
-                <button class="btn btn-primary" id="btnModifier">Modifier</button>
+            <!-- Bouton "Modifier" pour afficher le formulaire de modification -->
+            <button class="btn2 btn-primary" id="btnModifier">Modifier</button>
 
-                <!-- Formulaire de modification (initiallement caché) -->
-                <form action="{{ path('app_profile_update') }}" method="post" id="formModification" style="display: none;">
+            <!-- Formulaire de modification (initialement caché) -->
+            <form action="{{ path('app_profile_update') }}" method="post" id="formModification" style="display: none;">
+                <div class="card-body">
                     {{ form_start(form) }}
-                    {{ form_row(form.email) }}
-                    {{ form_row(form.name) }}
-                    {{ form_row(form.firstname) }}
-                    {{ form_row(form.phone) }}
-                    {{ form_row(form.streetName) }}
-                    {{ form_row(form.additionalAddress) }}
-                    {{ form_row(form.zipcode) }}
-                    {{ form_row(form.city) }}
-                    <button type="submit" class="btn btn-primary">Enregistrer</button>
+                    <div class="form-group">
+                        {{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.phone, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.streetName, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.additionalAddress, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.zipcode, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form.city, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <button type="submit" class="btn2 btn-primary">Enregistrer</button>
                     {{ form_end(form) }}
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-        {% endblock %}
     </div>
+    {% endblock %}
+</div>
 
     <footer>
         {% block footer %}
