@@ -165,18 +165,3 @@ document.querySelector('.btn2').addEventListener('click', function() {
     commander();
 });
 
-// Vider le panier lors du chargement de la page, uniquement si vous êtes sur la page "controller-validateorder.php"
-function clearCartOnPageLoad() {
-    // Vérifie si vous êtes sur la page "controller-validateorder.php"
-    if (window.location.pathname.includes('controller-validateorder.php')) {
-        console.log("Vidage du panier lors du chargement de la page...");
-        // Effacer les données de panier de la session
-        sessionStorage.removeItem('cartData');
-    }
-}
-
-// Ajoute un gestionnaire d'événements pour le chargement de la page
-window.addEventListener('load', function() {
-    // Appeler la fonction pour vider le panier uniquement si vous êtes sur la page "controller-validateorder.php"
-    clearCartOnPageLoad();
-});
