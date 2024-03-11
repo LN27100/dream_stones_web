@@ -3960,6 +3960,7 @@ vue-template-compiler@^2.5, vue-template-compiler@^2.7.16:
 "vue@^2.6 || ^3.2.14", vue@^3.4.21, vue@3.4.21:
   version "3.4.21"
   resolved "https://registry.npmjs.org/vue/-/vue-3.4.21.tgz"
+  integrity sha512-5hjyV/jLEIKD/jYl4cavMcnzKwjMKohureP8ejn3hhEjwhWIhWeuzL2kJAjzl/WyVsgPY56Sy4Z40C3lVshxXA==
   dependencies:
     "@vue/compiler-dom" "3.4.21"
     "@vue/compiler-sfc" "3.4.21"

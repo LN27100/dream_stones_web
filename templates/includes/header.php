@@ -48,25 +48,26 @@
 
                 <li class="nav-item">
                     <a class="nav-link active text-light" href="{{ path('app_profil') }}">Profil utilisateur</a>
-                    </li>
-             
+                </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link active text-light" href="/controllers/controller-historycom.php">Historique commandes</a>
-                    </li>
-               
 
                 <li class="nav-item">
-    <a class="nav-link active text-light" href="{{ path('app_login') }}">Me connecter</a>
-</li>
+                    <a class="nav-link active text-light" href="/controllers/controller-historycom.php">Historique commandes</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link active text-light" href="{{ path('app_login') }}">Me connecter</a>
+                </li>
 
 
                 <!-- Panier d'achat -->
                 <li class="nav-item">
-                    <a class="nav-link text-light" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" t>
+                    <a class="nav-link text-light" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" data-bs-toggle="offcanvas">
                         Panier
                     </a>
                 </li>
+
             </ul>
         </div>
     </div>
