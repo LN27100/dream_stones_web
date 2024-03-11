@@ -54,11 +54,11 @@
         {% endfor %}
     </ul>
 
-    <form action="{{ path('process_order') }}" method="post">
-        <button type="submit" class="btn2">Valider la commande</button>
-    </form>
+    <form action="{{ path('success_order') }}" method="post">
+            <button type="submit" class="btn2">Valider la commande</button>
+        </form>
     </div>
-<footer>
+    <footer>
         {% include 'includes/footer.php' %}
     </footer>
 

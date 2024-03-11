@@ -6,10 +6,12 @@ app:
     path: /app
     controller: App\Controller\DefaultController::app
 
-# Roue pour la page confirmation de commande
+# Route pour la page confirmation de commande
 confirm_order:
     path: /confirm_order
     controller: App\Controller\ConfirmOrderController::confirmOrder
+
+
 
 
 # Route pour la page de profil
