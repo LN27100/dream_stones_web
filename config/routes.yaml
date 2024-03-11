@@ -41,3 +41,4 @@ app_blue_stones:
 app_green_stones:
     path: /products/green
     controller: App\Controller\ProductController::greenStones
+

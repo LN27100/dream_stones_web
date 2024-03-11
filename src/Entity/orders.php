@@ -96,7 +96,6 @@ class Order
     public function setShipping(string $shipping): self
     {
         $this->shipping = $shipping;
-
         return $this;
     }
 
@@ -108,11 +107,74 @@ class Order
     public function setPaymentMode(string $paymentMode): self
     {
         $this->paymentMode = $paymentMode;
-
         return $this;
     }
 
-    // Ajoutez les autres getters et setters ici
+    public function getDeleteArticle(): ?string
+    {
+        return $this->deleteArticle;
+    }
+
+    public function setDeleteArticle(?string $deleteArticle): self
+    {
+        $this->deleteArticle = $deleteArticle;
+        return $this;
+    }
+
+    public function getNewPrice(): ?float
+    {
+        return $this->newPrice;
+    }
+
+    public function setNewPrice(?float $newPrice): self
+    {
+        $this->newPrice = $newPrice;
+        return $this;
+    }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): self
+    {
+        $this->status = $status;
+        return $this;
+    }
+
+    public function getShippingFees(): ?float
+    {
+        return $this->shippingFees;
+    }
+
+    public function setShippingFees(?float $shippingFees): self
+    {
+        $this->shippingFees = $shippingFees;
+        return $this;
+    }
+
+    public function getCancellation(): ?string
+    {
+        return $this->cancellation;
+    }
+
+    public function setCancellation(?string $cancellation): self
+    {
+        $this->cancellation = $cancellation;
+        return $this;
+    }
+
+    public function getTotalPrice(): ?float
+    {
+        return $this->totalPrice;
+    }
+
+    public function setTotalPrice(?float $totalPrice): self
+    {
+        $this->totalPrice = $totalPrice;
+        return $this;
+    }
 
     public function getTotalQuantity(): ?int
     {
@@ -122,7 +184,6 @@ class Order
     public function setTotalQuantity(?int $totalQuantity): self
     {
         $this->totalQuantity = $totalQuantity;
-
         return $this;
     }
 
@@ -134,7 +195,6 @@ class Order
     public function setRef(string $ref): self
     {
         $this->ref = $ref;
-
         return $this;
     }
 
@@ -146,7 +206,6 @@ class Order
     public function setDate(\DateTimeInterface $date): self
     {
         $this->date = $date;
-
         return $this;
     }
 
@@ -158,7 +217,6 @@ class Order
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
-
         return $this;
     }
 
@@ -170,7 +228,6 @@ class Order
     public function setUserProfileId(int $userProfileId): self
     {
         $this->userProfileId = $userProfileId;
-
         return $this;
     }
 }
