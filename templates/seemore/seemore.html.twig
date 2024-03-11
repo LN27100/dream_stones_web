@@ -17,8 +17,34 @@
         {% include 'includes/header.php' %}
     </header>
 
-        <div id="vue-app"></div> {# Contenu du panier Vue.js #}
 
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-light" id="offcanvasExampleLabel">Votre panier</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <!-- PANIER COTE -->
+        <div id="cart">
+            <div class="product border border-light d-flex" data-id="1">
+                <div class="offcanvas-body">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="cartItems"></div>
+                                <p class="text-light">Total : €<span id="cartTotal">0.00</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <form id="orderForm" action="{{ path('confirm_order') }}" method="post">
+                    <input type="hidden" name="action" value="view_order">
+                    <input type="hidden" name="product_ids" id="productIds">
+                    <button type="submit" class="btn2">Commander</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
         <h1>Détails de la pierre</h1>
 

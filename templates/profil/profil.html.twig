@@ -38,11 +38,11 @@
                             </div>
                         </div>
                     </div>
-                    <form id="orderForm" action="/controllers/controller-order.php" method="post">
-                        <input type="hidden" name="action" value="view_order">
-                        <input type="hidden" name="product_ids" id="productIds">
-                        <button type="button" class="btn2" onclick="commander()">Commander</button>
-                    </form>
+                    <form id="orderForm" action="{{ path('confirm_order') }}" method="post">
+                    <input type="hidden" name="action" value="view_order">
+                    <input type="hidden" name="product_ids" id="productIds">
+                    <button type="submit" class="btn2">Commander</button>
+                </form>
                 </div>
             </div>
         </div>

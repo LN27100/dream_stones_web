@@ -69,18 +69,41 @@ function addToCart(id, name, price, picture) {
             price: price,
             total: price,
             picture: picture
-                };
+        };
         cartItems.push(newItem);
     }
 
     cartTotal = cartItems.reduce((acc, item) => acc + item.total, 0); // Recalculer le total du panier
 
+    // Mettre à jour la vue du panier
     updateCartView();
-    saveCartToStorage(); // Sauvegarder le panier dans le stockage local après chaque modification
+    // Sauvegarder le panier dans le stockage local après chaque modification
+    saveCartToStorage(); 
+
+    // Store the cart items in the session
+    const productIds = cartItems.map(item => item.id);
+    fetch('/store_cart_items.php', {
+        method: 'POST',
+        body: JSON.stringify({ cartItems: productIds }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Cart items stored in session.');
+        } else {
+            console.error('Failed to store cart items in session.');
+        }
+    })
+    .catch(error => {
+        console.error('Error storing cart items in session:', error);
+    });
 
     // Afficher une alerte pour indiquer que l'article a été ajouté au panier
     alert('Article ajouté au panier');
 }
+
 
 // Fonction pour supprimer un produit du panier en fonction de la quantité spécifiée
 function removeProduct(id, quantityToRemove) {
@@ -133,27 +156,42 @@ window.addEventListener('load', loadCartFromStorage);
 
 // COMMANDE
 
+// COMMANDE
+
 function commander() {
-    // Récupérer le formulaire par son ID
-    const orderForm = document.getElementById('orderForm');
-    
-    // Vérifier si le formulaire est trouvé
-    if (orderForm) {
-         // Récupérez les IDs et les quantités des produits depuis votre panier
-         const productIds = cartItems.map(item => item.id);
-         
-         // Mettez à jour les valeurs des champs de formulaire cachés avec les IDs et les quantités des produits
-         document.getElementById('productIds').value = productIds.join(',');
-        
-        // Soumettez le formulaire en utilisant la méthode POST
-        // avec l'URL vers controller-order.php
-        orderForm.setAttribute('action', 'controller-order.php');
-        orderForm.setAttribute('method', 'post');
-        orderForm.submit();
+    // Vérifier si l'utilisateur est connecté
+    const userLoggedIn = false; // Mettez ici votre logique de vérification de connexion
+
+    if (userLoggedIn) {
+        // Récupérer le formulaire par son ID
+        const orderForm = document.getElementById('orderForm');
+
+        // Vérifier si le formulaire est trouvé
+        if (orderForm) {
+            // Récupérez les IDs et les quantités des produits depuis votre panier
+            const productIds = cartItems.map(item => item.id);
+
+            // Mettez à jour les valeurs des champs de formulaire cachés avec les IDs et les quantités des produits
+            document.getElementById('productIds').value = productIds.join(',');
+
+            // Soumettez le formulaire en utilisant la méthode POST
+            // avec l'URL générée par Twig
+            orderForm.setAttribute('action', '/confirm_order');
+            orderForm.setAttribute('method', 'post');
+            orderForm.submit();
+        } else {
+            console.error('Le formulaire de commande est introuvable.');
+        }
     } else {
-        console.error('Le formulaire de commande est introuvable.');
+        // Rediriger vers la page de connexion
+        window.location.href = '/security/login';
     }
 }
+
+// Gestionnaire d'événements dans votre script JavaScript
+document.querySelector('.btn2').addEventListener('click', function() {
+    commander();
+});
 
 // Fonction pour vider le panier lors du chargement de la page, uniquement si vous êtes sur la page "controller-validateorder.php"
 function clearCartOnPageLoad() {
@@ -170,10 +208,4 @@ function clearCartOnPageLoad() {
 window.addEventListener('load', function() {
     // Appeler la fonction pour vider le panier uniquement si vous êtes sur la page "controller-validateorder.php"
     clearCartOnPageLoad();
-});
-
-
-// Ajoutez un gestionnaire d'événements dans votre script JavaScript
-document.querySelector('.btn2').addEventListener('click', function() {
-    commander();
 });
