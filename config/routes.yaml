@@ -11,8 +11,10 @@ confirm_order:
     path: /confirm_order
     controller: App\Controller\ConfirmOrderController::confirmOrder
 
-
-
+# Route pour la page historique
+app_history:
+    path: /history
+    controller: App\Controller\HistoryController::index
 
 # Route pour la page de profil
 app_profil:
