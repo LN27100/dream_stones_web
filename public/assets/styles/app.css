@@ -304,6 +304,16 @@ body > footer > div > footer > div.text-center.p-3 {
   width: 80rem;
   margin: 0 auto;
   margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.cgvCenter {
+  text-align: center;
+}
+
+.cgvCenter img {
+  display: block;
+  margin: 0 auto;
 }
 
 .tittleUsage {
