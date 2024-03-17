@@ -579,7 +579,6 @@ body > div.card > div.card-image > img {
 table {
   margin: 0 auto;
   width: 60%;
-  border-collapse: collapse;
   margin-bottom: 2rem;
 }
 
@@ -587,6 +586,8 @@ th,
 td {
   text-align: left;
   padding: 8px;
+  border: solid 1px black;
+
 }
 
 th {
