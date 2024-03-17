@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Macondo&display=swap");
 /*   font-family: "Macondo", cursive; */
 
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 /*   font-family: "Varela Round", sans-serif; */
 
-
-
 /* PAGE HOME */
-
 
 /* NAVBAR */
 
@@ -29,37 +26,36 @@
   padding: 1rem;
 }
 
-#top>nav>form>button {
+#top > nav > form > button {
   margin-right: 0.5rem;
 }
 
 .navbar {
-  background-color: #0B533D;
+  background-color: #0b533d;
 }
 
-#navbarsExample11>ul>li>a {
+#navbarsExample11 > ul > li > a {
   color: white;
   font-family: "Varela Round", sans-serif;
 }
 
-#navbarsExample11>ul>li.nav-item.dropdown>ul {
-  background-color: #0B533D;
+#navbarsExample11 > ul > li.nav-item.dropdown > ul {
+  background-color: #0b533d;
 }
 
-#navbarsExample11>ul>li>ul>li>a:hover {
-  background-color: #24916A;
+#navbarsExample11 > ul > li > ul > li > a:hover {
+  background-color: #24916a;
 }
 
-#navbarsExample11>ul>li.nav-item.dropdown>ul>li>a {
+#navbarsExample11 > ul > li.nav-item.dropdown > ul > li > a {
   color: white;
   font-family: "Varela Round", sans-serif;
 }
 
-#navbarsExample11>a {
+#navbarsExample11 > a {
   font-family: "Macondo", cursive;
   font-size: 2rem;
 }
-
 
 /* CORPS DE LA PAGE HOME */
 
@@ -67,7 +63,7 @@
   display: none;
 }
 
-body>div.container4>h3 {
+body > div.container4 > h3 {
   margin-top: 1rem;
 }
 
@@ -75,15 +71,14 @@ body>div.container4>h3 {
 
 .carousel-item img {
   display: block;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 .carousel-img {
-  width: 40%; 
-  height: 19rem; 
+  width: 40%;
+  height: 19rem;
   object-fit: cover; /* conserver le ratio d'aspect sans déformation */
 }
-
 
 h3 {
   font-family: "Macondo", cursive;
@@ -100,11 +95,15 @@ h3 {
   margin-bottom: 4rem;
 }
 
-body>div.container.card-container>div {
+body > div.container.card-container > div {
   border-radius: 20px;
   width: 60rem;
   margin: 0 auto;
-  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 14%, rgba(91, 189, 158, 1) 60%);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 14%,
+    rgba(91, 189, 158, 1) 60%
+  );
   /* ombrage card */
   -webkit-box-shadow: 10px 15px 5px 3px #6eb59d;
   -moz-box-shadow: 10px 15px 5px 3px #6eb59d;
@@ -135,12 +134,11 @@ body>div.container.card-container>div {
 
 .inner-border {
   position: relative;
-  border: 2px solid #24916A;
+  border: 2px solid #24916a;
   height: 100%;
   width: 100%;
   margin: auto;
 }
-
 
 /* PANIER */
 
@@ -176,11 +174,11 @@ body>div.container.card-container>div {
 }
 
 #offcanvasExample {
-  background-color: #0B533D;
+  background-color: #0b533d;
 }
 
 .btn2 {
-  background-color: #24916A;
+  background-color: #24916a;
   font-family: "Varela Round", sans-serif;
   padding: 0.2rem;
   font-size: 1rem;
@@ -194,7 +192,7 @@ body>div.container.card-container>div {
 }
 
 .btn2:hover {
-  background-color: #57BC9A;
+  background-color: #57bc9a;
 }
 
 .pan {
@@ -209,19 +207,19 @@ body>div.container.card-container>div {
 
 #cart::-webkit-scrollbar {
   width: 0.8rem;
-  background-color: #0B533D;
-  border: 2px solid #24916A;
+  background-color: #0b533d;
+  border: 2px solid #24916a;
 }
 
 #cart::-webkit-scrollbar-thumb {
-  background-color: #0B533D;
+  background-color: #0b533d;
 }
 
 /* SCROLLBAR PERSONNALISEE */
 
 ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(74, 168, 85, 0.3);
-  background-color: #24916A;
+  background-color: #24916a;
 }
 
 ::-webkit-scrollbar {
@@ -230,15 +228,16 @@ body>div.container.card-container>div {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-color: #0B533D;
-  border: 2px solid #24916A;
-  background-image: -webkit-linear-gradient(90deg,
-      transparent,
-      rgba(94, 92, 92, 0.4) 70%,
-      transparent,
-      transparent)
+  background-color: #0b533d;
+  border: 2px solid #24916a;
+  background-image: -webkit-linear-gradient(
+    90deg,
+    transparent,
+    rgba(94, 92, 92, 0.4) 70%,
+    transparent,
+    transparent
+  );
 }
-
 
 /* FOOTER */
 
@@ -249,7 +248,7 @@ body>div.container.card-container>div {
   width: 8rem;
   padding: 0.3rem 0.2rem;
   font-size: 0.8rem;
-  background-color: #0B533D;
+  background-color: #0b533d;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -267,15 +266,14 @@ main {
   flex-grow: 1;
 }
 
-
 footer {
-  background-color: #0B533D;
+  background-color: #0b533d;
   color: white;
   font-family: "Macondo", cursive;
   text-align: center;
 }
 
-body>footer>footer>div.container>section>div>div>h6>a {
+body > footer > footer > div.container > section > div > div > h6 > a {
   text-decoration: none;
 }
 
@@ -289,7 +287,7 @@ body>footer>footer>div.container>section>div>div>h6>a {
   padding-right: 0;
 }
 
-body>footer>div>footer>div.text-center.p-3 {
+body > footer > div > footer > div.text-center.p-3 {
   color: white;
   font-family: "Varela Round", sans-serif;
 }
@@ -298,7 +296,11 @@ body>footer>div>footer>div.text-center.p-3 {
   align-items: center;
   padding: 1rem 15rem 1rem 15rem;
   text-align: justify;
-  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 14%, rgba(91, 189, 158, 1) 60%);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 14%,
+    rgba(91, 189, 158, 1) 60%
+  );
   width: 80rem;
   margin: 0 auto;
   margin-top: 1rem;
@@ -315,7 +317,6 @@ footer {
 p {
   font-family: "Varela Round", sans-serif;
 }
-
 
 /* CSS GENERALES DES PAGES */
 
@@ -344,19 +345,19 @@ body > div.container > div {
 /* PAGE PROFIL */
 
 .containerProf {
-  max-width: 960px; 
-  margin: 0 auto; 
-  padding: 0 15px; 
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 .highlight {
-  color: #0B533D; 
+  color: #0b533d;
   font-weight: bold;
   text-decoration: underline;
 }
 
 .containerBtn {
-  margin:1rem;
+  margin: 1rem;
   margin-bottom: 0;
 }
 
@@ -364,7 +365,11 @@ body > div.container > div {
   width: 50rem;
   border-radius: 20px;
   margin: 0 auto;
-  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 14%, rgba(91, 189, 158, 1) 60%);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 14%,
+    rgba(91, 189, 158, 1) 60%
+  );
   /* ombrage card */
   -webkit-box-shadow: 10px 15px 5px 3px #6eb59d;
   -moz-box-shadow: 10px 15px 5px 3px #6eb59d;
@@ -379,10 +384,10 @@ body > div.container > div {
 
 .card-body {
   margin: auto;
-} 
+}
 
 .btn-group .btn-spacing {
-  margin-right: 10px; 
+  margin-right: 10px;
 }
 
 /* PAGE INSCRIPTION */
@@ -392,7 +397,7 @@ body > div.container > div {
 }
 
 body > div.containerReg > div > div > form > div > div > label {
-  color: #0B533D;
+  color: #0b533d;
   font-weight: bold;
   text-decoration: underline;
 }
@@ -400,7 +405,7 @@ body > div.containerReg > div > div > form > div > div > label {
 /* PAGE SUCCESS INSCRIPTION */
 
 .containerSuc {
-  margin-top: 4rem;
+  margin-top: 8rem;
 }
 
 body > div.containerSuc > div > div > div:nth-child(2) > div > button {
@@ -409,10 +414,9 @@ body > div.containerSuc > div > div > div:nth-child(2) > div > button {
 
 body > div.containerSuc > div > p,
 body > div.containerSuc > div > div > div:nth-child(1) > div > p {
-  color: #0B533D;
+  color: #0b533d;
   font-size: 1.2rem;
 }
-
 
 /* PAGE PIERRES PAR CATEGORIES */
 
@@ -420,10 +424,14 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
   border-radius: 20px;
   width: 18rem;
   margin: 0 auto;
-  background: linear-gradient(0deg, rgba(34, 193, 195, 1) 14%, rgba(91, 189, 158, 1) 60%);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 14%,
+    rgba(91, 189, 158, 1) 60%
+  );
   zoom: 1;
   border-radius: 20px;
-  margin-bottom: 2.5rem; 
+  margin-bottom: 2.5rem;
 }
 
 .row {
@@ -433,19 +441,19 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
 
 /* Limite le nombre de cards à 4 par ligne */
 .col-md-4 {
-  flex: 1 0 25%; 
-  max-width: 25%; 
+  flex: 1 0 25%;
+  max-width: 25%;
 }
 
 .card-image {
-  text-align: center; 
+  text-align: center;
 }
 
 .card-image img {
   border-radius: 10px;
   margin: 1rem;
-  width: 15rem; 
-  height: 15rem; 
+  width: 15rem;
+  height: 15rem;
 }
 
 .card-details > p {
@@ -455,7 +463,7 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
 }
 
 .card-details > div > button {
-  margin:1rem
+  margin: 1rem;
 }
 
 /* PAGE VOIR PLUS */
@@ -466,9 +474,9 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
 
 .btn-view-more {
   position: absolute;
-  bottom: 1.25rem; 
-  right: 2rem; 
-  background-color: #24916A;
+  bottom: 1.25rem;
+  right: 2rem;
+  background-color: #24916a;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -493,10 +501,92 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
 body > div.card > div.card-image > img {
   border-radius: 10px;
   margin: 1rem;
-  width: 20rem; 
-  height: 20rem; 
+  width: 20rem;
+  height: 20rem;
 }
 
+/* PAGE CONFIRMATION COMMANDE */
+
+.canvas {
+  text-align: left;
+  margin-left: 1rem;
+  text-decoration: underline;
+  color: #0b533d;
+  font-weight: bold;
+}
+
+.canvas1 {
+  text-align: left;
+  margin-left: 1rem;
+}
+
+.canvas2 {
+  text-align: left;
+  margin-left: 1.9rem;
+}
+
+.payment {
+  width: 20rem;
+}
+
+.orderVal {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.label {
+  color: #0b533d;
+  margin-left: 1.9rem;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* PAGE VALIDATION COMMANDE */
+
+.cardSuccess {
+  width: 50rem;
+  border-radius: 20px;
+  margin: 0 auto;
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 14%,
+    rgba(91, 189, 158, 1) 60%
+  );
+  /* ombrage card */
+  -webkit-box-shadow: 10px 15px 5px 3px #6eb59d;
+  -moz-box-shadow: 10px 15px 5px 3px #6eb59d;
+  filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=10, OffY=15, Color='#6eb59d', Positive='true');
+  zoom: 1;
+  box-shadow: 10px 15px 5px 3px #6eb59d;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  margin-top: 12.1rem;
+}
+
+/* PAGE HISTORIQUE COMMANDE */
+
+table {
+  margin: 0 auto;
+  width: 60%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  color: white;
+  background-color: #0b533d;
+}
+
+td {
+  background-color: #6eb59d;
+}
 
 /* RESPONSIVE */
 
@@ -505,94 +595,86 @@ body > div.card > div.card-image > img {
   .col-md-4 {
     flex: 0 0 50%;
     max-width: 50%;
-}
-
-  .card {
-      width: 80%;
   }
 
   .containerProf {
     max-width: 768px;
-}
+  }
 
   .carousel-img {
-      width: 70%;
+    width: 70%;
   }
 }
 
 /* Pour les écrans de petite taille (téléphones) */
 @media (max-width: 768px) {
-
   .card-image img {
-    width: 100%;
-}
+    width: 90%;
+  }
 
   .col-md-4 {
     flex: 0 0 100%;
     max-width: 100%;
-}
+  }
 
-.container {
+  .container {
     padding-left: 0;
     padding-right: 0;
-}
+  }
 
   .card {
-      width: 90%;
+    width: 90%;
   }
 
   .carousel-img {
-      width: 100%;
+    width: 100%;
   }
 
   .container4 {
-      padding: 1rem;
+    padding: 1rem;
   }
 }
 
 /* Pour les écrans de très petite taille (téléphones en mode portrait) */
 @media (max-width: 576px) {
-
   .card-image img {
-    width: 100%;
-}
+    width: 90%;
+  }
 
   .card {
-      width: 100%;
-      border-radius: 10px;
-
+    width: 100%;
+    border-radius: 10px;
   }
 
   .containerProf {
     max-width: 100%;
     padding: 0 10px;
-}
+  }
 
-.card-body {
+  .card-body {
     padding: 15px;
-}
+  }
 
   .carousel-img {
-      width: 100%;
+    width: 100%;
   }
 
   .container4 {
-      padding: 0.5rem;
+    padding: 0.5rem;
   }
 
   .navbar .form-inline {
-      margin-top: 0;
+    margin-top: 0;
   }
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
   .container {
-      padding-left: 0;
-      padding-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .card-image img {
-    width: 100%;
+    width: 90%;
+  }
 }
-}
-

@@ -45,9 +45,10 @@
     
     <h1>Confirmation de la commande</h1>
     
-        <div class="card">
+        <div class="card text-center">
 
-   <h2>Récapitulatif du panier :</h2>
+   <h3>Récapitulatif du panier :</h3>
+   
     <ul>
         {% for item in cartItems %}
             <li>{{ item.name }} - Quantité: {{ item.quantity }} - Prix: €{{ item.total|number_format(2, ',', '.') }}</li>
@@ -55,7 +56,31 @@
     </ul>
 
     <form action="{{ path('success_order') }}" method="post">
+        <div>
+<p class="canvas1"><span class="canvas">Désignation:</span> Malachite </p>
+<p class="canvas2">En stock</p>
+<p class="canvas2">Vendu par Dream Stones</p>
+<p class="canvas1"><span class="canvas">Couleur:</span> Verte</p>
+<p class="canvas1"><span class="canvas">Quantité:</span> 2</p>
+<p class="canvas1"><span class="canvas1">Prix unitaire:</span> 12€ </p>
+<p class="canvas1"><span class="canvas">Prix total:</span> 24€ </p>
+
+        </div>
+    <div class="row align-items-center">
+            <div class="col-auto">
+                <label for="paymentMethod" class="label">Mode de paiement :</label>
+            </div>
+            <div class="col-auto">
+                <select class="form-select" id="paymentMethod" name="paymentMethod">
+                    <option value="Paiement">choisissez un mode de paiement</option>
+                    <option value="Carte bancaire">Carte bancaire</option>
+                    <option value="Paypal">Paypal</option>
+                </select>
+            </div>
+        </div>
+        <div class="orderVal">
             <button type="submit" class="btn2">Valider la commande</button>
+            </div>
         </form>
     </div>
     <footer>

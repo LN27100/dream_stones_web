@@ -1,7 +1,6 @@
 # config/routes.yaml
 
 # Routes pour la page d'accueil
-
 app:
     path: /app
     controller: App\Controller\DefaultController::app
@@ -10,6 +9,11 @@ app:
 confirm_order:
     path: /confirm_order
     controller: App\Controller\ConfirmOrderController::confirmOrder
+
+# Route pour la page validation de commande
+success_order:
+    path: /success_order
+    controller: App\Controller\SuccessOrderController::successOrder
 
 # Route pour la page historique
 app_history:
@@ -46,3 +50,27 @@ app_green_stones:
     path: /products/green
     controller: App\Controller\ProductController::greenStones
 
+# Routes pour récupération des pierres de couleur blanche
+app_white_stones:
+    path: /products/white
+    controller: App\Controller\ProductController::whiteStones
+
+# Routes pour récupération des pierres de couleur rouge
+app_red_stones:
+    path: /products/red
+    controller: App\Controller\ProductController::redStones
+
+    # Routes pour récupération des pierres de couleur marron
+app_brown_stones:
+    path: /products/brown
+    controller: App\Controller\ProductController::brownStones
+
+    # Routes pour récupération des pierres de couleur violette
+app_purple_stones:
+    path: /products/purple
+    controller: App\Controller\ProductController::purpleStones
+
+# Routes pour récupération des pierres de couleur multicolore
+app_multicolor_stones:
+    path: /products/multicolor
+    controller: App\Controller\ProductController::multicolorStones
