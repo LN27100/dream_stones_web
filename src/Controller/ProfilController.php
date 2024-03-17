@@ -8,9 +8,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Userprofil;
 use App\Form\UserprofilType;
+use Doctrine\Persistence\ManagerRegistry; // Importez ManagerRegistry
 
 class ProfilController extends AbstractController
 {
+    private $doctrine;
+
+    // Injectez ManagerRegistry via le constructeur
+    public function __construct(ManagerRegistry $doctrine)
+    {
+        $this->doctrine = $doctrine;
+    }
+
     /**
      * @Route("/profil", name="app_profil")
      */
@@ -43,7 +52,7 @@ class ProfilController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager = $this->doctrine->getManager(); // Utilisez ManagerRegistry pour obtenir l'EntityManager
             $entityManager->flush();
 
             return $this->redirectToRoute('app_profil');
@@ -57,13 +66,13 @@ class ProfilController extends AbstractController
     // Suppression du profil
     
      /**
- * @Route("/profil/delete", name="app_profile_delete", methods={"GET", "POST", "DELETE"})
+     * @Route("/profil/delete", name="app_profile_delete", methods={"GET", "POST", "DELETE"})
      */
     public function delete(Request $request): Response
     {
         $user = $this->getUser();
         if ($user instanceof Userprofil) {
-            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager = $this->doctrine->getManager(); // Utilisez ManagerRegistry pour obtenir l'EntityManager
             $entityManager->remove($user);
             $entityManager->flush();
             
