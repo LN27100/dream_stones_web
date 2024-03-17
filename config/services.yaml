@@ -4,6 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
+    translator.default_path: '%kernel.project_dir%/translations'
+    translator.default_locale: 'en'
+    translator.fallbacks: ['en']
 
 services:
     # default configuration for services in *this* file
@@ -20,11 +23,14 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-   # Configuration des traductions
-parameters:
-    translator.default_path: '%kernel.project_dir%/translations'
-    translator.default_locale: 'en'
-    translator.fallbacks: ['en']
+    # Configuration du contrôleur ShipingInfosController
+    App\Controller\ShipingInfosController:
+        arguments:
+            $translator: '@translator'  # Injection du service de traduction
+
+    # Configuration du contrôleur StonesUseController
+    App\Controller\StonesUseController:
+        tags: ['controller.service_arguments']
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
