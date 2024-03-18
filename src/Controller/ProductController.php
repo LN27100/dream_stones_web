@@ -7,9 +7,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Entity\Product; 
-use App\Form\SearchProductType; 
-use Symfony\Component\HttpFoundation\Request;
 
 class ProductController extends AbstractController
 {
@@ -205,27 +202,4 @@ class ProductController extends AbstractController
         // Répondre avec un message de succès
         return new Response('Le stock du produit a été mis à jour avec succès.', Response::HTTP_OK);
     }
-
- /**
-     * @Route("/search", name="product_search", methods={"GET"})
-     */
-    public function search(Request $request, EntityManagerInterface $entityManager): Response
-{
-    $form = $this->createForm(SearchProductType::class);
-    $form->handleRequest($request);
-
-    if ($form->isSubmitted() && $form->isValid()) {
-        $searchTerm = $form->get('searchTerm')->getData();
-        $results = $entityManager->getRepository(Product::class)->findBySearchTerm($searchTerm);
-
-        return $this->render('product/search.html.twig', [
-            'results' => $results,
-        ]);
-    }
-
-    return $this->render('product/search.html.twig', [
-        'form' => $form->createView(),
-    ]);
-}
-
 }

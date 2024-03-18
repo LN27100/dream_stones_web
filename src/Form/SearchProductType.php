@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -13,16 +14,9 @@ class SearchProductType extends AbstractType
     {
         $builder
             ->add('searchTerm', TextType::class, [
-                'label' => false, 
+                'label' => 'Recherche',
                 'required' => false,
-                'attr' => [
-                    'placeholder' => 'Rechercher un produit...', 
-                ],
             ]);
     }
-
-    public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([]);
-    }
 }
+
