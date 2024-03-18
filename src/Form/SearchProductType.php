@@ -13,8 +13,11 @@ class SearchProductType extends AbstractType
     {
         $builder
             ->add('searchTerm', TextType::class, [
-                'label' => 'Recherche',
+                'label' => false, 
                 'required' => false,
+                'attr' => [
+                    'placeholder' => 'Rechercher un produit...', 
+                ],
             ]);
     }
 

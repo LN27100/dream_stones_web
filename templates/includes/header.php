@@ -73,9 +73,11 @@
     </div>
 
     <!-- Formulaire de recherche -->
-    <form id="search-form" class="form-inline col-lg-2" action="{{ path('search_product') }}" method="GET">
-        <button id="search-btn" class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="bi bi-search"></i></button>
-        <input id="search-input" name="search" class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+    <form class="form-inline col-lg-2" action="{{ path('search_product') }}" method="GET">
+        <div class="input-group">
+            <input id="search-input" name="search" class="form-control" type="search" placeholder="Rechercher" aria-label="Search">
+            <button id="search-btn" class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+        </div>
     </form>
 
 

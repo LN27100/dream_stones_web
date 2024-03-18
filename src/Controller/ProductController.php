@@ -11,7 +11,6 @@ use App\Entity\Product;
 use App\Form\SearchProductType; 
 use Symfony\Component\HttpFoundation\Request;
 
-
 class ProductController extends AbstractController
 {
 
@@ -219,7 +218,7 @@ class ProductController extends AbstractController
         $searchTerm = $form->get('searchTerm')->getData();
         $results = $entityManager->getRepository(Product::class)->findBySearchTerm($searchTerm);
 
-        return $this->render('product/search_results.html.twig', [
+        return $this->render('product/search.html.twig', [
             'results' => $results,
         ]);
     }
