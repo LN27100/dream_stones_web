@@ -11,40 +11,49 @@ function loadCartFromStorage() {
         const cartData = JSON.parse(cartDataJSON);
         cartItems = cartData.cartItems;
         cartTotal = cartData.cartTotal;
-        updateCartView();
+        console.log('Données du panier chargées depuis la session :', cartItems, cartTotal);
+        updateCartView(cartItems, cartTotal);
     }
 }
 
 // Mettre à jour la vue du panier
+// Variable pour stocker le contenu du panier
+let cartContent = '';
+
 function updateCartView() {
     const cartItemsElement = document.getElementById('cartItems');
     const cartTotalElement = document.getElementById('cartTotal');
 
-    // Efface le contenu actuel du panier
-    cartItemsElement.innerHTML = '';
+    // Vérifie si le panier a déjà été créé
+    if (cartContent === '') {
+        // Créer le contenu du panier une seule fois
+        cartItems.forEach(item => {
+            const productElement = document.createElement('div');
+            productElement.classList.add('product');
+            productElement.setAttribute('data-id', item.id);
+            productElement.innerHTML = `
+                <img src="/assets/images/${item.picture}" alt="Image de ${item.name}">
+                <p style="color: white;">${item.name} - Quantité: ${item.quantity} - Total: €${item.total.toFixed(2)}</p>
+                <div class="remove-btn-container">
+                    <input class="quantity-input" type="number" value="1" min="1">
+                    <span class="remove-btn text-light" onclick="removeProduct('${item.id}', parseInt(this.parentNode.querySelector('.quantity-input').value))">Supprimer</span>
+                </div>`;
+            cartContent += productElement.outerHTML;
+        });
+    }
 
-    let totalPrice = 0; // Initialise le prix total à zéro
+    // Afficher le contenu du panier
+    cartItemsElement.innerHTML = cartContent;
 
-    cartItems.forEach(item => {
-        const productElement = document.createElement('div');
-        productElement.classList.add('product');
-        productElement.setAttribute('data-id', item.id);
-        productElement.innerHTML = `
-            <img src="/assets/images/${item.picture}" alt="Image de ${item.name}">
-            <p style="color: white;">${item.name} - Quantité: ${item.quantity} - Total: €${item.total.toFixed(2)}</p>
-            <div class="remove-btn-container">
-                <input class="quantity-input" type="number" value="1" min="1">
-                <span class="remove-btn text-light" onclick="removeProduct('${item.id}', parseInt(this.parentNode.querySelector('.quantity-input').value))">Supprimer</span>
-            </div>`;
-    
-        // Ajoute le produit créé au conteneur du panier
-        cartItemsElement.appendChild(productElement);
-    
-        totalPrice += item.total; // Ajoute le prix total de chaque article au prix total global
-    });
+    // Calculer le total du panier
+    let totalPrice = cartItems.reduce((acc, item) => acc + item.total, 0);
 
-    // Met à jour le total du panier
-    cartTotalElement.textContent = totalPrice.toFixed(2);
+    // Mettre à jour le total du panier
+    if (cartTotalElement) {
+        cartTotalElement.textContent = "Total : €" + totalPrice.toFixed(2);
+    } else {
+        console.error('Element with ID "cartTotal" not found.');
+    }
 }
 
 // Sauvegarde le panier dans la session
@@ -53,6 +62,8 @@ function saveCartToSession() {
         cartItems: cartItems,
         cartTotal: cartTotal
     };
+    console.log('Contenu de sessionData :', sessionData); // Ajout du console.log pour vérification
+
     sessionStorage.setItem('cartData', JSON.stringify(sessionData));
 }
 
@@ -164,4 +175,3 @@ function commander() {
 document.querySelector('.btn2').addEventListener('click', function() {
     commander();
 });
-

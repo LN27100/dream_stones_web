@@ -16,6 +16,11 @@
         {% include 'includes/header.php' %}
     </header>
 
+
+
+
+
+
     <div class="container">
         <h1>Confirmation de la commande</h1>
 
@@ -32,11 +37,10 @@
                     {% endfor %}
                 {% endif %}
             </div>
-            <p>Total : €{{ cartTotal|number_format(2, ',', '.') }}</p>
+            <p id="cartTotal">{{ cartTotal|number_format(2, ',', '.') }} </p>
 
-            <form action="{{ path('confirm_order') }}" method="post">
+            <form action="{{ path('success_order') }}" method="post">
                 <input type="hidden" name="action" value="confirm_order">
-                <!-- Ajoutez d'autres champs de formulaire si nécessaire -->
 
                 <div class="row align-items-center">
                     <div class="col-auto">

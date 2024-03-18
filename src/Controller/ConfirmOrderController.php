@@ -40,15 +40,16 @@ class ConfirmOrderController extends AbstractController
         
         // Convertit les données JSON en tableau associatif
         $cartData = json_decode($cartDataJSON, true);
-        
         // Extrait les éléments du panier
         $cartItems = $cartData['cartItems'];
         $cartTotal = $cartData['cartTotal'];
         
+
         return $this->render('orders/confirmOrder.html.twig', [
             'cartItems' => $cartItems,
             'cartTotal' => $cartTotal,
         ]);
+        
     }
 
     // Vérifie si l'utilisateur est connecté
