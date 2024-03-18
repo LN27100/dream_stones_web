@@ -2,80 +2,74 @@
 
 # Routes pour la page d'accueil
 app:
-    path: /app
-    controller: App\Controller\DefaultController::app
+  path: /app
+  controller: App\Controller\DefaultController::app
 
 # Route pour la page confirmation de commande
 confirm_order:
-    path: /confirm_order
-    controller: App\Controller\ConfirmOrderController::confirmOrder
+  path: /confirm_order
+  controller: App\Controller\ConfirmOrderController::confirmOrder
 
 # Route pour la page validation de commande
 success_order:
-    path: /success_order
-    controller: App\Controller\SuccessOrderController::successOrder
+  path: /success_order
+  controller: App\Controller\SuccessOrderController::successOrder
 
 # Route pour la page historique
 app_history:
-    path: /history
-    controller: App\Controller\HistoryController::index
+  path: /history
+  controller: App\Controller\HistoryController::index
 
 # Route pour la page de profil
 app_profil:
-    path: /profil
-    controller: App\Controller\ProfilController::index
-
+  path: /profil
+  controller: App\Controller\ProfilController::index
 
 # Routes pour se connecter et déconnecter
 app_login:
-    path: /login
-    controller: App\Controller\AuthentificationController::login
+  path: /login
+  controller: App\Controller\AuthentificationController::login
 
 app_logout:
-    path: /logout
-    controller: App\Controller\AuthentificationController::logout
+  path: /logout
+  controller: App\Controller\AuthentificationController::logout
 
 # Routes pour s'enregistrer
 app_register:
-    path: /register
-    controller: App\Controller\RegistrationController::register
+  path: /register
+  controller: App\Controller\RegistrationController::register
 
 # Routes pour récupération des pierres de couleur bleue
 app_blue_stones:
-    path: /products/blue
-    controller: App\Controller\ProductController::blueStones
+  path: /products/blue
+  controller: App\Controller\ProductController::blueStones
 
 # Routes pour récupération des pierres de couleur verte
 app_green_stones:
-    path: /products/green
-    controller: App\Controller\ProductController::greenStones
+  path: /products/green
+  controller: App\Controller\ProductController::greenStones
 
 # Routes pour récupération des pierres de couleur blanche
 app_white_stones:
-    path: /products/white
-    controller: App\Controller\ProductController::whiteStones
+  path: /products/white
+  controller: App\Controller\ProductController::whiteStones
 
 # Routes pour récupération des pierres de couleur rouge
 app_red_stones:
-    path: /products/red
-    controller: App\Controller\ProductController::redStones
+  path: /products/red
+  controller: App\Controller\ProductController::redStones
 
-    # Routes pour récupération des pierres de couleur marron
+  # Routes pour récupération des pierres de couleur marron
 app_brown_stones:
-    path: /products/brown
-    controller: App\Controller\ProductController::brownStones
+  path: /products/brown
+  controller: App\Controller\ProductController::brownStones
 
-    # Routes pour récupération des pierres de couleur violette
+  # Routes pour récupération des pierres de couleur violette
 app_purple_stones:
-    path: /products/purple
-    controller: App\Controller\ProductController::purpleStones
+  path: /products/purple
+  controller: App\Controller\ProductController::purpleStones
 
 # Routes pour récupération des pierres de couleur multicolore
 app_multicolor_stones:
-    path: /products/multicolor
-    controller: App\Controller\ProductController::multicolorStones
-
-# Routes pour la gestion des sotcks des produits
-update_stock:
-    path: /update-stock/{productId}/{quantity}
-    controller: App\Controller\ProductController@updateStock
+  path: /products/multicolor
+  controller: App\Controller\ProductController::multicolorStones

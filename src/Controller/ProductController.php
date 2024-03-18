@@ -207,5 +207,4 @@ class ProductController extends AbstractController
         // Répondre avec un message de succès
         return new Response('Le stock du produit a été mis à jour avec succès.', Response::HTTP_OK);
     }
-
 }

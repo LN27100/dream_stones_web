@@ -92,9 +92,8 @@ function addToCart(id, name, price, picture) {
     cartTotal = cartItems.reduce((acc, item) => acc + item.total, 0); // Recalcule le total du panier
 
     updateCartView();
-    saveCartToSession(); // Sauvegarde le panier dans la session après chaque modification
+    saveCartToSession(); 
 
-    // Afficher une alerte pour indiquer que l'article a été ajouté au panier
     alert('Article ajouté au panier');
 }
 
@@ -122,14 +121,14 @@ function removeProduct(id, quantityToRemove) {
             cartItems.splice(index, 1);
         }
 
-        // Restaurer le stock du produit
-        updateProductStock(id, quantityToRemove); // Ajouter la quantité retirée au stock
+        // Assurez-vous que la quantité à soustraire est positive avant de mettre à jour le stock
+        const quantityToSubtract = Math.max(0, quantityToRemove);
+        updateProductStock(id, quantityToSubtract);
 
         updateCartView();
         saveCartToSession();
     }
 }
-
 // Mettre à jour le stock du produit
 function updateProductStock(productId, quantity) {
     // Envoyer une requête AJAX à la route de mise à jour du stock dans Symfony
