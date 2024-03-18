@@ -1,5 +1,4 @@
 <?php
-// src/Controller/ShipingInfosController.php
 
 namespace App\Controller;
 

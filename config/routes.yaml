@@ -73,3 +73,8 @@ app_purple_stones:
 app_multicolor_stones:
   path: /products/multicolor
   controller: App\Controller\ProductController::multicolorStones
+
+# Routes pour la recherches
+search_product:
+    path: /search
+    controller: App\Controller\ProductController::search
