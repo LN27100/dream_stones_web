@@ -97,14 +97,14 @@ function addToCart(id, name, price, picture, quantity) {
 }
 
 // Supprime un produit du panier en fonction de la quantité spécifiée
-function removeProduct(id) {
+function removeProduct(id, quantityToRemove) {
     const index = cartItems.findIndex(item => item.id === id);
     if (index !== -1) {
         const item = cartItems[index];
         const itemPrice = item.price;
 
-        // Vérifie si la quantité de l'article dans le panier est supérieure à 1
-        if (item.quantity > 1) {
+          // Vérifie si la quantité de l'article dans le panier est supérieure à 1
+          if (item.quantity > 1) {
             item.quantity--; // Réduit la quantité de 1
             item.total -= itemPrice; // Réduit le total d'un montant équivalent au prix de l'article
         } else {
@@ -112,15 +112,17 @@ function removeProduct(id) {
             cartItems.splice(index, 1);
         }
 
-        // Met à jour le total du panier
-        cartTotal -= itemPrice;
+          // Met à jour le total du panier
+          cartTotal -= itemPrice;
 
-        // Met à jour la vue du panier et sauvegarde les données dans la session
+        // Assurez-vous que la quantité à soustraire est positive avant de mettre à jour le stock
+        const quantityToSubtract = Math.max(0, quantityToRemove);
+        updateProductStock(id, quantityToSubtract);
+
         updateCartView();
         saveCartToSession();
     }
 }
-
 
 // Mettre à jour le stock du produit
 function updateProductStock(productId, quantity) {
