@@ -86,6 +86,8 @@ function addToCart(id, name, price, picture) {
         cartItems.push(newItem);
     }
 
+    console.log('Valeur de quantity envoyée à updateProductStock():', -1);
+
     // Mettre à jour le stock du produit
     updateProductStock(id, -1); // Soustraire 1 à la quantité en stock
 

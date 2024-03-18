@@ -191,11 +191,6 @@ class ProductController extends AbstractController
             return new Response('Le produit n\'existe pas.', Response::HTTP_NOT_FOUND);
         }
 
-        // Vérifier si la quantité demandée est positive
-        if ($quantity <= 0) {
-            return new Response('La quantité doit être positive.', Response::HTTP_BAD_REQUEST);
-        }
-
         // Mettre à jour le stock du produit
         $newStock = $product->getProductStock() + $quantity;
         $product->setProductStock($newStock);
