@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ProductRepository;
-use App\Entity\Type; // Import de l'entité Type
+use Doctrine\ORM\EntityManagerInterface;
 
 class ProductController extends AbstractController
 {
@@ -176,6 +176,36 @@ class ProductController extends AbstractController
         return $this->render('products/productPoints.html.twig', [
             'pointsStones' => $pointsStones,
         ]);
+    }
+
+  /**
+     * @Route("/update-stock/{productId}/{quantity}", name="update_stock", methods={"POST"})
+     */
+    public function updateStock(int $productId, int $quantity, ProductRepository $productRepository, EntityManagerInterface $entityManager): Response
+    {
+        // Récupérer le produit à partir de son ID
+        $product = $productRepository->find($productId);
+
+        // Vérifier si le produit existe
+        if (!$product) {
+            return new Response('Le produit n\'existe pas.', Response::HTTP_NOT_FOUND);
+        }
+
+        // Vérifier si la quantité demandée est positive
+        if ($quantity <= 0) {
+            return new Response('La quantité doit être positive.', Response::HTTP_BAD_REQUEST);
+        }
+
+        // Mettre à jour le stock du produit
+        $newStock = $product->getProductStock() + $quantity;
+        $product->setProductStock($newStock);
+
+        // Mettre à jour la base de données
+        $entityManager->persist($product);
+        $entityManager->flush();
+
+        // Répondre avec un message de succès
+        return new Response('Le stock du produit a été mis à jour avec succès.', Response::HTTP_OK);
     }
 
 }

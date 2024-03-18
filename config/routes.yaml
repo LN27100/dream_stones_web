@@ -74,3 +74,8 @@ app_purple_stones:
 app_multicolor_stones:
     path: /products/multicolor
     controller: App\Controller\ProductController::multicolorStones
+
+# Routes pour la gestion des sotcks des produits
+update_stock:
+    path: /update-stock/{productId}/{quantity}
+    controller: App\Controller\ProductController@updateStock

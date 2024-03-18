@@ -86,6 +86,9 @@ function addToCart(id, name, price, picture) {
         cartItems.push(newItem);
     }
 
+    // Mettre à jour le stock du produit
+    updateProductStock(id, -1); // Soustraire 1 à la quantité en stock
+
     cartTotal = cartItems.reduce((acc, item) => acc + item.total, 0); // Recalcule le total du panier
 
     updateCartView();
@@ -119,9 +122,33 @@ function removeProduct(id, quantityToRemove) {
             cartItems.splice(index, 1);
         }
 
+        // Restaurer le stock du produit
+        updateProductStock(id, quantityToRemove); // Ajouter la quantité retirée au stock
+
         updateCartView();
         saveCartToSession();
     }
+}
+
+// Mettre à jour le stock du produit
+function updateProductStock(productId, quantity) {
+    // Envoyer une requête AJAX à la route de mise à jour du stock dans Symfony
+    fetch(`/update-stock/${productId}/${quantity}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erreur lors de la mise à jour du stock du produit');
+        }
+        // La mise à jour du stock a réussi
+        console.log(`Le stock du produit avec l'ID ${productId} a été mis à jour avec succès`);
+    })
+    .catch(error => {
+        console.error('Erreur :', error);
+    });
 }
 
 // Sélection des boutons "Ajouter au panier"
@@ -145,7 +172,6 @@ addToCartButtons.forEach(button => {
 window.addEventListener('load', function() {
     loadCartFromStorage(); // Chargez d'abord le panier depuis la session
 });
-
 
 // COMMANDE
 
