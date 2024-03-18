@@ -23,24 +23,24 @@ let cartContent = '';
 function updateCartView() {
     const cartItemsElement = document.getElementById('cartItems');
     const cartTotalElement = document.getElementById('cartTotal');
+    
+    // Réinitialiser cartContent à chaque mise à jour
+    cartContent = '';
 
-    // Vérifie si le panier a déjà été créé
-    if (cartContent === '') {
-        // Créer le contenu du panier une seule fois
-        cartItems.forEach(item => {
-            const productElement = document.createElement('div');
-            productElement.classList.add('product');
-            productElement.setAttribute('data-id', item.id);
-            productElement.innerHTML = `
-                <img src="/assets/images/${item.picture}" alt="Image de ${item.name}">
-                <p style="color: white;">${item.name} - Quantité: ${item.quantity} - Total: €${item.total.toFixed(2)}</p>
-                <div class="remove-btn-container">
-                    <input class="quantity-input" type="number" value="1" min="1">
-                    <span class="remove-btn text-light" onclick="removeProduct('${item.id}', parseInt(this.parentNode.querySelector('.quantity-input').value))">Supprimer</span>
-                </div>`;
-            cartContent += productElement.outerHTML;
-        });
-    }
+    // Créer le contenu du panier
+    cartItems.forEach(item => {
+        const productElement = document.createElement('div');
+        productElement.classList.add('product');
+        productElement.setAttribute('data-id', item.id);
+        productElement.innerHTML = `
+            <img src="/assets/images/${item.picture}" alt="Image de ${item.name}">
+            <p style="color: white;">${item.name} - Quantité: ${item.quantity} - Total: €${item.total.toFixed(2)}</p>
+            <div class="remove-btn-container">
+                <input class="quantity-input" type="number" value="${item.quantity}" min="1">
+                <span class="remove-btn text-light" onclick="removeProduct('${item.id}', '${item.quantity}')">Supprimer</span>
+            </div>`;
+        cartContent += productElement.outerHTML;
+    });
 
     // Afficher le contenu du panier
     cartItemsElement.innerHTML = cartContent;
@@ -55,7 +55,6 @@ function updateCartView() {
         console.error('Element with ID "cartTotal" not found.');
     }
 }
-
 // Sauvegarde le panier dans la session
 function saveCartToSession() {
     const sessionData = {
@@ -68,28 +67,26 @@ function saveCartToSession() {
 }
 
 // Ajoute un produit au panier
-function addToCart(id, name, price, picture) {
+function addToCart(id, name, price, picture, quantity) {
     const existingItem = cartItems.find(item => item.id === id);
 
     if (existingItem) {
-        existingItem.quantity++;
-        existingItem.total += price;
+        existingItem.quantity += quantity;
+        existingItem.total += price * quantity;
     } else {
         const newItem = {
             id: id,
             name: name,
-            quantity: 1,
+            quantity: quantity,
             price: price,
-            total: price,
+            total: price * quantity,
             picture: picture
         };
         cartItems.push(newItem);
     }
 
-    console.log('Valeur de quantity envoyée à updateProductStock():', -1);
-
     // Mettre à jour le stock du produit
-    updateProductStock(id, -1); // Soustraire 1 à la quantité en stock
+    updateProductStock(id, -quantity); // Soustraire la quantité du stock
 
     cartTotal = cartItems.reduce((acc, item) => acc + item.total, 0); // Recalcule le total du panier
 
@@ -100,37 +97,31 @@ function addToCart(id, name, price, picture) {
 }
 
 // Supprime un produit du panier en fonction de la quantité spécifiée
-function removeProduct(id, quantityToRemove) {
+function removeProduct(id) {
     const index = cartItems.findIndex(item => item.id === id);
     if (index !== -1) {
         const item = cartItems[index];
         const itemPrice = item.price;
 
-        // Vérifie si la quantité à supprimer est inférieure ou égale à la quantité actuelle dans le panier
-        if (quantityToRemove <= item.quantity) {
-            item.quantity -= quantityToRemove;
-            item.total -= itemPrice * quantityToRemove;
-            cartTotal -= itemPrice * quantityToRemove;
-
-            // Si la quantité devient 0, retire complètement l'article du panier
-            if (item.quantity === 0) {
-                cartItems.splice(index, 1);
-            }
+        // Vérifie si la quantité de l'article dans le panier est supérieure à 1
+        if (item.quantity > 1) {
+            item.quantity--; // Réduit la quantité de 1
+            item.total -= itemPrice; // Réduit le total d'un montant équivalent au prix de l'article
         } else {
-            // Si la quantité à supprimer est supérieure à la quantité actuelle dans le panier,
-            // supprime complètement l'article du panier
-            cartTotal -= item.total;
+            // Si la quantité est 1 ou moins, supprime complètement l'article du panier
             cartItems.splice(index, 1);
         }
 
-        // Assurez-vous que la quantité à soustraire est positive avant de mettre à jour le stock
-        const quantityToSubtract = Math.max(0, quantityToRemove);
-        updateProductStock(id, quantityToSubtract);
+        // Met à jour le total du panier
+        cartTotal -= itemPrice;
 
+        // Met à jour la vue du panier et sauvegarde les données dans la session
         updateCartView();
         saveCartToSession();
     }
 }
+
+
 // Mettre à jour le stock du produit
 function updateProductStock(productId, quantity) {
     // Envoyer une requête AJAX à la route de mise à jour du stock dans Symfony
@@ -152,6 +143,21 @@ function updateProductStock(productId, quantity) {
     });
 }
 
+// Fonction pour incrémenter la quantité
+function incrementQuantity(button) {
+    const input = button.parentNode.querySelector('.quantity-input');
+    input.value = parseInt(input.value) + 1;
+}
+
+// Fonction pour décrémenter la quantité
+function decrementQuantity(button) {
+    const input = button.parentNode.querySelector('.quantity-input');
+    if (parseInt(input.value) > 1) {
+        input.value = parseInt(input.value) - 1;
+    }
+}
+
+
 // Sélection des boutons "Ajouter au panier"
 const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
 
@@ -164,8 +170,12 @@ addToCartButtons.forEach(button => {
         const productPrice = parseFloat(button.getAttribute('data-price'));
         const productPicture = button.getAttribute('data-picture');
 
+        // Récupérer la quantité depuis l'élément d'entrée de quantité correspondant
+        const quantityInput = button.parentNode.querySelector('.quantity-input');
+        const quantity = parseInt(quantityInput.value);
+
         // Ajoute le produit au panier avec les informations récupérées
-        addToCart(productId, productName, productPrice, productPicture);
+        addToCart(productId, productName, productPrice, productPicture, quantity);
     });
 });
 
