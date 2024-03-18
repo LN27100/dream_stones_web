@@ -28,12 +28,26 @@ class ConfirmOrderController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
         
-        // Récupére les données du panier depuis la session
+        // Récupère les données du panier depuis la session
         $session = $request->getSession();
-        $cartItems = $session->get('cartItems');
+        $cartDataJSON = $session->get('cartData');
+        
+        // Vérifie si des données de panier sont présentes en session
+        if (!$cartDataJSON) {
+            // Redirection vers la page du panier ou autre action nécessaire si le panier est vide
+            // Exemple : return $this->redirectToRoute('cart');
+        }
+        
+        // Convertit les données JSON en tableau associatif
+        $cartData = json_decode($cartDataJSON, true);
+        
+        // Extrait les éléments du panier
+        $cartItems = $cartData['cartItems'];
+        $cartTotal = $cartData['cartTotal'];
         
         return $this->render('orders/confirmOrder.html.twig', [
             'cartItems' => $cartItems,
+            'cartTotal' => $cartTotal,
         ]);
     }
 
