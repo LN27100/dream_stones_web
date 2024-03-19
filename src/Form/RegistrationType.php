@@ -1,8 +1,5 @@
 <?php
 
-// src/Form/RegistrationType.php
-
-
 namespace App\Form;
 
 use App\Entity\Userprofil;

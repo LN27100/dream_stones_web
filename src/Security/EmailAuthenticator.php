@@ -40,7 +40,7 @@ class EmailAuthenticator extends AbstractLoginFormAuthenticator
 
         return new Passport(
             new UserBadge($email, function ($email) {
-                // Load the user from the database based on their email
+                // Charger l'utilisateur depuis la base de données en fonction de son adresse e-mail
                 return $this->entityManager->getRepository(Userprofil::class)
                     ->findOneBy(['email' => $email]);
             }),

@@ -13,7 +13,7 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    // Méthode pour rechercher des produits par nom
+    // Recherche des produits par nom
     public function findByProductName($searchTerm)
     {
         return $this->createQueryBuilder('p')

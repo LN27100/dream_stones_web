@@ -137,7 +137,7 @@
 		<script src="{{ asset('assets/js/script.js') }}"></script>
 
 		<script>
-			// Contrôles des champs d'inscription
+// Contrôles des champs d'inscription
 document.addEventListener('DOMContentLoaded', function () {
 const form = document.getElementById('registration-form');
 
@@ -160,15 +160,17 @@ event.preventDefault();
 }
 });
 
+
+// Contrôles du mot de passe
 const passwordField = document.getElementById('registration_password_first');
 const passwordConditions = document.querySelector('.password-conditions');
 
-// Afficher les conditions de mot de passe lors du clic sur le champ de mot de passe
+// Affiche les conditions de mot de passe lors du clic sur le champ de mot de passe
 passwordField.addEventListener('click', function () {
 passwordConditions.classList.toggle('visible');
 });
 
-// Vérifier les conditions de mot de passe lors de la saisie
+// Vérifie les conditions de mot de passe lors de la saisie
 passwordField.addEventListener('input', function () {
 const password = this.value;
 const hasMinimumLength = password.length >= 8;
@@ -177,7 +179,7 @@ const hasUpperCase = /[A-Z]/.test(password);
 const hasNumber = /\d/.test(password);
 const hasSpecialChar = /[!@#$%^&*()_+]/.test(password);
 
-// Mettre à jour les classes des conditions de mot de passe
+// Met à jour les classes des conditions de mot de passe quand remplies
 const conditions = passwordConditions.querySelectorAll('.condition');
 conditions[0].classList.toggle('condition-passed', hasMinimumLength);
 conditions[1].classList.toggle('condition-passed', hasLowerCase);

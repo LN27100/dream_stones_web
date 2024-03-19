@@ -16,7 +16,8 @@ function loadCartFromStorage() {
     }
 }
 
-// Mettre à jour la vue du panier
+// Mise à jour de la vue du panier
+
 // Variable pour stocker le contenu du panier
 let cartContent = '';
 
@@ -24,10 +25,10 @@ function updateCartView() {
     const cartItemsElement = document.getElementById('cartItems');
     const cartTotalElement = document.getElementById('cartTotal');
     
-    // Réinitialiser cartContent à chaque mise à jour
+    // Réinitialisation de cartContent à chaque mise à jour
     cartContent = '';
 
-    // Créer le contenu du panier
+    // Création du contenu du panier
     cartItems.forEach(item => {
         const productElement = document.createElement('div');
         productElement.classList.add('product');
@@ -42,26 +43,26 @@ function updateCartView() {
         cartContent += productElement.outerHTML;
     });
 
-    // Afficher le contenu du panier
+    // Affichage du contenu du panier
     cartItemsElement.innerHTML = cartContent;
 
-    // Calculer le total du panier
+    // Calcul du total du panier
     let totalPrice = cartItems.reduce((acc, item) => acc + item.total, 0);
 
-    // Mettre à jour le total du panier
+    // Mise à jour du total du panier
     if (cartTotalElement) {
         cartTotalElement.textContent = "Total : €" + totalPrice.toFixed(2);
     } else {
         console.error('Element with ID "cartTotal" not found.');
     }
 }
-// Sauvegarde le panier dans la session
+// Sauvegarde du panier dans la session
 function saveCartToSession() {
     const sessionData = {
         cartItems: cartItems,
         cartTotal: cartTotal
     };
-    console.log('Contenu de sessionData :', sessionData); // Ajout du console.log pour vérification
+    console.log('Contenu de sessionData :', sessionData);
 
     sessionStorage.setItem('cartData', JSON.stringify(sessionData));
 }
@@ -85,7 +86,7 @@ function addToCart(id, name, price, picture, quantity) {
         cartItems.push(newItem);
     }
 
-    // Mettre à jour le stock du produit
+    // Mise à jour du stock du produit
     updateProductStock(id, -quantity); // Soustraire la quantité du stock
 
     cartTotal = cartItems.reduce((acc, item) => acc + item.total, 0); // Recalcule le total du panier
@@ -115,7 +116,7 @@ function removeProduct(id, quantityToRemove) {
           // Met à jour le total du panier
           cartTotal -= itemPrice;
 
-        // Assurez-vous que la quantité à soustraire est positive avant de mettre à jour le stock
+        // Assure que la quantité à soustraire est positive avant de mettre à jour le stock
         const quantityToSubtract = Math.max(0, quantityToRemove);
         updateProductStock(id, quantityToSubtract);
 
@@ -124,9 +125,9 @@ function removeProduct(id, quantityToRemove) {
     }
 }
 
-// Mettre à jour le stock du produit
+// Mise à jour du stock du produit
 function updateProductStock(productId, quantity) {
-    // Envoyer une requête AJAX à la route de mise à jour du stock dans Symfony
+    // Envoie une requête AJAX à la route de mise à jour du stock dans Symfony
     fetch(`/update-stock/${productId}/${quantity}`, {
         method: 'POST',
         headers: {
@@ -137,7 +138,6 @@ function updateProductStock(productId, quantity) {
         if (!response.ok) {
             throw new Error('Erreur lors de la mise à jour du stock du produit');
         }
-        // La mise à jour du stock a réussi
         console.log(`Le stock du produit avec l'ID ${productId} a été mis à jour avec succès`);
     })
     .catch(error => {
@@ -172,7 +172,7 @@ addToCartButtons.forEach(button => {
         const productPrice = parseFloat(button.getAttribute('data-price'));
         const productPicture = button.getAttribute('data-picture');
 
-        // Récupérer la quantité depuis l'élément d'entrée de quantité correspondant
+        // Récupére la quantité depuis l'élément d'entrée de quantité correspondant
         const quantityInput = button.parentNode.querySelector('.quantity-input');
         const quantity = parseInt(quantityInput.value);
 
@@ -183,8 +183,9 @@ addToCartButtons.forEach(button => {
 
 // Charge le panier depuis la session lors du chargement de la page
 window.addEventListener('load', function() {
-    loadCartFromStorage(); // Chargez d'abord le panier depuis la session
+    loadCartFromStorage(); 
 });
+
 
 // COMMANDE
 

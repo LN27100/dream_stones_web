@@ -21,7 +21,7 @@ class ShipingInfosController extends AbstractController
      */
     public function shippingInfos(): Response
     {
-        // Utilisez $this->translator pour accéder au service TranslatorInterface
+        // Service TranslatorInterface
         $translatedMessage = $this->translator->trans('Your translated message.');
 
         return $this->render('conditions/shippingInfos.html.twig', [

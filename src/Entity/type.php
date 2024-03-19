@@ -22,7 +22,7 @@ class Type
      */
     private $typeCategory;
 
-    // Ajoutez ici les méthodes getters et setters
+    // GETTER ET SETTER
 
     public function getId(): ?int
     {

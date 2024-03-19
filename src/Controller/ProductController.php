@@ -107,7 +107,7 @@ class ProductController extends AbstractController
      */
     public function productsByRolledStones(ProductRepository $productRepository): Response
     {
-        // Récupérer les produits par catégorie "pierres roulées"
+        // Récupére les produits par catégorie "pierres roulées"
         $rolledStones = $productRepository->findByCategory('pierres roulées');
 
         return $this->render('products/productRolledStones.html.twig', [
@@ -120,7 +120,6 @@ class ProductController extends AbstractController
      */
     public function productsByRawStones(ProductRepository $productRepository): Response
     {
-        // Récupérer les produits par catégorie "pierres brutes"
         $rawStones = $productRepository->findByCategory('pierres brutes');
 
         return $this->render('products/productRawStones.html.twig', [
@@ -133,7 +132,6 @@ class ProductController extends AbstractController
      */
     public function productsByJewelry(ProductRepository $productRepository): Response
     {
-        // Récupérer les produits par catégorie "bijoux"
         $jewelryStones = $productRepository->findByCategory('bijoux');
 
         return $this->render('products/productJewelry.html.twig', [
@@ -146,7 +144,6 @@ class ProductController extends AbstractController
      */
     public function productsByGeodes(ProductRepository $productRepository): Response
     {
-        // Récupérer les produits par catégorie "géodes"
         $geodesStones = $productRepository->findByCategory('géodes');
 
         return $this->render('products/productGeodes.html.twig', [
@@ -159,7 +156,6 @@ class ProductController extends AbstractController
      */
     public function productsBySpheres(ProductRepository $productRepository): Response
     {
-        // Récupérer les produits par catégorie "sphères"
         $spheresStones = $productRepository->findByCategory('sphères');
 
         return $this->render('products/productSpheres.html.twig', [
@@ -172,7 +168,6 @@ class ProductController extends AbstractController
      */
     public function productsByPoints(ProductRepository $productRepository): Response
     {
-        // Récupérer les produits par catégorie "pointes"
         $pointsStones = $productRepository->findByCategory('pointes');
 
         return $this->render('products/productPoints.html.twig', [
@@ -180,15 +175,18 @@ class ProductController extends AbstractController
         ]);
     }
 
+
+    // RECHERCHE PRODUIT
+
  /**
      * @Route("/search", name="search_product")
      */
     public function searchProduct(Request $request, ProductRepository $productRepository): Response
     {
-        // Récupérer le terme de recherche depuis la requête
+        // Récupére le terme de recherche depuis la requête
         $searchTerm = $request->query->get('search');
 
-        // Récupérer les produits correspondant au terme de recherche
+        // Récupére les produits correspondant au terme de recherche
         $searchResults = $productRepository->findByProductName($searchTerm);
 
         return $this->render('products/search.html.twig', [
@@ -197,28 +195,30 @@ class ProductController extends AbstractController
         ]);
     }
 
+
+    // MISE A JOUR DU STOCK
+
     /**
      * @Route("/update-stock/{productId}/{quantity}", name="update_stock", methods={"POST"})
      */
     public function updateStock(int $productId, int $quantity, ProductRepository $productRepository, EntityManagerInterface $entityManager): Response
     {
-        // Récupérer le produit à partir de son ID
+        // Récupére le produit à partir de son ID
         $product = $productRepository->find($productId);
 
-        // Vérifier si le produit existe
+        // Vérifie si le produit existe
         if (!$product) {
             return new Response('Le produit n\'existe pas.', Response::HTTP_NOT_FOUND);
         }
 
-        // Mettre à jour le stock du produit
+        // Mise à jour le stock du produit
         $newStock = $product->getProductStock() + $quantity;
         $product->setProductStock($newStock);
 
-        // Mettre à jour la base de données
+        // Mise à jour la base de données
         $entityManager->persist($product);
         $entityManager->flush();
 
-        // Répondre avec un message de succès
         return new Response('Le stock du produit a été mis à jour avec succès.', Response::HTTP_OK);
     }
 }

@@ -82,7 +82,9 @@ class Orders
      */
     private $userProfileId;
 
-    // Getters and setters
+
+    // GETTERS ET SETTERS
+    
     public function getId(): ?int
     {
         return $this->id;

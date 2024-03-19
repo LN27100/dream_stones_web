@@ -8,6 +8,7 @@
             <a class="navbar-brand col-lg-3 me-0 text-light" href="{{ path('app') }}">DREAM STONES</a>
             <ul class="navbar-nav col-lg-6 justify-content-lg-center">
 
+                <!-- Catégories par couleur -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Pierres par couleur
@@ -28,6 +29,7 @@
                     </ul>
                 </li>
 
+                <!-- Catégories par type -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Pierres par catégories
@@ -59,7 +61,6 @@
                 <li class="nav-item">
                     <a class="nav-link active text-light" href="{{ path('app_login') }}">Me connecter</a>
                 </li>
-
 
                 <!-- Panier d'achat -->
                 <li class="nav-item">

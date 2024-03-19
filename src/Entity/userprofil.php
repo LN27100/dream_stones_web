@@ -69,7 +69,8 @@ class Userprofil implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $name;
 
-    // Implémentation des méthodes de l'interface UserInterface
+    
+    // GETTERS ET SETTERS
 
     public function getId(): ?int
     {
@@ -176,7 +177,6 @@ class Userprofil implements UserInterface, PasswordAuthenticatedUserInterface
         $this->name = $name;
     }
 
-    // Implémentation des méthodes de l'interface UserInterface
 
     public function getRoles(): array
     {
@@ -185,12 +185,12 @@ class Userprofil implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getSalt()
     {
-        // Vous pouvez ignorer cette méthode si vous utilisez un encodeur de mot de passe moderne qui gère le sel lui-même
+        // ignoré car  encodeur de mot de passe qui gère le sel lui-même
     }
 
     public function eraseCredentials()
     {
-        // Vous pouvez ignorer cette méthode si vous ne supprimez pas les données sensibles de l'utilisateur
+        // ignoré pour le moment car je ne supprime pas les données sensibles de l'utilisateur
     }
 
     public function getUsername(): string

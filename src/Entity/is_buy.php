@@ -17,5 +17,4 @@ class IsBuy
      */
     private $id;
 
-    // Ajoutez ici d'autres propriétés et méthodes nécessaires
 }

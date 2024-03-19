@@ -13,7 +13,7 @@ class SeemoreController extends AbstractController
 {
     private $doctrine;
 
-    // Injectez ManagerRegistry via le constructeur
+    // Injecte ManagerRegistry via le constructeur
     public function __construct(ManagerRegistry $doctrine)
     {
         $this->doctrine = $doctrine;
@@ -24,7 +24,7 @@ class SeemoreController extends AbstractController
      */
     public function index(Request $request, $id): Response
     {
-        // Récupérer le produit depuis la base de données en utilisant l'ID
+        // Récupére le produit depuis la base de données en utilisant l'ID
         $product = $this->doctrine->getRepository(Product::class)->find($id);
 
         if (!$product) {

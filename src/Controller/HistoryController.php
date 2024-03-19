@@ -7,13 +7,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Orders;
-use Doctrine\Persistence\ManagerRegistry; // Importez ManagerRegistry
+use Doctrine\Persistence\ManagerRegistry;
 
 class HistoryController extends AbstractController
 {
     private $doctrine;
 
-    // Injectez ManagerRegistry via le constructeur
+    // Injecte ManagerRegistry via le constructeur
     public function __construct(ManagerRegistry $doctrine)
     {
         $this->doctrine = $doctrine;
@@ -24,7 +24,7 @@ class HistoryController extends AbstractController
      */
     public function index(): Response
     {
-        // Récupérer toutes les commandes depuis la base de données
+        // Récupére toutes les commandes depuis la base de données
         $orders = $this->doctrine->getRepository(Orders::class)->findAll();
 
         return $this->render('orders/historyOrder.html.twig', [

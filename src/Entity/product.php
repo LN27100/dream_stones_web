@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="product")
@@ -53,7 +56,14 @@ class Product
      * @ORM\Column(name="TYPE_ID", type="integer")
      */
     private $productType;
-    // Getters and setters
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Type")
+     * @ORM\JoinColumn(name="TYPE_ID", referencedColumnName="TYPE_ID")
+     */
+    private $type;
+
+    // GETTERS ET SETTERS
+
     public function getId(): ?int
     {
         return $this->id;
@@ -149,14 +159,6 @@ class Product
 
         return $this;
     }
-
-     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Type")
-     * @ORM\JoinColumn(name="TYPE_ID", referencedColumnName="TYPE_ID")
-     */
-    private $type;
-
-    // Getters and setters
 
     public function getType(): ?Type
     {

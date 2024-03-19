@@ -15,7 +15,7 @@ class ProfilController extends AbstractController
 {
     private $doctrine;
 
-    // Injectez ManagerRegistry via le constructeur
+    // Injecte ManagerRegistry via le constructeur
     public function __construct(ManagerRegistry $doctrine)
     {
         $this->doctrine = $doctrine;
@@ -26,7 +26,7 @@ class ProfilController extends AbstractController
      */
     public function index(): Response
     {
-        // Récupérer l'utilisateur connecté depuis la session
+        // Récupére l'utilisateur connecté depuis la session
         $user = $this->getUser();
         // Vérifie si l'utilisateur est connecté
         if ($user instanceof Userprofil) {
@@ -36,12 +36,12 @@ class ProfilController extends AbstractController
                 'form' => $form->createView(), // Passer le formulaire à la vue
             ]);
         } else {
-            // Rediriger vers la page de connexion si pas connecté
+            // Redirige vers la page de connexion si pas connecté
             return $this->redirectToRoute('app_login');
         }
     }
 
-    // Modification du profil
+    // MODIFICATION DU PROFIL
 
     /**
      * @Route("/profil/update", name="app_profile_update")
@@ -53,7 +53,7 @@ class ProfilController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->doctrine->getManager(); // Utilisez ManagerRegistry pour obtenir l'EntityManager
+            $entityManager = $this->doctrine->getManager();
             $entityManager->flush();
 
             return $this->redirectToRoute('app_profil');
@@ -64,7 +64,8 @@ class ProfilController extends AbstractController
         ]);
     }
 
-    // Suppression du profil
+
+    // SUPPRESSION DU PROFIL
     
      /**
      * @Route("/profil/delete", name="app_profile_delete", methods={"GET", "POST", "DELETE"})
@@ -73,14 +74,14 @@ class ProfilController extends AbstractController
     {
         $user = $this->getUser();
         if ($user instanceof Userprofil) {
-            $entityManager = $this->doctrine->getManager(); // Utilisez ManagerRegistry pour obtenir l'EntityManager
+            $entityManager = $this->doctrine->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
             
-            // Rediriger vers une page d'accueil après la suppression
+            // Redirige vers une page d'accueil après la suppression
             return $this->redirectToRoute('app');
         } else {
-            // Rediriger vers la page de connexion si pas connecté
+            // Redirige vers la page de connexion si pas connecté
             return $this->redirectToRoute('app_login');
         }
     }
