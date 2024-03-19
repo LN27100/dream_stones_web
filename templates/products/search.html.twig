@@ -17,24 +17,55 @@
     </header>
 
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-        <!-- Contenu du panier -->
-    </div>
-
-    <div class="container">
-        <h1>Résultats de la recherche pour "{{ searchTerm }}"</h1>
-        <div class="row">
-            {% if searchResults is not empty %}
-                {% for product in searchResults %}
-                    <div class="col-md-4">
-                        <div class="card mb-4">
-                            <img src="{{ product.productPicture }}" class="card-img-top" alt="{{ product.productName }}">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ product.productName }}</h5>
-                                <p class="card-text">{{ product.productDescription }}</p>
-                                <a href="{{ path('product_details', {'id': product.id}) }}" class="btn btn-primary">Voir les détails</a>
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title text-light" id="offcanvasExampleLabel">Votre panier</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <!-- PANIER COTE -->
+        <div id="cart">
+            <div class="product border border-light d-flex" data-id="1">
+                <div class="offcanvas-body">
+                    <div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div id="cartItems"></div>
+                                <p class="text-light">Total : €<span id="cartTotal">0.00</span></p>
                             </div>
                         </div>
                     </div>
+                    <form id="orderForm" action="{{ path('confirm_order') }}" method="post">
+                        <input type="hidden" name="action" value="view_order">
+                        <input type="hidden" name="product_ids" id="productIds">
+                        <button type="submit" class="btn2">Commander</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <h1>Résultats de la recherche pour "{{ searchTerm }}"</h1>
+
+
+     <div class="card">
+            {% if searchResults is not empty %}
+                {% for product in searchResults %}
+                        <div class="card-image">
+                            <img src="{{ asset('assets/images/' ~ product.productPicture) }}" class="card-img-top" alt="{{ product.productName }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.productName }}</h5>
+                                <p class="card-text">{{ product.productDescription }}</p>
+                                <p class="card-text">Référence: {{ product.productReference }}</p>
+                                <p class="card-text">Pays d'origine: {{ product.productOriginCountry }}</p>
+                                <p class="card-text">Couleur: {{ product.productColor }}</p>
+                                <p class="card-text">Stock: {{ product.productStock }}</p>
+                                <p class="card-text">Prix: {{ product.productPrice }} €</p>
+                                <div class="quantity-controls mt-2">
+                                    <button class="btn btn-sm btn-minus" onclick="decrementQuantity(this)">-</button>
+                                    <input type="number" class="quantity-input" value="1" min="1">
+                                    <button class="btn btn-sm btn-plus" onclick="incrementQuantity(this)">+</button>
+                                </div>
+                                <button class="btn2 btn-add-to-cart" data-id="{{ product.id }}" data-name="{{ product.productName }}" data-price="{{ product.productPrice }}" data-picture="{{ product.productPicture }}"><i class="bi bi-cart-fill"></i> Ajouter au panier</button>
+                            </div>
                 {% endfor %}
             {% else %}
                 <p>Aucun résultat trouvé pour "{{ searchTerm }}".</p>
