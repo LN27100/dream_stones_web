@@ -4,7 +4,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 /*   font-family: "Varela Round", sans-serif; */
 
-
 /* CSS GENERALES DES PAGES */
 
 h1 {
@@ -23,7 +22,6 @@ h2 {
 p {
   font-family: "Varela Round", sans-serif;
 }
-
 
 /* PAGE HOME */
 
@@ -111,7 +109,7 @@ body > div.container.card-container > div > div > div > div > h6 {
 }
 
 h5 {
-  font-family: "Macondo", cursive; 
+  font-family: "Macondo", cursive;
 }
 .carousel-text {
   font-family: "Varela Round", sans-serif;
@@ -166,7 +164,6 @@ body > div.container.card-container > div {
   width: 100%;
   margin: auto;
 }
-
 
 /* PANIER */
 
@@ -243,7 +240,6 @@ body > div.container.card-container > div {
   background-color: #0b533d;
 }
 
-
 /* SCROLLBAR PERSONNALISEE */
 
 ::-webkit-scrollbar-track {
@@ -267,7 +263,6 @@ body > div.container.card-container > div {
     transparent
   );
 }
-
 
 /* FOOTER */
 
@@ -358,7 +353,6 @@ p {
   font-family: "Varela Round", sans-serif;
 }
 
-
 /* PAGE CONNEXION */
 
 .container form {
@@ -371,6 +365,17 @@ body > div.container > div {
   margin-top: 4rem;
 }
 
+#inputEmail {
+  margin-top: 1rem;
+}
+
+#inputPassword {
+  margin-top: 1rem;
+}
+
+body > div.container > div > form > div.text-center > button {
+  margin-top: 1rem;
+}
 
 /* PAGE PROFIL */
 
@@ -420,13 +425,12 @@ body > div.container > div {
   margin-right: 10px;
 }
 
-
 /* PAGE INSCRIPTION */
 
 .required-label {
   color: red;
   position: absolute;
-right: 1rem;
+  right: 1rem;
 }
 
 .password-conditions {
@@ -442,7 +446,8 @@ right: 1rem;
 }
 
 .condition-passed {
-  color: green;
+  color: #378713;
+  font-weight: bold;
 }
 
 .condition-not-passed {
@@ -472,7 +477,6 @@ body > div.containerReg > div > div > form > div > div > label {
   width: 30rem;
 }
 
-
 /* PAGE SUCCESS INSCRIPTION */
 
 .containerSuc {
@@ -488,7 +492,6 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
   color: #0b533d;
   font-size: 1.2rem;
 }
-
 
 /* PAGE PIERRES PAR CATEGORIES */
 
@@ -538,7 +541,6 @@ body > div.containerSuc > div > div > div:nth-child(1) > div > p {
   margin: 1rem;
 }
 
-
 /* PAGE VOIR PLUS */
 
 .card-image {
@@ -578,7 +580,6 @@ body > div.card > div.card-image > img {
   height: 20rem;
 }
 
-
 /* PAGE CONFIRMATION COMMANDE */
 
 .canvas {
@@ -615,7 +616,6 @@ body > div.card > div.card-image > img {
   text-decoration: underline;
 }
 
-
 /* PAGE VALIDATION COMMANDE */
 
 .cardSuccess {
@@ -638,7 +638,6 @@ body > div.card > div.card-image > img {
   border-radius: 20px;
   margin-top: 12.1rem;
 }
-
 
 /* PAGE HISTORIQUE COMMANDE */
 
@@ -663,8 +662,6 @@ td {
   background-color: #6eb59d;
 }
 
-
-
 /* RESPONSIVE */
 
 /* Pour les écrans de taille moyenne */
@@ -688,7 +685,7 @@ td {
   }
 
   .container.card-container {
-    width: 80%; 
+    width: 80%;
   }
 
   th,
@@ -699,7 +696,6 @@ td {
 
 /* Pour les écrans de petite taille */
 @media (max-width: 768px) {
-
   #registration_name,
   #registration_firstname,
   #registration_pseudo,
@@ -733,7 +729,7 @@ td {
 
   .carousel-img {
     width: 90%;
-    height: auto; 
+    height: auto;
   }
 
   .carousel-text {
@@ -741,7 +737,7 @@ td {
   }
 
   .container.card-container {
-    width: 90%; 
+    width: 90%;
   }
   .container4 {
     padding: 1rem;
@@ -756,8 +752,6 @@ td {
 
 /* Pour les écrans de très petite taille */
 @media (max-width: 576px) {
-
-  
   .product img {
     width: 3rem;
   }
@@ -845,7 +839,6 @@ td {
 
 /* Pour les écrans mini comme l'iPhone 5  */
 @media (max-width: 320px) {
-
   .product img {
     width: 2.5rem;
   }
@@ -875,4 +868,3 @@ td {
     padding: 2px 6px;
   }
 }
-

@@ -118,7 +118,7 @@
 								<span class="required-label">*</span>
 								<p id="phone-error" class="text-danger"></p>
 							</div>
-							<div class="mb-3 input-group">
+							<div class="mb-3 input-group d-flex justify-content-center">
 								{{ form_row(form.submit, {'attr': {'class': 'btn2'}}) }}
 							</div>
 							{{ form_end(form) }}
@@ -136,59 +136,93 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 		<script src="{{ asset('assets/js/script.js') }}"></script>
 
-		<script>
-// Contrôles des champs d'inscription
-document.addEventListener('DOMContentLoaded', function () {
-const form = document.getElementById('registration-form');
+<script>
+    // Contrôles des champs d'inscription
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('registration-form');
 
-form.addEventListener('submit', function (event) {
-const requiredInputs = form.querySelectorAll('input[required]');
-let hasError = false;
+        form.addEventListener('submit', function (event) {
+            const requiredInputs = form.querySelectorAll('input[required]');
+            let hasError = false;
 
-requiredInputs.forEach(function (input) {
-if (! input.value.trim()) {
-const errorElement = document.getElementById(`${
-input.id
-}-error`);
-errorElement.textContent = "Champ obligatoire";
-hasError = true;
-}
-});
+            requiredInputs.forEach(function (input) {
+                if (!input.value.trim()) {
+                    const errorElement = document.getElementById(`${input.id}-error`);
+                    errorElement.textContent = "Champ obligatoire";
+                    hasError = true;
+                }
+            });
 
-if (hasError) {
-event.preventDefault();
-}
-});
+            if (hasError) {
+                event.preventDefault();
+            }
+        });
 
+        // Contrôles du mot de passe
+        const passwordField = document.getElementById('registration_password_first');
+        const passwordConditions = document.querySelector('.password-conditions');
 
-// Contrôles du mot de passe
-const passwordField = document.getElementById('registration_password_first');
-const passwordConditions = document.querySelector('.password-conditions');
+        // Affiche les conditions de mot de passe lors du clic sur le champ de mot de passe
+        passwordField.addEventListener('click', function () {
+            passwordConditions.classList.toggle('visible');
+        });
 
-// Affiche les conditions de mot de passe lors du clic sur le champ de mot de passe
-passwordField.addEventListener('click', function () {
-passwordConditions.classList.toggle('visible');
-});
+        // Vérifie les conditions de mot de passe lors de la saisie
+        passwordField.addEventListener('input', function () {
+            const password = this.value;
+            const hasMinimumLength = password.length >= 8;
+            const hasLowerCase = /[a-z]/.test(password);
+            const hasUpperCase = /[A-Z]/.test(password);
+            const hasNumber = /\d/.test(password);
+            const hasSpecialChar = /[!@#$%^&*()_+]/.test(password);
 
-// Vérifie les conditions de mot de passe lors de la saisie
-passwordField.addEventListener('input', function () {
-const password = this.value;
-const hasMinimumLength = password.length >= 8;
-const hasLowerCase = /[a-z]/.test(password);
-const hasUpperCase = /[A-Z]/.test(password);
-const hasNumber = /\d/.test(password);
-const hasSpecialChar = /[!@#$%^&*()_+]/.test(password);
+            // Met à jour les classes des conditions de mot de passe quand remplies
+            const conditions = passwordConditions.querySelectorAll('.condition');
+            conditions[0].classList.toggle('condition-passed', hasMinimumLength);
+            conditions[1].classList.toggle('condition-passed', hasLowerCase);
+            conditions[2].classList.toggle('condition-passed', hasUpperCase);
+            conditions[3].classList.toggle('condition-passed', hasNumber);
+            conditions[4].classList.toggle('condition-passed', hasSpecialChar);
+        });
 
-// Met à jour les classes des conditions de mot de passe quand remplies
-const conditions = passwordConditions.querySelectorAll('.condition');
-conditions[0].classList.toggle('condition-passed', hasMinimumLength);
-conditions[1].classList.toggle('condition-passed', hasLowerCase);
-conditions[2].classList.toggle('condition-passed', hasUpperCase);
-conditions[3].classList.toggle('condition-passed', hasNumber);
-conditions[4].classList.toggle('condition-passed', hasSpecialChar);
-});
-});
-		</script>
+        // Validation du champ nom
+        const nameField = document.getElementById('registration_name');
+        nameField.addEventListener('blur', function () {
+            const nameValue = this.value.trim();
+            const nameError = document.getElementById('name-error');
+            if (!/^[a-zA-Z-]+$/.test(nameValue)) {
+                nameError.textContent = "Le nom ne peut contenir que des lettres et des tirets";
+            } else {
+                nameError.textContent = "";
+            }
+        });
+
+        // Validation du champ prénom
+        const firstnameField = document.getElementById('registration_firstname');
+        firstnameField.addEventListener('blur', function () {
+            const firstnameValue = this.value.trim();
+            const firstnameError = document.getElementById('firstname-error');
+            if (!/^[a-zA-Z-]+$/.test(firstnameValue)) {
+                firstnameError.textContent = "Le prénom ne peut contenir que des lettres et des tirets";
+            } else {
+                firstnameError.textContent = "";
+            }
+        });
+
+        // Validation du champ email
+        const emailField = document.getElementById('registration_email');
+        emailField.addEventListener('blur', function () {
+            const emailValue = this.value.trim();
+            const emailError = document.getElementById('email-error');
+            if (!emailValue.includes('@')) {
+                emailError.textContent = "L'adresse email doit contenir un @";
+            } else {
+                emailError.textContent = "";
+            }
+        });
+    });
+</script>
+
 	</body>
 
 </html>
