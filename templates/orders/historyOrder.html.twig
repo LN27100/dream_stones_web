@@ -64,7 +64,9 @@
 						<td>{{ order.totalPrice }}</td>
 						<td>
 							{% if order.status == 'en attente de validation' %}
-								<button class=" btn2 btn-delete" data-order-id="{{ order.id }}" data-order-ref="{{ order.ref }}">Supprimer</button>
+								<button class="btn2 btn-delete" data-order-id="{{ order.id }}" data-order-ref="{{ order.ref }}">
+									<i class="bi bi-trash"></i>
+								</button>
 							{% endif %}
 						</td>
 					</tr>
