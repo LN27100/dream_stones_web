@@ -69,12 +69,18 @@ app_purple_stones:
   path: /products/purple
   controller: App\Controller\ProductController::purpleStones
 
-# Routes pour récupération des pierres de couleur multicolore
+# Route pour récupération des pierres de couleur multicolore
 app_multicolor_stones:
   path: /products/multicolor
   controller: App\Controller\ProductController::multicolorStones
 
-# Routes pour la recherches
+# Route pour la recherche
 search_product:
     path: /search
-    controller: App\Controller\ProductController::search
+    controller: 'App\Controller\ProductController::searchProduct'
+
+
+# Route pour afficher les détails d'un produit
+product_details:
+  path: /product/{id}
+  controller: App\Controller\ProductController::showDetails

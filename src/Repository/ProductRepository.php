@@ -13,14 +13,12 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-  
-    // Méthode pour récupérer les produits par catégorie
-    public function findByCategory($category)
+    // Méthode pour rechercher des produits par nom
+    public function findByProductName($searchTerm)
     {
         return $this->createQueryBuilder('p')
-            ->join('p.type', 't')
-            ->andWhere('t.typeCategory = :category')
-            ->setParameter('category', $category)
+            ->where('p.productName LIKE :searchTerm')
+            ->setParameter('searchTerm', '%' . $searchTerm . '%')
             ->getQuery()
             ->getResult();
     }

@@ -21,28 +21,26 @@
     </div>
 
     <div class="container">
-        <h1>Résultats de la recherche</h1>
-{% block body %}
-    <h1>Résultats de recherche</h1>
-
-    {{ form_start(form) }}
-    {{ form_row(form.searchTerm) }}
-    <button type="submit">Rechercher</button>
-    {{ form_end(form) }}
-
-    <div class="products">
-        {% if products is not empty %}
-            <ul>
-                {% for product in products %}
-                    <li>{{ product.productName }}</li>
-                    <!-- Afficher les autres détails du produit selon vos besoins -->
+        <h1>Résultats de la recherche pour "{{ searchTerm }}"</h1>
+        <div class="row">
+            {% if searchResults is not empty %}
+                {% for product in searchResults %}
+                    <div class="col-md-4">
+                        <div class="card mb-4">
+                            <img src="{{ product.productPicture }}" class="card-img-top" alt="{{ product.productName }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.productName }}</h5>
+                                <p class="card-text">{{ product.productDescription }}</p>
+                                <a href="{{ path('product_details', {'id': product.id}) }}" class="btn btn-primary">Voir les détails</a>
+                            </div>
+                        </div>
+                    </div>
                 {% endfor %}
-            </ul>
-        {% else %}
-            <p>Aucun résultat trouvé.</p>
-        {% endif %}
+            {% else %}
+                <p>Aucun résultat trouvé pour "{{ searchTerm }}".</p>
+            {% endif %}
+        </div>
     </div>
-{% endblock %}
 
     <footer>
         {% include 'includes/footer.php' %}

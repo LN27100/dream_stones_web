@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+
 
 class ProductController extends AbstractController
 {
@@ -178,7 +180,24 @@ class ProductController extends AbstractController
         ]);
     }
 
-  /**
+ /**
+     * @Route("/search", name="search_product")
+     */
+    public function searchProduct(Request $request, ProductRepository $productRepository): Response
+    {
+        // Récupérer le terme de recherche depuis la requête
+        $searchTerm = $request->query->get('search');
+
+        // Récupérer les produits correspondant au terme de recherche
+        $searchResults = $productRepository->findByProductName($searchTerm);
+
+        return $this->render('products/search.html.twig', [
+            'searchTerm' => $searchTerm,
+            'searchResults' => $searchResults,
+        ]);
+    }
+
+    /**
      * @Route("/update-stock/{productId}/{quantity}", name="update_stock", methods={"POST"})
      */
     public function updateStock(int $productId, int $quantity, ProductRepository $productRepository, EntityManagerInterface $entityManager): Response
