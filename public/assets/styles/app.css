@@ -454,6 +454,10 @@ body > div.container > div > form > div.text-center > button {
   color: red;
 }
 
+#email-error {
+  width: 419.98px;
+  height: 15px;
+}
 .containerReg {
   margin-top: 4rem;
 }
