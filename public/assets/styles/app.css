@@ -110,7 +110,6 @@ h3 {
 
 body > div.container.card-container > div {
   border-radius: 20px;
-  width: 60rem;
   margin: 0 auto;
   background: linear-gradient(
     0deg,
@@ -667,6 +666,15 @@ td {
 
   .carousel-img {
     width: 70%;
+    height: auto;
+  }
+
+  .carousel-text {
+    padding: 1rem;
+  }
+
+  .container.card-container {
+    width: 80%; 
   }
 }
 
@@ -705,9 +713,17 @@ td {
   }
 
   .carousel-img {
-    width: 100%;
+    width: 90%;
+    height: auto; 
   }
 
+  .carousel-text {
+    padding: 0.5rem;
+  }
+
+  .container.card-container {
+    width: 90%; 
+  }
   .container4 {
     padding: 1rem;
   }

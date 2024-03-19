@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ProductRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
-
+use App\Entity\Type;
 
 class ProductController extends AbstractController
 {
@@ -100,14 +100,14 @@ class ProductController extends AbstractController
     }
 
 
-    // RECUPERATION DES PIERRES PAR CATEGORIES
+   // RECUPERATION DES PIERRES PAR CATEGORIES
 
     /**
      * @Route("/products/category/pierres-roulees", name="products_by_category_rolled_stones")
      */
     public function productsByRolledStones(ProductRepository $productRepository): Response
     {
-        // Récupére les produits par catégorie "pierres roulées"
+        // Récupérer les produits par catégorie "pierres roulées"
         $rolledStones = $productRepository->findByCategory('pierres roulées');
 
         return $this->render('products/productRolledStones.html.twig', [
@@ -120,6 +120,7 @@ class ProductController extends AbstractController
      */
     public function productsByRawStones(ProductRepository $productRepository): Response
     {
+        // Récupérer les produits par catégorie "pierres brutes"
         $rawStones = $productRepository->findByCategory('pierres brutes');
 
         return $this->render('products/productRawStones.html.twig', [
@@ -132,6 +133,7 @@ class ProductController extends AbstractController
      */
     public function productsByJewelry(ProductRepository $productRepository): Response
     {
+        // Récupérer les produits par catégorie "bijoux"
         $jewelryStones = $productRepository->findByCategory('bijoux');
 
         return $this->render('products/productJewelry.html.twig', [
@@ -144,6 +146,7 @@ class ProductController extends AbstractController
      */
     public function productsByGeodes(ProductRepository $productRepository): Response
     {
+        // Récupérer les produits par catégorie "géodes"
         $geodesStones = $productRepository->findByCategory('géodes');
 
         return $this->render('products/productGeodes.html.twig', [
@@ -156,6 +159,7 @@ class ProductController extends AbstractController
      */
     public function productsBySpheres(ProductRepository $productRepository): Response
     {
+        // Récupérer les produits par catégorie "sphères"
         $spheresStones = $productRepository->findByCategory('sphères');
 
         return $this->render('products/productSpheres.html.twig', [
@@ -168,6 +172,7 @@ class ProductController extends AbstractController
      */
     public function productsByPoints(ProductRepository $productRepository): Response
     {
+        // Récupérer les produits par catégorie "pointes"
         $pointsStones = $productRepository->findByCategory('pointes');
 
         return $this->render('products/productPoints.html.twig', [
@@ -219,6 +224,7 @@ class ProductController extends AbstractController
         $entityManager->persist($product);
         $entityManager->flush();
 
+        // Répond avec un message de succès
         return new Response('Le stock du produit a été mis à jour avec succès.', Response::HTTP_OK);
     }
 }
