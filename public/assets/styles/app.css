@@ -402,6 +402,33 @@ body > div.container > div {
 
 /* PAGE INSCRIPTION */
 
+
+.required-label {
+  color: red;
+  position: absolute;
+  left: 12rem; 
+}
+
+  .password-conditions {
+      display: none;
+  }
+
+  .password-conditions.visible {
+      display: block;
+  }
+
+  .condition {
+      margin-bottom: 5px;
+  }
+
+  .condition-passed {
+      color: green;
+  }
+
+  .condition-not-passed {
+      color: red;
+  }
+  
 .containerReg {
   margin-top: 4rem;
 }
