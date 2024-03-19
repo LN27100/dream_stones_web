@@ -220,6 +220,18 @@
                 emailError.textContent = "";
             }
         });
+
+        // Validation du champ téléphone
+        const phoneField = document.getElementById('registration_phone');
+        phoneField.addEventListener('blur', function () {
+            const phoneValue = this.value.trim();
+            const phoneError = document.getElementById('phone-error');
+            if (!/^\d+$/.test(phoneValue)) {
+                phoneError.textContent = "Le numéro de téléphone ne peut contenir que des chiffres";
+            } else {
+                phoneError.textContent = "";
+            }
+        });
     });
 </script>
 
