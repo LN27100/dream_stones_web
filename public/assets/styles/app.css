@@ -10,7 +10,8 @@
 h1 {
   font-family: "Macondo", cursive;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 h2 {
@@ -104,6 +105,14 @@ h3 {
   text-align: center;
 }
 
+body > div.container.card-container > div > div > div > div > h6 {
+  font-family: "Macondo", cursive;
+  text-decoration: underline;
+}
+
+h5 {
+  font-family: "Macondo", cursive; 
+}
 .carousel-text {
   font-family: "Varela Round", sans-serif;
   text-align: justify;

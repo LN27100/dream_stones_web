@@ -20,85 +20,77 @@
 		</header>
 
 		{# PANIER DE CÔTE #}
-		<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-			<div class="offcanvas-header">
-				<h5 class="offcanvas-title text-light" id="offcanvasExampleLabel">Votre panier</h5>
-				<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-			</div>
-			<div id="cart">
-				<div class="product border border-light d-flex" data-id="1">
-					<div class="offcanvas-body">
-						<div>
-							<div class="row">
-								<div class="col-md-6">
-									<div id="cartItems"></div>
-									<p class="text-light">Total : €<span id="cartTotal">0.00</span>
-									</p>
-								</div>
-							</div>
-						</div>
-						<form id="orderForm" action="{{ path('confirm_order') }}" method="post">
-							<input type="hidden" name="action" value="view_order">
-							<input type="hidden" name="product_ids" id="productIds">
-							<button type="submit" class="btn2">Commander</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
+	<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title text-light" id="offcanvasExampleLabel">Votre panier</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div id="cart">
+        <div class="product border border-light d-flex" data-id="1">
+            <div class="offcanvas-body">
+                <div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="cartItems"></div>
+                            <p class="text-light">Total : €<span id="cartTotal">0.00</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <form id="orderForm" action="{{ path('confirm_order') }}" method="post">
+                    <input type="hidden" name="action" value="view_order">
+                    <input type="hidden" name="product_ids" id="productIds">
+                    <button type="submit" class="btn2">Commander</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="container">
+    <div class="card">
+        <h1>Connectez-vous</h1>
+        <form method="post">
+            <div class="mb-3">
+                <label for="inputEmail" class="label">Email</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
+                       autocomplete="email" required autofocus>
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword" class="label">Password</label>
+                <input type="password" name="password" id="inputPassword" class="form-control"
+                       autocomplete="current-password" required>
+            </div>
 
-		<div class="container">
-			{% block content %}
-				<div class="card">
-					<h1>Connectez-vous</h1>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
+            {% if error %}
+                {% if error.message == 'reCaptcha obligatoire' %}
+                    <div class="alert alert-danger">reCaptcha obligatoire</div>
+                {% else %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
+            {% endif %}
 
-					<form method="post">
-						<div class="mb-3">
-							<label for="inputEmail" class="label">Email</label>
-						</div>
-						<div class="mb-3">
-							<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-						</div>
-						<div class="mb-3">
-							<label for="inputPassword" class="label">Password</label>
-						</div>
-						<div class="mb-3">
-							<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-						</div>
+            <div class="g-recaptcha" data-sitekey="6Lc3HZ4pAAAAAC5T5Lc1JejM7pXD5X08CXTRT4oA"></div>
 
-						<input
-						type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+            <div class="text-center">
+                <button class="btn2" type="submit">Connexion</button>
+            </div>
+        </form>
 
-						{# Affichage du message d'erreur du reCaptcha #}
-						{% if error %}
-							{% if error.message == 'reCaptcha obligatoire' %}
-								<div class="alert alert-danger">reCaptcha obligatoire</div>
-							{% else %}
-								<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-							{% endif %}
-						{% endif %}
+        <div class="container text-center mt-3">
+            <p>--------------------</p>
+        </div>
 
-						<div class="g-recaptcha" data-sitekey="6Lc3HZ4pAAAAAC5T5Lc1JejM7pXD5X08CXTRT4oA"></div>
-
-						<div class="text-center">
-							<button class="btn2" type="submit">Connexion</button>
-						</div>
-					</form>
-
-					<div class="container text-center mt-3">
-						<p>--------------------</p>
-					</div>
-
-					<div class="container text-center mt-3">
-						<p>Vous n'avez pas de compte?
-							<button class="btn2" onclick="window.location.href='{{ path('app_register') }}'">Inscrivez-vous</button>
-						</p>
-					</div>
-				</div>
-			{% endblock %}
-		</div>
+        <div class="container text-center mt-3">
+            <p>Vous n'avez pas de compte?
+                <button class="btn2" onclick="window.location.href='{{ path('app_register') }}'">Inscrivez-vous
+                </button>
+            </p>
+        </div>
+    </div>
+</div>
 
 		<footer>
 			{% block footer %}
