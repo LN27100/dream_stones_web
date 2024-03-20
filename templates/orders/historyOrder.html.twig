@@ -27,7 +27,7 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div id="cartItems"></div>
-									<p class="text-light">Total : €<span id="cartTotal">0.00</span>
+									<p class="text-light"><span id="cartTotal">0.00</span>
 									</p>
 								</div>
 							</div>
@@ -52,6 +52,8 @@
 					<th>Moyen de paiement</th>
 					<th>Statut</th>
 					<th>Total</th>
+					<th>Sup</th>
+
 				</tr>
 			</thead>
 			<tbody>
@@ -61,7 +63,7 @@
 						<td>{{ order.date|date('d/m/Y') }}</td>
 						<td>{{ order.paymentMode }}</td>
 						<td>{{ order.status }}</td>
-						<td>{{ order.totalPrice }}</td>
+						<td>{{ order.totalPrice }} €</td>
 						<td>
 							{% if order.status == 'en attente de validation' %}
 								<button class="btn2 btn-delete" data-order-id="{{ order.id }}" data-order-ref="{{ order.ref }}">

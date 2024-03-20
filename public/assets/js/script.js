@@ -51,7 +51,7 @@ function updateCartView() {
 
     // Mise à jour du total du panier
     if (cartTotalElement) {
-        cartTotalElement.textContent = "Total : €" + totalPrice.toFixed(2);
+        cartTotalElement.textContent = "Total du panier : " + totalPrice.toFixed(2) + "€";
     } else {
         console.error('Element with ID "cartTotal" not found.');
     }

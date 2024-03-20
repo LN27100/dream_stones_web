@@ -597,6 +597,23 @@ body > div.card > div.card-image > img {
 
 /* PAGE CONFIRMATION COMMANDE */
 
+.product {
+  padding-top: 1rem; 
+}
+
+.product p {
+  padding-bottom: 1rem; 
+}
+
+.product:not(.first-item) {
+  border-top: 1px solid #ccc;
+  margin-top: 1rem;
+}
+
+#cartTotal {
+  font-weight: bold;
+}
+
 .canvas {
   text-align: left;
   margin-left: 1rem;
