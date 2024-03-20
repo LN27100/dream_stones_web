@@ -427,10 +427,11 @@ body > div.container > div > form > div.text-center > button {
 
 /* PAGE INSCRIPTION */
 
+
 .required-label {
   color: red;
   position: absolute;
-  right: 1rem;
+  left: 8rem;
 }
 
 .password-conditions {
@@ -441,8 +442,17 @@ body > div.container > div > form > div.text-center > button {
   display: block;
 }
 
+
+.password-conditions {
+  background-color: #f2f2f2;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  max-width: 20rem;
+}
+
 .condition {
-  margin-bottom: 5px;
+  margin-bottom: 0.rem;
 }
 
 .condition-passed {
@@ -467,6 +477,7 @@ body > div.containerReg > div > div > form > div > div > label {
   font-weight: bold;
   text-decoration: underline;
 }
+
 #registration_name,
 #registration_firstname,
 #registration_pseudo,
