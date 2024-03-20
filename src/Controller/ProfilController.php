@@ -9,16 +9,18 @@ use App\Entity\Userprofil;
 use App\Form\UserprofilType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
-
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
 class ProfilController extends AbstractController
 {
     private $doctrine;
+    private $tokenStorage;
 
-    // Injecte ManagerRegistry via le constructeur
-    public function __construct(ManagerRegistry $doctrine)
+    // Injecte ManagerRegistry et TokenStorageInterface via le constructeur
+    public function __construct(ManagerRegistry $doctrine, TokenStorageInterface $tokenStorage)
     {
         $this->doctrine = $doctrine;
+        $this->tokenStorage = $tokenStorage;
     }
 
     /**
@@ -64,10 +66,9 @@ class ProfilController extends AbstractController
         ]);
     }
 
-
     // SUPPRESSION DU PROFIL
-    
-     /**
+
+    /**
      * @Route("/profil/delete", name="app_profile_delete", methods={"GET", "POST", "DELETE"})
      */
     public function delete(Request $request): Response
@@ -77,11 +78,14 @@ class ProfilController extends AbstractController
             $entityManager = $this->doctrine->getManager();
             $entityManager->remove($user);
             $entityManager->flush();
-            
-            // Redirige vers une page d'accueil après la suppression
+
+            // Invalidates the user's session after deletion
+            $this->tokenStorage->setToken(null);
+
+            // Redirect to the homepage after deletion
             return $this->redirectToRoute('app');
         } else {
-            // Redirige vers la page de connexion si pas connecté
+            // Redirect to the login page if not logged in
             return $this->redirectToRoute('app_login');
         }
     }
