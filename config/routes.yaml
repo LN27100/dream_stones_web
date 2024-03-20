@@ -84,3 +84,8 @@ search_product:
 product_details:
   path: /product/{id}
   controller: App\Controller\SeemoreController::index
+
+# Route pour servir le fichier JavaScript app.js
+app_js:
+  path: /assets/js/script.js
+  controller: App\Controller\JsController::serveAppJs
