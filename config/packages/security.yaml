@@ -1,6 +1,8 @@
 security:
+# active le gestionnaire d'authentification, qui permet d'utiliser des authentificateurs personnalisés pour gérer différents types d'authentification
     enable_authenticator_manager: true
 
+# algorithmes de hachage des mots de passe pour les utilisateurs
     password_hashers:
         Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
         App\Entity\Userprofil:
@@ -15,6 +17,7 @@ security:
                 class: App\Entity\Userprofil
                 property: email
 
+        # exclure les routes de développement de la sécurité
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -22,6 +25,7 @@ security:
         main:
             lazy: true
             provider: app_user_provider
+            # configure l'authentification via un formulaire, avec des chemins spécifiques pour la page de connexion
             form_login:
                 login_path: app_login
                 check_path: app_login
@@ -32,6 +36,7 @@ security:
             custom_authenticator: App\Security\EmailAuthenticator
             entry_point: App\Security\EmailAuthenticator
 
+# permet un accès anonyme à la page de connexion et également un accès anonyme à toutes les autres parties de l'application.
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
