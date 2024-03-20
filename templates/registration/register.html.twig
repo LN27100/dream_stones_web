@@ -116,6 +116,20 @@
 								<span class="required-label">*</span>
 								<p id="phone-error" class="text-danger"></p>
 							</div>
+
+							<div
+								class="mb-3 input-group d-flex justify-content-center">
+								<!-- Champs pour accepter les CGV -->
+								<div class="form-check">
+									<input class="form-check-input" type="checkbox" name="cgv" id="cgv-accept" required>
+									<label class="form-check-label" for="cgv-accept">
+										J'accepte les conditions générales de vente
+									</label>
+								</div>
+								<span class="required-label">*</span>
+								<p id="cgv-error" class="text-danger"></p>
+							</div>
+							<!-- Bouton de soumission -->
 							<div class="mb-3 input-group d-flex justify-content-center">
 								{{ form_row(form.submit, {'attr': {'class': 'btn2'}}) }}
 							</div>
@@ -281,6 +295,28 @@ phoneError.textContent = "";
 }
 });
 });
+
+ document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('registration-form');
+        const cgvAccept = document.getElementById('cgv-accept');
+        const cgvError = document.getElementById('cgv-error');
+
+        form.addEventListener('submit', function (event) {
+            // Vérifie si les CGV sont acceptées
+            if (!cgvAccept.checked) {
+                cgvError.textContent = "Vous devez accepter les conditions générales de vente";
+                event.preventDefault();
+            }
+        });
+
+        // Réinitialise le message d'erreur des CGV lorsque le bouton radio est coché
+        cgvAccept.addEventListener('change', function () {
+            if (cgvAccept.checked) {
+                cgvError.textContent = "";
+            }
+        });
+    });
+
 		</script>
 
 	</body>
