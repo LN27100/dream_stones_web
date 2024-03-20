@@ -8,6 +8,7 @@ use Doctrine\Persistence\ManagerRegistry;
 
 class ProductRepository extends ServiceEntityRepository
 {
+    // Appel du constructeur parent avec le registre et la classe de l'entité associée
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Product::class);

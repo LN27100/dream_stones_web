@@ -10,6 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Product
 {
+    // GeneraterdVaue signifie que l'id est une clé primaire auto-incrémentée.
+    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
