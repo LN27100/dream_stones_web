@@ -1,70 +1,70 @@
-# Use the front controller as index file. It serves as a fallback solution when
-# every other rewrite/redirect fails (e.g. in an aliased environment without
-# mod_rewrite). Additionally, this reduces the matching process for the
-# start page (path "/") because otherwise Apache will apply the rewriting rules
-# to each configured DirectoryIndex file (e.g. index.php, index.html, index.pl).
+# Utiliser le contrôleur frontal comme fichier index. Il sert de solution de secours lorsque
+# chaque autre réécriture/redirection échoue (par exemple, dans un environnement avec des alias sans
+# mod_rewrite). De plus, cela réduit le processus de correspondance pour la
+# page de démarrage (chemin "/") car sinon Apache appliquera les règles de réécriture à chaque
+# fichier DirectoryIndex configuré (par exemple, index.php, index.html, index.pl).
 DirectoryIndex index.php
 
-# By default, Apache does not evaluate symbolic links if you did not enable this
-# feature in your server configuration. Uncomment the following line if you
-# install assets as symlinks or if you experience problems related to symlinks
-# when compiling LESS/Sass/CoffeScript assets.
+# Par défaut, Apache n'évalue pas les liens symboliques si vous n'avez pas activé cette fonctionnalité
+# dans la configuration de votre serveur. Décommentez la ligne suivante si vous
+# installez des ressources en tant que liens symboliques ou si vous rencontrez des problèmes liés aux liens symboliques
+# lors de la compilation des ressources LESS/Sass/CoffeScript.
 # Options +SymLinksIfOwnerMatch
 
-# Disabling MultiViews prevents unwanted negotiation, e.g. "/index" should not resolve
-# to the front controller "/index.php" but be rewritten to "/index.php/index".
+# Désactiver MultiViews empêche la négociation non désirée, par exemple "/index" ne doit pas être résolu
+# vers le contrôleur frontal "/index.php" mais être réécrit en "/index.php/index".
 <IfModule mod_negotiation.c>
     Options -MultiViews
 </IfModule>
 
 <IfModule mod_rewrite.c>
-    # This Option needs to be enabled for RewriteRule, otherwise it will show an error like
-    # 'Options FollowSymLinks or SymLinksIfOwnerMatch is off which implies that RewriteRule directive is forbidden'
+    # Cette Option doit être activée pour RewriteRule, sinon une erreur s'affichera comme
+    # 'Options FollowSymLinks ou SymLinksIfOwnerMatch est désactivé ce qui implique que la directive RewriteRule est interdite'.
     Options +SymLinksIfOwnerMatch
 
     RewriteEngine On
 
-    # Determine the RewriteBase automatically and set it as environment variable.
-    # If you are using Apache aliases to do mass virtual hosting or installed the
-    # project in a subdirectory, the base path will be prepended to allow proper
-    # resolution of the index.php file and to redirect to the correct URI. It will
-    # work in environments without path prefix as well, providing a safe, one-size
-    # fits all solution. But as you do not need it in this case, you can comment
-    # the following 2 lines to eliminate the overhead.
+    # Déterminer la RewriteBase automatiquement et la définir comme variable d'environnement.
+    # Si vous utilisez des alias Apache pour l'hébergement virtuel en masse ou avez installé le
+    # projet dans un sous-répertoire, le chemin de base sera ajouté pour permettre une
+    # résolution correcte du fichier index.php et pour rediriger vers l'URI correcte. Cela fonctionnera
+    # également dans des environnements sans préfixe de chemin, fournissant une solution sûre et universelle.
+    # Mais comme vous n'en avez pas besoin dans ce cas, vous pouvez commenter
+    # les 2 lignes suivantes pour éliminer la surcharge.
     RewriteCond %{REQUEST_URI}::$0 ^(/.+)/(.*)::\2$
     RewriteRule .* - [E=BASE:%1]
 
-    # Sets the HTTP_AUTHORIZATION header removed by Apache
+    # Définit l'en-tête HTTP_AUTHORIZATION supprimé par Apache
     RewriteCond %{HTTP:Authorization} .+
     RewriteRule ^ - [E=HTTP_AUTHORIZATION:%0]
 
-    # Redirect to URI without front controller to prevent duplicate content
-    # (with and without `/index.php`). Only do this redirect on the initial
-    # rewrite by Apache and not on subsequent cycles. Otherwise we would get an
-    # endless redirect loop (request -> rewrite to front controller ->
-    # redirect -> request -> ...).
-    # So in case you get a "too many redirects" error or you always get redirected
-    # to the start page because your Apache does not expose the REDIRECT_STATUS
-    # environment variable, you have 2 choices:
-    # - disable this feature by commenting the following 2 lines or
-    # - use Apache >= 2.3.9 and replace all L flags by END flags and remove the
-    #   following RewriteCond (best solution)
+    # Redirige vers l'URI sans contrôleur frontal pour éviter le contenu en double
+    # (avec et sans `/index.php`). Ne faites cette redirection que sur la première
+    # réécriture par Apache et pas sur les cycles suivants. Sinon, nous obtiendrions un
+    # boucle de redirection infinie (requête -> réécriture vers le contrôleur frontal ->
+    # redirection -> requête -> ...).
+    # Donc, en cas d'erreur "trop de redirections" ou si vous êtes toujours redirigé
+    # vers la page de démarrage car votre Apache n'expose pas la variable d'environnement REDIRECT_STATUS
+    # , vous avez 2 choix :
+    # - désactivez cette fonctionnalité en commentant les 2 lignes suivantes ou
+    # - utilisez Apache >= 2.3.9 et remplacez tous les drapeaux L par des drapeaux END et supprimez le
+    #   RewriteCond suivant (meilleure solution)
     RewriteCond %{ENV:REDIRECT_STATUS} =""
     RewriteRule ^index\.php(?:/(.*)|$) %{ENV:BASE}/$1 [R=301,L]
 
-    # If the requested filename exists, simply serve it.
-    # We only want to let Apache serve files and not directories.
-    # Rewrite all other queries to the front controller.
+    # Si le nom de fichier demandé existe, il suffit de le servir.
+    # Nous voulons seulement laisser Apache servir les fichiers et pas les répertoires.
+    # Réécrire toutes les autres requêtes vers le contrôleur frontal.
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ %{ENV:BASE}/index.php [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
     <IfModule mod_alias.c>
-        # When mod_rewrite is not available, we instruct a temporary redirect of
-        # the start page to the front controller explicitly so that the website
-        # and the generated links can still be used.
+        # Lorsque mod_rewrite n'est pas disponible, nous indiquons une redirection temporaire de
+        # la page d'accueil vers le contrôleur frontal explicitement afin que le site web
+        # et les liens générés puissent toujours être utilisés.
         RedirectMatch 307 ^/$ /index.php/
-        # RedirectTemp cannot be used instead
+        # RedirectTemp ne peut pas être utilisé à la place
     </IfModule>
 </IfModule>

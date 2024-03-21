@@ -89,3 +89,15 @@ product_details:
 app_js:
   path: /assets/js/script.js
   controller: App\Controller\JsController::serveAppJs
+
+# Route pour la page not found
+not_found:
+    path: /not-found
+    controller: App\Controller\ErrorController::notFound
+
+
+# Route pour la page forbidden
+forbidden:
+    path: /forbidden
+    controller: App\Controller\ErrorController::forbidden
+
