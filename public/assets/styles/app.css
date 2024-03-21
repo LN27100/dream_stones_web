@@ -648,6 +648,14 @@ body > div.card > div.card-image > img {
   text-decoration: underline;
 }
 
+body > div.container > div > form > div:nth-child(3) {
+margin-top: 1rem;
+}
+
+body > div.container > div > form > div:nth-child(3) > div:nth-child(2) {
+  width: 19rem;
+}
+
 /* PAGE VALIDATION COMMANDE */
 
 .cardSuccess {
