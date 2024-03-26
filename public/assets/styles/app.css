@@ -6,6 +6,13 @@
 
 /* CSS GENERALES DES PAGES */
 
+
+.logo {
+  width: 12rem;
+  height: auto;
+  margin-left: 3rem;
+}
+
 h1 {
   font-family: "Macondo", cursive;
   text-align: center;

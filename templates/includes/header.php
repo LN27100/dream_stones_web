@@ -5,7 +5,10 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse d-lg-flex " id="navbarsExample11">
-            <a class="navbar-brand col-lg-3 me-0 text-light" href="{{ path('app') }}">DREAM STONES</a>
+
+            <a href="{{ path('app') }}">
+                <img class="logo" src="{{ asset('assets/images/logo.JPG') }}" alt="logo dream stones">
+            </a>
             <ul class="navbar-nav col-lg-6 justify-content-lg-center">
 
                 <!-- Catégories par couleur -->
