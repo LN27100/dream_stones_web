@@ -32,7 +32,8 @@
 							<div class="row">
 								<div class="col-md-6">
 									<div id="cartItems"></div>
-									<p class="text-light"><span id="cartTotal">0.00</span>
+									<p class="text-light">
+										<span id="cartTotal">0.00</span>
 									</p>
 								</div>
 							</div>
@@ -153,13 +154,16 @@
 
 		<script>
 			// Contrôles des champs d'inscription
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () { 
+// Récupération du formulaire d'inscription
 const form = document.getElementById('registration-form');
 
+// Ajout d'un écouteur d'événement pour le soumission du formulaire
 form.addEventListener('submit', function (event) {
 const requiredInputs = form.querySelectorAll('input[required]');
 let hasError = false;
 
+// Parcours de tous les champs obligatoires
 requiredInputs.forEach(function (input) {
 if (! input.value.trim()) {
 const errorElement = document.getElementById(`${
@@ -176,19 +180,21 @@ const confirmPasswordField = document.getElementById('registration_password_seco
 const passwordConfirmError = document.getElementById('password-confirm-error');
 const password = passwordField.value;
 const confirmPassword = confirmPasswordField.value;
+// Vérification si le champ de confirmation du mot de passe est rempli
 if (confirmPassword.length > 0) {
-if (password !== confirmPassword) {
+if (password !== confirmPassword) { // Affichage du message d'erreur si les mots de passe ne correspondent pas
 passwordConfirmError.textContent = "Les mots de passe ne correspondent pas";
 passwordConfirmError.classList.remove('text-success');
 passwordConfirmError.classList.add('text-danger');
 hasError = true;
-} else {
+} else { // Affichage du message de confirmation si les mots de passe correspondent
 passwordConfirmError.textContent = "Mots de passe identiques";
 passwordConfirmError.classList.remove('text-danger');
 passwordConfirmError.classList.add('text-success');
 }
 }
 
+// Empêcher la soumission du formulaire si des erreurs sont détectées
 if (hasError) {
 event.preventDefault();
 }
@@ -296,27 +302,25 @@ phoneError.textContent = "";
 });
 });
 
- document.addEventListener('DOMContentLoaded', function () {
-        const form = document.getElementById('registration-form');
-        const cgvAccept = document.getElementById('cgv-accept');
-        const cgvError = document.getElementById('cgv-error');
+document.addEventListener('DOMContentLoaded', function () {
+const form = document.getElementById('registration-form');
+const cgvAccept = document.getElementById('cgv-accept');
+const cgvError = document.getElementById('cgv-error');
 
-        form.addEventListener('submit', function (event) {
-            // Vérifie si les CGV sont acceptées
-            if (!cgvAccept.checked) {
-                cgvError.textContent = "Vous devez accepter les conditions générales de vente";
-                event.preventDefault();
-            }
-        });
+form.addEventListener('submit', function (event) { // Vérifie si les CGV sont acceptées
+if (! cgvAccept.checked) {
+cgvError.textContent = "Vous devez accepter les conditions générales de vente";
+event.preventDefault();
+}
+});
 
-        // Réinitialise le message d'erreur des CGV lorsque le bouton radio est coché
-        cgvAccept.addEventListener('change', function () {
-            if (cgvAccept.checked) {
-                cgvError.textContent = "";
-            }
-        });
-    });
-
+// Réinitialise le message d'erreur des CGV lorsque le bouton radio est coché
+cgvAccept.addEventListener('change', function () {
+if (cgvAccept.checked) {
+cgvError.textContent = "";
+}
+});
+});
 		</script>
 
 	</body>

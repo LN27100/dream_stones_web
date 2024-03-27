@@ -1,5 +1,6 @@
 security:
-# active le gestionnaire d'authentification, qui permet d'utiliser des authentificateurs personnalisés pour gérer différents types d'authentification
+# active le gestionnaire d'authentification, qui permet d'utiliser des authentificateurs 
+# personnalisés pour gérer différents types d'authentification
     enable_authenticator_manager: true
 
 # algorithmes de hachage des mots de passe pour les utilisateurs

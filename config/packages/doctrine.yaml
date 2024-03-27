@@ -1,12 +1,15 @@
+# configure les paramètres de connexion à la base de données MySQL
 doctrine:
+
+ # Sous-clé pour configurer la couche d'accès à la base de données (DBAL) de Doctrine
     dbal:
         # Paramètres de connexion à la base de données MySQL
         dbname: 'dream_stones_project'
         user: 'LN27100'
         password: '02111979Lh#'
-        host: 'localhost'
-        port: '3306'
-        driver: 'pdo_mysql'
+        host: 'localhost' # Adresse de l'hôte où se trouve la base de données
+        port: '3306' # Port sur lequel le serveur de base de données écoute.
+        driver: 'pdo_mysql'  # Pilote de base de données utilisé pour se connecter (adapté pour la communication avec une base de données MySQL à l'aide de l'extension PDO)
 
     orm:
         auto_generate_proxy_classes: true

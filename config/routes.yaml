@@ -5,6 +5,20 @@ app:
   path: /app
   controller: App\Controller\DefaultController::app
 
+  # Routes pour se connecter et déconnecter
+app_login:
+  path: /login
+  controller: App\Controller\AuthentificationController::login
+
+app_logout:
+  path: /logout
+  controller: App\Controller\AuthentificationController::logout
+
+# Routes pour s'enregistrer
+app_register:
+  path: /register
+  controller: App\Controller\RegistrationController::register
+
 # Route pour la page confirmation de commande
 confirm_order:
   path: /confirm_order
@@ -24,20 +38,6 @@ app_history:
 app_profil:
   path: /profil
   controller: App\Controller\ProfilController::index
-
-# Routes pour se connecter et déconnecter
-app_login:
-  path: /login
-  controller: App\Controller\AuthentificationController::login
-
-app_logout:
-  path: /logout
-  controller: App\Controller\AuthentificationController::logout
-
-# Routes pour s'enregistrer
-app_register:
-  path: /register
-  controller: App\Controller\RegistrationController::register
 
 # Routes pour récupération des pierres de couleur bleue
 app_blue_stones:
