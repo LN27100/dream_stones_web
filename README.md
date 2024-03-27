@@ -1,3 +1,5 @@
+markdown
+Copy code
 # Projet Symfony
 
 Bienvenue sur le projet réalisé avec le framework Symfony.
@@ -17,29 +19,30 @@ Pour visionner ce projet, suivez ces étapes :
 Une fois que la base de données est installée et configurée, vous pouvez démarrer le serveur local en utilisant la commande suivante :
 ```bash
 symfony server:start
-Cela démarrera le serveur local et vous pourrez accéder au projet dans votre navigateur à l'adresse [http://localhost:8000/app](http://localhost:8000/app).
+Cela démarrera le serveur local et vous pourrez accéder au projet dans votre navigateur à l'adresse http://localhost:8000/app.
 
----
-
-## Commandes Symfony Utiles
-
+Commandes Symfony Utiles
 Voici quelques commandes Symfony utiles pour gérer votre projet :
 
-- **Installation des Dépendances**
-  ```bash
-  composer install
+Installation des Dépendances
 
+bash
+Copy code
+composer install
 Création de la Base de Données
 
-  ```bash
+bash
+Copy code
 php bin/console doctrine:database:create
 Migrations de la Base de Données
 
-  ```bash
+bash
+Copy code
 php bin/console doctrine:migrations:migrate
 Création d'un Contrôleur
 
-  ```bash
+bash
+Copy code
 php bin/console make:controller
 Personnalisation de la Configuration
 
