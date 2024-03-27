@@ -21,29 +21,27 @@ Une fois que la base de données est installée et configurée, vous pouvez dém
 symfony server:start
 Cela démarrera le serveur local et vous pourrez accéder au projet dans votre navigateur à l'adresse http://localhost:8000/app.
 
-Commandes Symfony Utiles
+------
 Voici quelques commandes Symfony utiles pour gérer votre projet :
 
-Installation des Dépendances
+## Installation des Dépendances
 
-bash
-Copy code
+```bash
 composer install
-Création de la Base de Données
 
-bash
-Copy code
+## Création de la Base de Données
+
+```bash
 php bin/console doctrine:database:create
-Migrations de la Base de Données
 
-bash
-Copy code
+## Migrations de la Base de Données
+
+```bash
 php bin/console doctrine:migrations:migrate
-Création d'un Contrôleur
 
-bash
-Copy code
+## Création d'un Contrôleur
+
+```bash
 php bin/console make:controller
-Personnalisation de la Configuration
 
-Pour personnaliser la configuration de Symfony, consultez la documentation officielle de Symfony.
+
