@@ -19,6 +19,9 @@ symfony server:start
 
 Cela démarrera le serveur local et vous pourrez accéder au projet dans votre navigateur à l'adresse http://localhost:8000/app.
 
+![Capture d'écran du tableau de bord](public/assets/images/screenshot.png)
+
+
 # Commandes Symfony Utiles
 
 Voici quelques commandes Symfony utiles pour gérer votre projet :
