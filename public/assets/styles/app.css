@@ -102,7 +102,7 @@ body > div.container4 > h3 {
 .carousel-img {
   width: 40%;
   height: 25rem;
-  object-fit: cover; /* conserver le ratio d'aspect sans déformation */
+  object-fit: cover; 
 }
 
 h3 {
@@ -110,7 +110,7 @@ h3 {
   text-align: center;
 }
 
-body > div.container.card-container > div > div > div > div > h6 {
+h6 {
   font-family: "Macondo", cursive;
   text-decoration: underline;
 }
