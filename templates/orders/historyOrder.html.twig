@@ -85,30 +85,32 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 		<script>
-			document.querySelectorAll('.btn-delete').forEach(button => {
-button.addEventListener('click', () => {
-const orderId = button.dataset.orderId;
-const orderRef = button.dataset.orderRef;
-const confirmation = confirm(`Êtes-vous sûr de vouloir supprimer la commande n°${orderRef} ?`);
-if (confirmation) { // Envoie la requête de suppression si l'utilisateur confirme
-fetch(`/history/delete/${orderId}`, {
-method: 'DELETE',
-headers: {
-'Content-Type': 'application/json',
-'Accept': 'application/json'
-}
-}).then(response => {
-if (response.ok) { // Actualise la page après la suppression réussie
-window.location.reload();
-} else {
-console.error('Erreur lors de la suppression de la commande');
-}
-}).catch(error => {
-console.error('Erreur lors de la requête de suppression:', error);
-});
-}
-});
-});
+	 document.querySelectorAll('.btn-delete').forEach(async button => {
+        button.addEventListener('click', async () => {
+            const orderId = button.dataset.orderId;
+            const orderRef = button.dataset.orderRef;
+            const confirmation = confirm(`Êtes-vous sûr de vouloir supprimer la commande n°${orderRef} ?`);
+            
+            if (confirmation) { // Envoie la requête de suppression si l'utilisateur confirme
+                try {
+                    const response = await fetch(`/history/delete/${orderId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        }
+                    });
+                    if (response.ok) { // Actualise la page après la suppression réussie
+                        window.location.reload();
+                    } else {
+                        throw new Error('Erreur lors de la suppression de la commande');
+                    }
+                } catch (error) {
+                    console.error('Erreur lors de la requête de suppression:', error);
+                }
+            }
+        });
+    });
 		</script>
 
 	</body>

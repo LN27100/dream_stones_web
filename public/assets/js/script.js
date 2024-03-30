@@ -126,24 +126,25 @@ function removeProduct(id, quantityToRemove) {
 }
 
 // Mise à jour du stock du produit
-function updateProductStock(productId, quantity) {
-    // Envoie une requête AJAX à la route de mise à jour du stock dans Symfony
-    fetch(`/update-stock/${productId}/${quantity}`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-    .then(response => {
+async function updateProductStock(productId, quantity) {
+    try {
+        const response = await fetch(`/update-stock/${productId}/${quantity}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
         if (!response.ok) {
             throw new Error('Erreur lors de la mise à jour du stock du produit');
         }
+
         console.log(`Le stock du produit avec l'ID ${productId} a été mis à jour avec succès`);
-    })
-    .catch(error => {
+    } catch (error) {
         console.error('Erreur :', error);
-    });
+    }
 }
+
 
 // Fonction pour incrémenter la quantité
 function incrementQuantity(button) {
