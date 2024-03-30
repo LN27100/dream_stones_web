@@ -75,5 +75,3 @@ class EmailAuthenticator extends AbstractLoginFormAuthenticator
     }
 }
 
-
-// Symfony, l'authentification est basée sur un système de "badges" (ou "jetons"), qui représentent différentes informations nécessaires pour authentifier un utilisateur.
