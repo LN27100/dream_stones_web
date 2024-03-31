@@ -10,7 +10,10 @@
 		<link href="{{ asset('assets/styles/app.css') }}" rel="stylesheet">
 		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
-		<title>Accueil Dream Stones</title>
+		<title>
+			{% block title %}Accueil Dream Stones
+			{% endblock %}
+		</title>
 		<link rel="icon" href="{{ asset('logoOk.png') }}" type="image/png">
 
 	</head>
@@ -52,90 +55,93 @@
 			</div>
 		</div>
 
+		{% block body_content %}
 
-		<h1>PIERRE DU MOMENT</h1>
+			<h1>PIERRE DU MOMENT</h1>
 
 
-		<div class="container card-container">
-			<div class="outer-border">
-				<div class="mid-border">
-					<div class="inner-border">
-						<div class="text carousel-text">
-							<h3>La malachite</h3>
-						</div>
-						<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-							<div class="carousel-inner">
-								<div class="carousel-item active">
-									<img src="{{ asset('assets/images/malachite2.jpg') }}" class="d-block carousel-img" alt="Image 2">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite12.jpg') }}" class="d-block carousel-img " alt="Image 12">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite4.jpg') }}" class="d-block carousel-img " alt="Image 4">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite3.jpg') }}" class="d-block carousel-img " alt="Image 3">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite6.jpg') }}" class="d-block carousel-img " alt="Image 6">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite8.jpg') }}" class="d-block carousel-img " alt="Image 8">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite14.jpg') }}" class="d-block carousel-img " alt="Image 14">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite5.jpg') }}" class="d-block carousel-img" alt="Image 5">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite9.jpg') }}" class="d-block carousel-img" alt="Image 9">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite10.jpg') }}" class="d-block carousel-img" alt="Image 10">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite11.jpg') }}" class="d-block carousel-img" alt="Image 11">
-								</div>
-								<div class="carousel-item">
-									<img src="{{ asset('assets/images/malachite.jpg') }}" class="d-block carousel-img" alt="Image 1">
-								</div>
+			<div class="container card-container">
+				<div class="outer-border">
+					<div class="mid-border">
+						<div class="inner-border">
+							<div class="text carousel-text">
+								<h3>La malachite</h3>
 							</div>
-							<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-								<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-								<span class="visually-hidden">Previous</span>
-							</button>
-							<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-								<span class="carousel-control-next-icon" aria-hidden="true"></span>
-								<span class="visually-hidden">Next</span>
-							</button>
-						</div>
-						<div class="text carousel-text">
-							<h5>D'où vient le nom malachite ?</h5>
-							<p>Le nom "malachite" trouve son origine dans le mot grec "malachē", signifiant "vert", en référence à sa couleur caractéristique.
-							</p>
-							<br/>
-							<h5>Origine géographique et historique de la malachite:</h5>
-							<p>L'origine géographique de la pierre malachite remonte à diverses régions du monde. Ses principaux gisements se trouvent en Australie, en Russie, en République démocratique du Congo... Chaque région confère à la malachite des caractéristiques uniques, allant de la richesse de sa couleur à la complexité de ses motifs.</p>
-							<br/>
-							<h5>Apparence et propriétés physiques distinctives :</h5>
-							<h6>Comment reconnaitre une malachite ?</h6>
-							<p>Lorsqu'il s'agit de reconnaître une malachite, son apparence est un très bon indicateur. La malachite se distingue par sa couleur verte. La malachite se distingue par sa couleur verte intense et variée, allant du vert émeraude au vert foncé. Elle présente souvent des motifs tourbillonnants ou des rayures. Ces motifs sont le résultats de la croissance en couches de la malachite au fil du temps.</p>
-							<h6>Les vertus de la malachite pour le bien-être physique:</h6>
-							<p>La malachite, cette pierre précieuse d'un vert éclatant, est réputée pour ses nombreuses vertus et propriétés bénéfiques sur le bien-être physique. En effet, la pierre possède une action à la fois apaisante et énergisante qui peut soulager les douleurs et renforcer le système immunitaire.
-																															   Action apaisante et énergisante de la malachite
-																															   L'une des principales vertus de cette pierre est son pouvoir apaisant sur les douleurs physiques et articulaires. Elle peut soulager les inflammations et réduire les sensations de douleurs. Il suffit de porter la pierre sur la zone douloureuse ou de l'appliquer en massage doux pour bénéficier de ses bienfaits apaisants.
-																															   La pierre malachite est également connue pour renforcer le système immunitaire. Elle agit en stimulant l'énergie vitale du corps et en harmonisant les flux d'énergie. Ainsi, elle peut aider à renforcer la résistance aux maladie et favoriser une meilleure santé.</p>
-							<h6>Les vertus de la malachite pour le bien-être émotionnel et spirituel :</h6>
-							<p>
-								Utilisée depuis des siècles, elle est réputée pour réduire le stress, l'anxiété et la nervosité, tout en favorisant l'estime de soi et la confiance en soi.
-																																La malachite est souvent associée à la pratique de la méditation en raison de son énergie apaisante et réconfortante. La malachite joue un rôle important dans le développement de l'intuition. Elle est connue pour stimuler la clairvoyance et l'intuition.</p>
+							<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+								<div class="carousel-inner">
+									<div class="carousel-item active">
+										<img src="{{ asset('assets/images/malachite2.jpg') }}" class="d-block carousel-img" alt="Image 2">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite12.jpg') }}" class="d-block carousel-img " alt="Image 12">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite4.jpg') }}" class="d-block carousel-img " alt="Image 4">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite3.jpg') }}" class="d-block carousel-img " alt="Image 3">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite6.jpg') }}" class="d-block carousel-img " alt="Image 6">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite8.jpg') }}" class="d-block carousel-img " alt="Image 8">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite14.jpg') }}" class="d-block carousel-img " alt="Image 14">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite5.jpg') }}" class="d-block carousel-img" alt="Image 5">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite9.jpg') }}" class="d-block carousel-img" alt="Image 9">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite10.jpg') }}" class="d-block carousel-img" alt="Image 10">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite11.jpg') }}" class="d-block carousel-img" alt="Image 11">
+									</div>
+									<div class="carousel-item">
+										<img src="{{ asset('assets/images/malachite.jpg') }}" class="d-block carousel-img" alt="Image 1">
+									</div>
+								</div>
+								<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+									<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+									<span class="visually-hidden">Previous</span>
+								</button>
+								<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+									<span class="carousel-control-next-icon" aria-hidden="true"></span>
+									<span class="visually-hidden">Next</span>
+								</button>
+							</div>
+							<div class="text carousel-text">
+								<h5>D'où vient le nom malachite ?</h5>
+								<p>Le nom "malachite" trouve son origine dans le mot grec "malachē", signifiant "vert", en référence à sa couleur caractéristique.
+								</p>
+								<br/>
+								<h5>Origine géographique et historique de la malachite:</h5>
+								<p>L'origine géographique de la pierre malachite remonte à diverses régions du monde. Ses principaux gisements se trouvent en Australie, en Russie, en République démocratique du Congo... Chaque région confère à la malachite des caractéristiques uniques, allant de la richesse de sa couleur à la complexité de ses motifs.</p>
+								<br/>
+								<h5>Apparence et propriétés physiques distinctives :</h5>
+								<h6>Comment reconnaitre une malachite ?</h6>
+								<p>Lorsqu'il s'agit de reconnaître une malachite, son apparence est un très bon indicateur. La malachite se distingue par sa couleur verte. La malachite se distingue par sa couleur verte intense et variée, allant du vert émeraude au vert foncé. Elle présente souvent des motifs tourbillonnants ou des rayures. Ces motifs sont le résultats de la croissance en couches de la malachite au fil du temps.</p>
+								<h6>Les vertus de la malachite pour le bien-être physique:</h6>
+								<p>La malachite, cette pierre précieuse d'un vert éclatant, est réputée pour ses nombreuses vertus et propriétés bénéfiques sur le bien-être physique. En effet, la pierre possède une action à la fois apaisante et énergisante qui peut soulager les douleurs et renforcer le système immunitaire.
+																																								   Action apaisante et énergisante de la malachite
+																																								   L'une des principales vertus de cette pierre est son pouvoir apaisant sur les douleurs physiques et articulaires. Elle peut soulager les inflammations et réduire les sensations de douleurs. Il suffit de porter la pierre sur la zone douloureuse ou de l'appliquer en massage doux pour bénéficier de ses bienfaits apaisants.
+																																								   La pierre malachite est également connue pour renforcer le système immunitaire. Elle agit en stimulant l'énergie vitale du corps et en harmonisant les flux d'énergie. Ainsi, elle peut aider à renforcer la résistance aux maladie et favoriser une meilleure santé.</p>
+								<h6>Les vertus de la malachite pour le bien-être émotionnel et spirituel :</h6>
+								<p>
+									Utilisée depuis des siècles, elle est réputée pour réduire le stress, l'anxiété et la nervosité, tout en favorisant l'estime de soi et la confiance en soi.
+																																									La malachite est souvent associée à la pratique de la méditation en raison de son énergie apaisante et réconfortante. La malachite joue un rôle important dans le développement de l'intuition. Elle est connue pour stimuler la clairvoyance et l'intuition.</p>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
+		{% endblock %}
+
 
 		<footer>
 			{% include 'includes/footer.php' %}
@@ -144,6 +150,8 @@
 		<script src="{{ asset('assets/js/script.js') }}"></script>
 
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+		{% block specific_script %}{% endblock %}
+
 	</body>
 
 </html>
