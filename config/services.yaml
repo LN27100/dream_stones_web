@@ -1,7 +1,7 @@
-# This file is the entry point to configure your own services.
-# Files in the packages/ subdirectory configure your dependencies.
+# Ce fichier est le point d'entrée pour configurer vos propres services.
+# Les fichiers dans le sous-répertoire packages/ configurent vos dépendances.
 
-# Put parameters here that don't need to change on each machine where the app is deployed
+# Placez ici les paramètres qui ne doivent pas changer sur chaque machine où l'application est déployée
 # https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
 parameters:
     translator.default_path: '%kernel.project_dir%/translations'
@@ -12,13 +12,13 @@ parameters:
 services:
     # Alias pour l'interface AuthenticationSuccessHandlerInterface
     Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface: '@security.authentication.success_handler.main.form_login'
-    # default configuration for services in *this* file
+    # Configuration par défaut pour les services dans *ce* fichier
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
-        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        autowire: true      # Injecte automatiquement les dépendances dans vos services.
+        autoconfigure: true # Enregistre automatiquement vos services en tant que commandes, abonnés d'événements, etc.
 
-    # makes classes in src/ available to be used as services
-    # this creates a service per class whose id is the fully-qualified class name
+    # Rend les classes de src/ disponibles pour être utilisées en tant que services
+    # cela crée un service par classe dont l'identifiant est le nom de classe entièrement qualifié
     App\:
         resource: '../src/'
         exclude:
@@ -35,5 +35,5 @@ services:
     App\Controller\StonesUseController:
         tags: ['controller.service_arguments']
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    # Ajoutez plus de définitions de services lorsque une configuration explicite est nécessaire
+    # Veuillez noter que les dernières définitions remplacent toujours les précédentes

@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-
+// Vérifie la configuration de la date pour s'assurer qu'elle est définie (utilisé pour les tests de PHPUnit).
 if (!ini_get('date.timezone')) {
     ini_set('date.timezone', 'UTC');
 }
@@ -21,3 +21,6 @@ if (is_file(dirname(__DIR__).'/vendor/phpunit/phpunit/phpunit')) {
 
     require dirname(__DIR__).'/vendor/symfony/phpunit-bridge/bin/simple-phpunit.php';
 }
+
+
+// Ce script assure une exécution cohérente des tests unitaires quel que soit l'environnement de développement, en utilisant soit la version locale de PHPUnit soit celle fournie par Symfony PHPUnit Bridge.
