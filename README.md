@@ -9,6 +9,15 @@ Pour visionner ce projet, suivez ces étapes :
 1. **Installation de la Base de Données** :
    Importez la base de données du projet disponible dans le dossier "database".
 
+     -- Créer la base de données
+CREATE DATABASE IF NOT EXISTS dream_stones_project DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+-- Utiliser la base de données
+USE dream_stones_project;
+
+-- Importer la structure de la base de données à partir du fichier SQL
+SOURCE database\Dump20240330.sql;
+
 2. **Configuration de la Base de Données** :
    Modifiez la configuration de la base de données dans le fichier `config/packages/doctrine.yaml` avec vos propres identifiants.
 
