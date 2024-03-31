@@ -24,11 +24,11 @@
                         <li><a class="dropdown-item" href="{{ path('products_by_color_red') }}" data-categoryId="3">Rouges</a></li>
                         <li><a class="dropdown-item" href="{{ path('products_by_color_brown') }}" data-categoryId="3">Marrons</a></li>
                         <li><a class="dropdown-item" href="{{ path('products_by_color_multicolor') }}" data-categoryId="3">Multicolores</a></li>
-                        <li><a class="dropdown-item" data-categoryId="3">Jaunes</a></li>
-                        <li><a class="dropdown-item" data-categoryId="3">Grises</a></li>
-                        <li><a class="dropdown-item" data-categoryId="3">Noires</a></li>
-                        <li><a class="dropdown-item" data-categoryId="3">Oranges</a></li>
-                        <li><a class="dropdown-item" data-categoryId="3">Roses</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_yellow') }}" data-categoryId="3">Jaunes</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_grey') }}" data-categoryId="3">Grises</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_black') }}" data-categoryId="3">Noires</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_orange') }}" data-categoryId="3">Oranges</a></li>
+                        <li><a class="dropdown-item" href="{{ path('products_by_color_pink') }}" data-categoryId="3">Roses</a></li>
                     </ul>
                 </li>
 

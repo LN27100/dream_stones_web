@@ -98,6 +98,65 @@ class ProductController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/products/black", name="products_by_color_black")
+     */
+    public function productsByColorBlack(ProductRepository $productRepository): Response
+    {
+        $blackStones = $productRepository->findBy(['productColor' => 'noire']);
+
+        return $this->render('products/productBlack.html.twig', [
+            'blackStones' => $blackStones,
+        ]);
+    }
+
+    /**
+     * @Route("/products/yellow", name="products_by_color_yellow")
+     */
+    public function productsByColorYellow(ProductRepository $productRepository): Response
+    {
+        $yellowStones = $productRepository->findBy(['productColor' => 'jaune']);
+
+        return $this->render('products/productYellow.html.twig', [
+            'yellowStones' => $yellowStones,
+        ]);
+    }
+
+    /**
+     * @Route("/products/grey", name="products_by_color_grey")
+     */
+    public function productsByColorGrey(ProductRepository $productRepository): Response
+    {
+        $greyStones = $productRepository->findBy(['productColor' => 'grise']);
+
+        return $this->render('products/productGrey.html.twig', [
+            'greyStones' => $greyStones,
+        ]);
+    }
+
+    /**
+     * @Route("/products/orange", name="products_by_color_orange")
+     */
+    public function productsByColorOrange(ProductRepository $productRepository): Response
+    {
+        $orangeStones = $productRepository->findBy(['productColor' => 'orange']);
+
+        return $this->render('products/productOrange.html.twig', [
+            'orangeStones' => $orangeStones,
+        ]);
+    }
+
+       /**
+     * @Route("/products/pink", name="products_by_color_pink")
+     */
+    public function productsByColorPink(ProductRepository $productRepository): Response
+    {
+        $pinkStones = $productRepository->findBy(['productColor' => 'rose']);
+
+        return $this->render('products/productPink.html.twig', [
+            'pinkStones' => $pinkStones,
+        ]);
+    }
 
    // RECUPERATION DES PIERRES PAR CATEGORIES
 

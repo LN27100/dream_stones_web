@@ -1,0 +1,47 @@
+{% extends 'app.html.twig' %}
+
+{% block title %}Pierres grises
+{% endblock %}
+
+{% block body_content %}
+	<main>
+		<h1>Nos pierres grises</h1>
+
+		<div class="container">
+			<div class="row">
+				{% block stones %}
+					{% for stone in greyStones %}
+						<div class="col-md-4">
+							<div class="cardStones">
+								<div class="card-image position-relative">
+									<img src="{{ asset('assets/images/' ~ stone.productPicture) }}" alt="Image de {{ stone.productName }}">
+									<a href="{{ path('app_seemore', {'id': stone.id}) }}" class="btn-view-more">
+										<i class="bi bi-plus"></i>
+									</a>
+								</div>
+								<div class="card-details">
+									<h2>{{ stone.productName }}</h2>
+									<p>Prix unitaire :
+										{{ stone.productPrice }}
+										€</p>
+									<p>Quantité en stock :
+										{{ stone.productStock }}</p>
+									<div class="container text-center mt-3">
+										<div class="quantity-controls mt-2">
+											<button class="btn btn-sm btn-minus" onclick="decrementQuantity(this)">-</button>
+											<input type="number" class="quantity-input" value="1" min="1">
+											<button class="btn btn-sm btn-plus" onclick="incrementQuantity(this)">+</button>
+										</div>
+										<button class="btn2 btn-add-to-cart" data-id="{{ stone.id }}" data-name="{{ stone.productName }}" data-price="{{ stone.productPrice }}" data-picture="{{ stone.productPicture }}">
+											<i class="bi bi-cart-fill"></i>
+											Ajouter au panier</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				{% endblock %}
+			</div>
+		</div>
+	</main>
+{% endblock %}
