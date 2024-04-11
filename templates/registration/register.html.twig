@@ -103,174 +103,172 @@
 	{% block specific_script %}
 
 		<script>
-			// Contrôles des champs d'inscription
-document.addEventListener('DOMContentLoaded', function () { 
-// Récupération du formulaire d'inscription
-const form = document.getElementById('registration-form');
+			document.addEventListener('DOMContentLoaded', function () { 
+    // Récupération du formulaire d'inscription
+    const form = document.getElementById('registration-form');
 
-// Ajout d'un écouteur d'événement pour le soumission du formulaire
-form.addEventListener('submit', function (event) {
-const requiredInputs = form.querySelectorAll('input[required]');
-let hasError = false;
+    // Ajout d'un écouteur d'événement pour la soumission du formulaire
+    form.addEventListener('submit', function (event) {
+        const requiredInputs = form.querySelectorAll('input[required]');
+        let hasError = false;
 
-// Parcours de tous les champs obligatoires
-requiredInputs.forEach(function (input) {
-if (! input.value.trim()) {
-const errorElement = document.getElementById(`${
-input.id
-}-error`);
-errorElement.textContent = "Champ obligatoire";
-hasError = true;
-}
-});
+        // Parcours de tous les champs obligatoires
+        requiredInputs.forEach(function (input) {
+            if (!input.value.trim()) {
+                const errorElement = document.getElementById(`${input.id}-error`);
+                errorElement.textContent = "Champ obligatoire";
+                hasError = true;
+            }
+        });
 
-// Vérification de la correspondance des mots de passe
-const passwordField = document.getElementById('registration_password_first');
-const confirmPasswordField = document.getElementById('registration_password_second');
-const passwordConfirmError = document.getElementById('password-confirm-error');
-const password = passwordField.value;
-const confirmPassword = confirmPasswordField.value;
-// Vérification si le champ de confirmation du mot de passe est rempli
-if (confirmPassword.length > 0) {
-if (password !== confirmPassword) { // Affichage du message d'erreur si les mots de passe ne correspondent pas
-passwordConfirmError.textContent = "Les mots de passe ne correspondent pas";
-passwordConfirmError.classList.remove('text-success');
-passwordConfirmError.classList.add('text-danger');
-hasError = true;
-} else { // Affichage du message de confirmation si les mots de passe correspondent
-passwordConfirmError.textContent = "Mots de passe identiques";
-passwordConfirmError.classList.remove('text-danger');
-passwordConfirmError.classList.add('text-success');
-}
-}
+        // Vérification de la correspondance des mots de passe
+        const passwordField = document.getElementById('registration_password_first');
+        const confirmPasswordField = document.getElementById('registration_password_second');
+        const passwordConfirmError = document.getElementById('password-confirm-error');
+        const password = passwordField.value;
+        const confirmPassword = confirmPasswordField.value;
+        
+        // Vérification si le champ de confirmation du mot de passe est rempli
+        if (confirmPassword.length > 0) {
+            if (password !== confirmPassword) { // Affichage du message d'erreur si les mots de passe ne correspondent pas
+                passwordConfirmError.textContent = "Les mots de passe ne correspondent pas";
+                passwordConfirmError.classList.remove('text-success');
+                passwordConfirmError.classList.add('text-danger');
+                hasError = true;
+            } else { // Affichage du message de confirmation si les mots de passe correspondent
+                passwordConfirmError.textContent = "Mots de passe identiques";
+                passwordConfirmError.classList.remove('text-danger');
+                passwordConfirmError.classList.add('text-success');
+            }
+        }
 
-// Empêcher la soumission du formulaire si des erreurs sont détectées
-if (hasError) {
-event.preventDefault();
-}
-});
+        // Empêcher la soumission du formulaire si des erreurs sont détectées
+        if (hasError) {
+            event.preventDefault();
+        }
+    });
 
-// Contrôles du mot de passe
-const passwordField = document.getElementById('registration_password_first');
-const passwordConditions = document.querySelector('.password-conditions');
+    // Contrôles du mot de passe
+    const passwordField = document.getElementById('registration_password_first');
+    const passwordConditions = document.querySelector('.password-conditions');
 
-// Affiche les conditions de mot de passe lors du clic sur le champ de mot de passe
-passwordField.addEventListener('click', function () {
-passwordConditions.classList.toggle('visible');
-});
+    // Affiche les conditions de mot de passe lors du clic sur le champ de mot de passe
+    passwordField.addEventListener('click', function () {
+        passwordConditions.classList.toggle('visible');
+    });
 
-// Vérifie les conditions de mot de passe lors de la saisie
-passwordField.addEventListener('input', function () {
-const password = this.value;
-const hasMinimumLength = password.length >= 8;
-const hasLowerCase = /[a-z]/.test(password);
-const hasUpperCase = /[A-Z]/.test(password);
-const hasNumber = /\d/.test(password);
-const hasSpecialChar = /[!@#$%^&*()_+]/.test(password);
+    // Vérifie les conditions de mot de passe lors de la saisie
+    passwordField.addEventListener('input', function () {
+        const password = this.value;
+        const hasMinimumLength = /.{8,}/.test(password);
+        const hasLowerCase = /[a-z]/.test(password);
+        const hasUpperCase = /[A-Z]/.test(password);
+        const hasNumber = /\d/.test(password);
+        const hasSpecialChar = /[!@#$%^&*()_+]/.test(password);
 
-// Met à jour les classes des conditions de mot de passe quand remplies
-const conditions = passwordConditions.querySelectorAll('.condition');
-conditions[0].classList.toggle('condition-passed', hasMinimumLength);
-conditions[1].classList.toggle('condition-passed', hasLowerCase);
-conditions[2].classList.toggle('condition-passed', hasUpperCase);
-conditions[3].classList.toggle('condition-passed', hasNumber);
-conditions[4].classList.toggle('condition-passed', hasSpecialChar);
-});
+        // Met à jour les classes des conditions de mot de passe quand remplies
+        const conditions = passwordConditions.querySelectorAll('.condition');
+        conditions[0].classList.toggle('condition-passed', hasMinimumLength);
+        conditions[1].classList.toggle('condition-passed', hasLowerCase);
+        conditions[2].classList.toggle('condition-passed', hasUpperCase);
+        conditions[3].classList.toggle('condition-passed', hasNumber);
+        conditions[4].classList.toggle('condition-passed', hasSpecialChar);
+    });
 
-// Validation du champ nom
-// \u00C0-\u024F accepte les lettres avec accents.
-const nameField = document.getElementById('registration_name');
-nameField.addEventListener('blur', function () {
-const nameValue = this.value.trim();
-const nameError = document.getElementById('name-error');
-if (!/^[a-zA-Z\u00C0-\u024F-]+$/.test(nameValue)) {
-nameError.textContent = "Le nom ne peut contenir que des lettres et des tirets";
-} else {
-nameError.textContent = "";
-}
-});
+    // Validation du champ nom
+    const nameField = document.getElementById('registration_name');
+    nameField.addEventListener('blur', function () {
+        const nameValue = this.value.trim();
+        const nameError = document.getElementById('name-error');
+        if (!/^[a-zA-Z\u00C0-\u024F-]+$/.test(nameValue)) {
+            nameError.textContent = "Le nom ne peut contenir que des lettres et des tirets";
+        } else {
+            nameError.textContent = "";
+        }
+    });
 
-// Validation du champ prénom
-const firstnameField = document.getElementById('registration_firstname');
-firstnameField.addEventListener('blur', function () {
-const firstnameValue = this.value.trim();
-const firstnameError = document.getElementById('firstname-error');
-if (!/^[a-zA-Z\u00C0-\u024F-]+$/.test(firstnameValue)) {
-firstnameError.textContent = "Le prénom ne peut contenir que des lettres et des tirets";
-} else {
-firstnameError.textContent = "";
-}
-});
+    // Validation du champ prénom
+    const firstnameField = document.getElementById('registration_firstname');
+    firstnameField.addEventListener('blur', function () {
+        const firstnameValue = this.value.trim();
+        const firstnameError = document.getElementById('firstname-error');
+        if (!/^[a-zA-Z\u00C0-\u024F-]+$/.test(firstnameValue)) {
+            firstnameError.textContent = "Le prénom ne peut contenir que des lettres et des tirets";
+        } else {
+            firstnameError.textContent = "";
+        }
+    });
 
-// Validation du champ email
-const emailField = document.getElementById('registration_email');
-emailField.addEventListener('blur', function () {
-const emailValue = this.value.trim();
-const emailError = document.getElementById('email-error');
-const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-if (! emailRegex.test(emailValue)) {
-emailError.textContent = "L'adresse email est invalide";
-} else {
-emailError.textContent = "";
-}
-});
+    // Validation du champ email
+    const emailField = document.getElementById('registration_email');
+    emailField.addEventListener('blur', function () {
+        const emailValue = this.value.trim();
+        const emailError = document.getElementById('email-error');
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailRegex.test(emailValue)) {
+            emailError.textContent = "L'adresse email est invalide";
+        } else {
+            emailError.textContent = "";
+        }
+    });
 
-// Validation du champ code postal
-const zipcodeField = document.getElementById('registration_zipcode');
-zipcodeField.addEventListener('blur', function () {
-const zipcodeValue = this.value.trim();
-const zipcodeError = document.getElementById('zipcode-error');
-if (!/^\d+$/.test(zipcodeValue)) {
-zipcodeError.textContent = "Le code postal ne peut contenir que des chiffres";
-} else {
-zipcodeError.textContent = "";
-}
-});
+    // Validation du champ code postal
+    const zipcodeField = document.getElementById('registration_zipcode');
+    zipcodeField.addEventListener('blur', function () {
+        const zipcodeValue = this.value.trim();
+        const zipcodeError = document.getElementById('zipcode-error');
+        if (!/^\d+$/.test(zipcodeValue)) {
+            zipcodeError.textContent = "Le code postal ne peut contenir que des chiffres";
+        } else {
+            zipcodeError.textContent = "";
+        }
+    });
 
-// Validation du champ ville
+   // Validation du champ ville
 const cityField = document.getElementById('registration_city');
 cityField.addEventListener('blur', function () {
-const cityValue = this.value.trim();
-const cityError = document.getElementById('city-error');
-if (!/^[a-zA-Z\u00C0-\u024F-]+$/.test(cityValue)) {
-cityError.textContent = "Le nom de la ville ne peut contenir que des lettres et des tirets";
-} else {
-cityError.textContent = "";
-}
+    const cityValue = this.value.trim();
+    const cityError = document.getElementById('city-error');
+    if (!/^[a-zA-Z\u00C0-\u024F-\s]+$/.test(cityValue)) {
+        cityError.textContent = "Le nom de la ville ne peut contenir que des lettres, des tirets et des espaces";
+    } else {
+        cityError.textContent = "";
+    }
 });
 
-// Validation du champ téléphone
-const phoneField = document.getElementById('registration_phone');
-phoneField.addEventListener('blur', function () {
-const phoneValue = this.value.trim();
-const phoneError = document.getElementById('phone-error');
-if (!/^\d+$/.test(phoneValue)) {
-phoneError.textContent = "Le numéro de téléphone ne peut contenir que des chiffres";
-} else {
-phoneError.textContent = "";
-}
-});
+    // Validation du champ téléphone
+    const phoneField = document.getElementById('registration_phone');
+    phoneField.addEventListener('blur', function () {
+        const phoneValue = this.value.trim();
+        const phoneError = document.getElementById('phone-error');
+        if (!/^\d+$/.test(phoneValue)) {
+            phoneError.textContent = "Le numéro de téléphone ne peut contenir que des chiffres";
+        } else {
+            phoneError.textContent = "";
+        }
+    });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-const form = document.getElementById('registration-form');
-const cgvAccept = document.getElementById('cgv-accept');
-const cgvError = document.getElementById('cgv-error');
+    const form = document.getElementById('registration-form');
+    const cgvAccept = document.getElementById('cgv-accept');
+    const cgvError = document.getElementById('cgv-error');
 
-form.addEventListener('submit', function (event) { // Vérifie si les CGV sont acceptées
-if (! cgvAccept.checked) {
-cgvError.textContent = "Vous devez accepter les conditions générales de vente";
-event.preventDefault();
-}
+    form.addEventListener('submit', function (event) { // Vérifie si les CGV sont acceptées
+        if (!cgvAccept.checked) {
+            cgvError.textContent = "Vous devez accepter les conditions générales de vente";
+            event.preventDefault();
+        }
+    });
+
+    // Réinitialise le message d'erreur des CGV lorsque le bouton radio est coché
+    cgvAccept.addEventListener('change', function () {
+        if (cgvAccept.checked) {
+            cgvError.textContent = "";
+        }
+    });
 });
 
-// Réinitialise le message d'erreur des CGV lorsque le bouton radio est coché
-cgvAccept.addEventListener('change', function () {
-if (cgvAccept.checked) {
-cgvError.textContent = "";
-}
-});
-});
 		</script>
 
 	{% endblock %}
