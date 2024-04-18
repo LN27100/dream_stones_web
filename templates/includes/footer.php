@@ -34,7 +34,7 @@
 
                 <div class="col-md-2">
                     <h6 class="text-uppercase font-weight-bold">
-                        <a class="text-white">Contact</a>
+                        <a href="{{ path('app_contact') }}" class="text-white">Contact</a>
                     </h6>
                 </div>
             </div>
