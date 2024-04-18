@@ -709,6 +709,19 @@ td {
   background-color: #6eb59d;
 }
 
+
+/* PAGE CONTACT */
+
+.contactTitle {
+  margin-bottom: 1rem;
+}
+
+.custom-btn {
+  display: block; /* Assurez-vous que le bouton est affiché comme un bloc */
+  margin: 0 auto; /* Centrez horizontalement le bouton */
+}
+
+
 /* RESPONSIVE */
 
 /* Pour les écrans de taille moyenne */

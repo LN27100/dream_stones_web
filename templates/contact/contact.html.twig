@@ -1,10 +1,14 @@
 {% extends 'app.html.twig' %}
 
-{% block title %}Contact{% endblock %}
+{% block title %}Contact
+{% endblock %}
 
 {% block body_content %}
-<div class="container">
-{{ form(form) }}
-</div>
+	<div class="container">
+		<div class="card">
+			<h1 class="contactTitle">Contactez-nous</h1>
+			{{ form(form) }}
+			</div>
+		</div>
 
-{% endblock %}
+	{% endblock %}
