@@ -6,7 +6,19 @@
 {% block body_content %}
 	<div class="container">
 		<div class="card">
-			<h1 class="contactTitle">Contactez-nous</h1>
+        {% for message in app.flashes('success') %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+		{% for message in app.flashes('danger') %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+			<h1 class="contactTitle">Formulaire de contact</h1>
 			{{ form(form) }}
 			</div>
 		</div>

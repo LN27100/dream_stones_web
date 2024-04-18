@@ -721,6 +721,15 @@ td {
   margin: 0 auto; /* Centrez horizontalement le bouton */
 }
 
+.alert-success {
+    background-color: transparent !important;
+    --bs-alert-color: var(--bs-success-text-emphasis);
+    --bs-alert-bg: var(--bs-success-bg-subtle);
+    --bs-alert-border-color: transparent;
+    --bs-alert-link-color: var(--bs-success-text-emphasis);
+  
+}
+
 
 /* RESPONSIVE */
 
