@@ -51,12 +51,12 @@ class Contact
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getFullName(): ?string
     {
         return $this->fullname;
     }
 
-    public function setName(string $fullname): self
+    public function setFullName(string $fullname): self
     {
         $this->fullname = $fullname;
 
