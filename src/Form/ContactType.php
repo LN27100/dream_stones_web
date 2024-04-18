@@ -27,6 +27,7 @@ class ContactType extends AbstractType
                 'label' => 'Nom / Prénom',
                 'label_attr' => [
                     'class' => 'form-label mt-2',
+                    'style' => 'color: #0b533d; font-weight: bold;',
                 ],
             ])
             ->add('email', EmailType::class, [
@@ -39,6 +40,7 @@ class ContactType extends AbstractType
                 'label' => 'Email',
                 'label_attr' => [
                     'class' => 'form-label mt-2',
+                    'style' => 'color: #0b533d; font-weight: bold;',
                 ],
             ])
             ->add('subject', TextType::class, [
@@ -51,6 +53,7 @@ class ContactType extends AbstractType
                 'label' => 'Sujet',
                 'label_attr' => [
                     'class' => 'form-label mt-2',
+                    'style' => 'color: #0b533d; font-weight: bold;',
                 ],
             ] )
             ->add('message', TextareaType::class, [
@@ -61,6 +64,7 @@ class ContactType extends AbstractType
                 'label' => 'Votre message',
                 'label_attr' => [
                     'class' => 'form-label mt-2',
+                    'style' => 'color: #0b533d; font-weight: bold;',
                 ],
             ])
             ->add('submit', SubmitType::class, [

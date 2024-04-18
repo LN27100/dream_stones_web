@@ -25,11 +25,12 @@ class ContactController extends AbstractController
         $form->handleRequest($request); // Gère la soumission du formulaire avec la requête HTTP actuelle
         if ($form->isSubmitted() && $form->isValid()) { 
          // Dump and die : affiche les données soumises par le formulaire et arrête l'exécution
-            $contact = $form->getData();
-            $manager ->persist($contact);
-            // dd($contact);
-            $manager->flush();
+        // dd($contact);
+            $contact = $form->getData(); // Récupère les données soumises par le formulaire
+            $manager ->persist($contact); // Persiste les données dans la base de données
+            $manager->flush(); // Exécute les opérations SQL nécessaires pour synchroniser l'entité avec la base de données
 
+            // Message flash de succès et redirection
             $this->addFlash(
                 'success',
                 'Votre demande a été envoyé avec succès !'
