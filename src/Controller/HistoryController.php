@@ -24,8 +24,11 @@ class HistoryController extends AbstractController
      */
     public function index(): Response
     {
-        // Récupére toutes les commandes depuis la base de données
-        $orders = $this->entityManager->getRepository(Orders::class)->findAll();
+        // Récupère l'utilisateur connecté
+        $user = $this->getUser();
+
+        // Récupère toutes les commandes de l'utilisateur connecté depuis la base de données
+        $orders = $this->entityManager->getRepository(Orders::class)->findBy(['userprofil' => $user]);
 
         return $this->render('orders/historyOrder.html.twig', [
             'orders' => $orders,
@@ -40,8 +43,8 @@ class HistoryController extends AbstractController
         // Charge l'entité Orders à partir de l'ID
         $order = $this->entityManager->getRepository(Orders::class)->find($id);
 
-        // Vérifie si la commande est en attente de validation
-        if ($order && $order->getStatus() === 'en attente de validation') {
+        // Vérifie si la commande appartient à l'utilisateur connecté
+        if ($order && $order->getUserprofil() === $this->getUser()) {
             $entityManager = $this->entityManager;
             $entityManager->remove($order);
             $entityManager->flush();

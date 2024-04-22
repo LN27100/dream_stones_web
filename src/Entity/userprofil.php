@@ -69,7 +69,13 @@ class Userprofil implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $name;
 
-    
+
+    /**
+     * @ORM\OneToMany(targetEntity="Orders", mappedBy="userprofil")
+     */
+    private $orders;
+
+
     // GETTERS ET SETTERS
 
     public function getId(): ?int
@@ -178,10 +184,21 @@ class Userprofil implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
 
+    public function getOrders()
+    {
+        return $this->orders;
+    }
+
+    public function setOrders($orders): void
+    {
+        $this->orders = $orders;
+    }
+
     public function getRoles(): array
     {
         return ['ROLE_USER'];
     }
+
 
     public function getSalt()
     {

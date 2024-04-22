@@ -78,13 +78,24 @@ class Orders
     private $quantity;
 
     /**
-     * @ORM\Column(name="USERPROFIL_ID", type="integer")
+     * @ORM\ManyToOne(targetEntity="Userprofil", inversedBy="orders")
+     * @ORM\JoinColumn(name="USERPROFIL_ID", referencedColumnName="USERPROFIL_ID")
      */
-    private $userProfileId;
-
+    private $userprofil;
 
     // GETTERS ET SETTERS
-    
+
+    public function getUserprofil(): ?Userprofil
+    {
+        return $this->userprofil;
+    }
+
+    public function setUserprofil(?Userprofil $userprofil): self
+    {
+        $this->userprofil = $userprofil;
+        return $this;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -219,17 +230,6 @@ class Orders
     public function setQuantity(?int $quantity): self
     {
         $this->quantity = $quantity;
-        return $this;
-    }
-
-    public function getUserProfileId(): ?int
-    {
-        return $this->userProfileId;
-    }
-
-    public function setUserProfileId(int $userProfileId): self
-    {
-        $this->userProfileId = $userProfileId;
         return $this;
     }
 }
