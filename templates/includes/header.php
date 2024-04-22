@@ -72,6 +72,12 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{{ path('search_products') }}" role="button">
+                        Filtre recherche
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>

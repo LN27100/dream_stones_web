@@ -1,0 +1,53 @@
+{% extends 'app.html.twig' %}
+
+{% block title %}Recherche
+{% endblock %}
+
+{% block body_content %}
+
+	<form action="{{ path('search_products') }}" method="GET">
+		<input type="text" name="name" placeholder="Nom du produit">
+		<select name="category">
+			<option value="">Toutes catégories</option>
+			<option value="pierres roulées">Pierres roulées</option>
+			<option value="pierres brutes">Pierres brutes</option>
+			<option value="bijoux">Bijoux</option>
+			<option value="géodes">Gédodes</option>
+			<option value="pointes">Pointes</option>
+			<option value="sphères">Sphères</option>
+
+
+		</select>
+
+		<select name="color">
+			<option value="">Toutes couleurs</option>
+			<option value="bleue">Bleue</option>
+			<option value="verte">Verte</option>
+			<option value="violette">Violette</option>
+			<option value="jaune">Jaune</option>
+			<option value="noire">Noire</option>
+			<option value="marron">Marron</option>
+			<option value="orange">Orange</option>
+			<option value="multicolore">Multicolore</option>
+			<option value="rose">Rose</option>
+			<option value="rouge">Rouge</option>
+			<option value="grise">Grise</option>
+			<option value="blanche">Blanche</option>
+
+		</select>
+		<button type="submit">Rechercher</button>
+	</form>
+
+	{% if searchResults is not empty %}
+		<div class="card-columns">
+			{% for product in searchResults %}
+				<div
+					class="card"><!-- Affiche les détails du produit ici -->
+				</div>
+			{% endfor %}
+		</div>
+	{% else %}
+		<p>Aucun résultat trouvé.</p>
+	{% endif %}
+
+{% endblock %}

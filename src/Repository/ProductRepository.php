@@ -34,5 +34,27 @@ class ProductRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    public function findByCriteria($category, $color, $name)
+{
+    $queryBuilder = $this->createQueryBuilder('p');
+
+    if ($category) {
+        $queryBuilder->andWhere('t.typeCategory = :category')
+                    ->setParameter('category', $category);
+    }
+
+    if ($color) {
+        $queryBuilder->andWhere('p.color = :color')
+                    ->setParameter('color', $color);
+    }
+
+    if ($name) {
+        $queryBuilder->andWhere('p.name LIKE :name')
+                    ->setParameter('name', '%'.$name.'%');
+    }
+
+    return $queryBuilder->getQuery()->getResult();
+}
     
 }
