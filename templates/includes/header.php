@@ -71,24 +71,28 @@
                         Panier
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="{{ path('search_products') }}" role="button">
-                        Filtre recherche
-                    </a>
-                </li>
-
             </ul>
         </div>
     </div>
 
+    <div class="col-lg-2 mt-2 d-flex flex-column">
     <!-- Formulaire de recherche -->
-    <form class="form-inline col-lg-2" action="{{ path('search_product') }}" method="GET">
+    <form class="form-inline" action="{{ path('search_product') }}" method="GET">
         <div class="input-group">
             <input id="search-input" name="search" class="form-control" type="search" placeholder="Rechercher" aria-label="Search">
             <button id="search-btn" class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
         </div>
     </form>
+    
+    <!-- Recherche multicritères -->
+    <div class="mt-2 d-flex btnSearch1">
+        <a class="btn btnSearch btn-outline-light" href="{{ path('search_products') }}" role="button">
+            Recherche multicritères
+        </a>
+    </div>
+</div>
+
+
 
 
 

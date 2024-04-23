@@ -48,7 +48,7 @@ p {
 .navbar .form-inline {
   flex-grow: 0;
   margin-left: auto;
-  padding: 1rem;
+  padding: 1rem 1rem 0 0;
 }
 
 #top > nav > form > button {
@@ -731,6 +731,21 @@ td {
   
 }
 
+/* RECHERCHE */
+
+body > div.row > div.col-md-2 > form{
+  margin-left: 1rem;
+}
+
+.btnSearch1 {
+  justify-content: end;
+  margin-right: 2rem;
+  margin-top: 0.2rem;
+}
+
+.btnSearch {
+  width: 14rem;
+}
 
 /* RESPONSIVE */
 
