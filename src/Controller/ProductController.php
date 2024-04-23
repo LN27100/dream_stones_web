@@ -266,15 +266,19 @@ public function searchProducts(Request $request, ProductRepository $productRepos
     $categories = $request->query->get('category');
     $colors = $request->query->get('color');
 
-    // Vérifier si $categories et $colors sont des tableaux, sinon les convertir en tableaux uniques
-    if (!is_array($categories)) {
-        $categories = [$categories];
+    // Vérifier si les deux critères sont définis
+    if ($categories && $colors) {
+        $searchResults = $productRepository->findByCategoriesAndColors($categories, $colors);
+    } elseif ($categories) {
+        // Si seulement les catégories sont définies
+        $searchResults = $productRepository->findByCategories($categories);
+    } elseif ($colors) {
+        // Si seulement les couleurs sont définies
+        $searchResults = $productRepository->findByColors($colors);
+    } else {
+        // Si aucun critère n'est défini, afficher tous les produits
+        $searchResults = $productRepository->findAll();
     }
-    if (!is_array($colors)) {
-        $colors = [$colors];
-    }
-
-    $searchResults = $productRepository->findByCriteria($categories, $colors);
 
     return $this->render('products/searchCriteresProduct.html.twig', [
         'searchResults' => $searchResults,
