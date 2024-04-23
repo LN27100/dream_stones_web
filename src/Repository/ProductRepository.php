@@ -35,26 +35,21 @@ class ProductRepository extends ServiceEntityRepository
             ->getResult();
     }
 
-    public function findByCriteria($category, $color, $name)
+    public function findByCriteria($categories, $colors)
 {
     $queryBuilder = $this->createQueryBuilder('p');
 
-    if ($category) {
-        $queryBuilder->andWhere('t.typeCategory = :category')
-                    ->setParameter('category', $category);
+    if ($categories) {
+        $queryBuilder->join('p.type', 't')
+            ->andWhere('t.typeCategory IN (:categories)')
+            ->setParameter('categories', $categories);
     }
 
-    if ($color) {
-        $queryBuilder->andWhere('p.color = :color')
-                    ->setParameter('color', $color);
-    }
-
-    if ($name) {
-        $queryBuilder->andWhere('p.name LIKE :name')
-                    ->setParameter('name', '%'.$name.'%');
+    if ($colors) {
+        $queryBuilder->andWhere('p.productColor IN (:colors)')
+            ->setParameter('colors', $colors);
     }
 
     return $queryBuilder->getQuery()->getResult();
 }
-    
 }

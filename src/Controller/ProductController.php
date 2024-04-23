@@ -258,21 +258,30 @@ class ProductController extends AbstractController
         ]);
     }
 
-    /**
+/**
  * @Route("/products/search", name="search_products")
  */
 public function searchProducts(Request $request, ProductRepository $productRepository): Response
 {
-    $category = $request->query->get('category');
-    $color = $request->query->get('color');
-    $name = $request->query->get('name');
+    $categories = $request->query->get('category');
+    $colors = $request->query->get('color');
 
-    $searchResults = $productRepository->findByCriteria($category, $color, $name);
+    // Vérifier si $categories et $colors sont des tableaux, sinon les convertir en tableaux uniques
+    if (!is_array($categories)) {
+        $categories = [$categories];
+    }
+    if (!is_array($colors)) {
+        $colors = [$colors];
+    }
+
+    $searchResults = $productRepository->findByCriteria($categories, $colors);
 
     return $this->render('products/searchCriteresProduct.html.twig', [
         'searchResults' => $searchResults,
     ]);
 }
+
+
 
     // MISE A JOUR DU STOCK
 

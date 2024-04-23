@@ -6,44 +6,95 @@
 {% block body_content %}
 
 	<form action="{{ path('search_products') }}" method="GET">
-		<input type="text" name="name" placeholder="Nom du produit">
-		<select name="category">
-			<option value="">Toutes catégories</option>
-			<option value="pierres roulées">Pierres roulées</option>
-			<option value="pierres brutes">Pierres brutes</option>
-			<option value="bijoux">Bijoux</option>
-			<option value="géodes">Gédodes</option>
-			<option value="pointes">Pointes</option>
-			<option value="sphères">Sphères</option>
 
+		<label for="category">
+			<span style="font-weight: bold;">Catégorie :</span>
+		</label><br>
+		<input type="checkbox" id="category_pierres_roulees" name="category[]" value="pierres roulées">
+		<label for="category_pierres_roulees">Pierres roulées</label><br>
+		<input type="checkbox" id="category_pierres_brutes" name="category[]" value="pierres brutes">
+		<label for="category_pierres_brutes">Pierres brutes</label><br>
+		<input type="checkbox" id="category_bijoux" name="category[]" value="bijoux">
+		<label for="category_bijoux">Bijoux</label><br>
+		<input type="checkbox" id="category_geodes" name="category[]" value="géodes">
+		<label for="category_geodes">Géodes</label><br>
+		<input type="checkbox" id="category_spheres" name="category[]" value="sphères">
+		<label for="category_spheres">Sphères</label><br>
+		<input type="checkbox" id="category_pointes" name="category[]" value="pointes">
+		<label for="category_pointes">Pointes</label><br>
 
-		</select>
+		<br><label for="color">
+			<span style="font-weight: bold;">Couleur :</span>
+		</label><br>
+		<input type="checkbox" id="color_bleue" name="color[]" value="bleue">
+		<label for="color_bleue">Bleue</label><br>
+		<input type="checkbox" id="color_verte" name="color[]" value="verte">
+		<label for="color_verte">Verte</label><br>
+		<input type="checkbox" id="color_violette" name="color[]" value="violette">
+		<label for="color_violette">Violette</label><br>
+		<input type="checkbox" id="color_jaune" name="color[]" value="jaune">
+		<label for="color_jaune">Jaune</label><br>
+		<input type="checkbox" id="color_noire" name="color[]" value="noire">
+		<label for="color_noire">Noire</label><br>
+		<input type="checkbox" id="color_marron" name="color[]" value="marron">
+		<label for="color_marron">Marron</label><br>
+		<input type="checkbox" id="color_orange" name="color[]" value="orange">
+		<label for="color_orange">Orange</label><br>
+		<input type="checkbox" id="color_multicolore" name="color[]" value="multicolore">
+		<label for="color_multicolore">Multicolore</label><br>
+		<input type="checkbox" id="color_rose" name="color[]" value="rose">
+		<label for="color_rose">Rose</label><br>
+		<input type="checkbox" id="color_rouge" name="color[]" value="rouge">
+		<label for="color_rouge">Rouge</label><br>
+		<input type="checkbox" id="color_grise" name="color[]" value="grise">
+		<label for="color_grise">Grise</label><br>
+		<input type="checkbox" id="color_blanche" name="color[]" value="blanche">
+		<label for="color_blanche">Blanche</label><br>
 
-		<select name="color">
-			<option value="">Toutes couleurs</option>
-			<option value="bleue">Bleue</option>
-			<option value="verte">Verte</option>
-			<option value="violette">Violette</option>
-			<option value="jaune">Jaune</option>
-			<option value="noire">Noire</option>
-			<option value="marron">Marron</option>
-			<option value="orange">Orange</option>
-			<option value="multicolore">Multicolore</option>
-			<option value="rose">Rose</option>
-			<option value="rouge">Rouge</option>
-			<option value="grise">Grise</option>
-			<option value="blanche">Blanche</option>
-
-		</select>
-		<button type="submit">Rechercher</button>
+		<button class="btn2" type="submit">Rechercher</button>
 	</form>
 
-	{% if searchResults is not empty %}
-		<div class="card-columns">
-			{% for product in searchResults %}
-				<div
-					class="card"><!-- Affiche les détails du produit ici -->
+	<div class="card">
+		{% if searchResults is defined and searchResults is not empty %}
+			<div class="card-columns">
+				{% for product in searchResults %}
+					<div class="card-image">
+						<img src="{{ asset('assets/images/' ~ product.productPicture) }}" class="card-img-top" alt="{{ product.productName }}">
+					</div>
+
+					<div class="card-body">
+						<h5 class="card-title">{{ product.productName }}</h5>
+						<p class="card-text">{{ product.productDescription }}</p>
+						<p class="card-text">
+							<span class="highlight">Référence:</span>
+							{{ product.productReference }}</p>
+						<p class="card-text">
+							<span class="highlight">Pays d'origine:</span>
+							{{ product.productOriginCountry }}</p>
+						<p class="card-text">
+							<span class="highlight">Couleur:</span>
+							{{ product.productColor }}</p>
+						<p class="card-text">
+							<span class="highlight">Stock:</span>
+							{{ product.productStock }}</p>
+						<p class="card-text">
+							<span class="highlight">Prix unitaire:</span>
+							{{ product.productPrice }}
+							€</p>
+						<div class="container text-center mt-3">
+							<div class="quantity-controls mt-2">
+								<button class="btn btn-sm btn-minus" onclick="decrementQuantity(this)">-</button>
+								<input type="number" class="quantity-input" value="1" min="1">
+								<button class="btn btn-sm btn-plus" onclick="incrementQuantity(this)">+</button>
+							</div>
+							<button class="btn2 btn-add-to-cart" data-id="{{ product.id }}" data-name="{{ product.productName }}" data-price="{{ product.productPrice }}" data-picture="{{ product.productPicture }}">
+								<i class="bi bi-cart-fill"></i>
+								Ajouter au panier</button>
+						</div>
+					</div>
 				</div>
+
+
 			{% endfor %}
 		</div>
 	{% else %}
