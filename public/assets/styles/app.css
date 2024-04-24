@@ -735,6 +735,14 @@ td {
 
 body > div.row > div.col-md-2 > form{
   margin-left: 1rem;
+  margin-top: 1rem;
+  font-family: "Varela Round", sans-serif;
+}
+
+body > div.row > div.col-md-2 > form > label:nth-child(1),
+body > div.row > div.col-md-2 > form > label:nth-child(22){
+  font-family: "Macondo", cursive;
+  font-size: 1.2rem;
 }
 
 .btnSearch1 {
@@ -745,6 +753,10 @@ body > div.row > div.col-md-2 > form{
 
 .btnSearch {
   width: 14rem;
+}
+
+body > div.row > div.col-md-2 {
+  background-color: #239670;
 }
 
 /* RESPONSIVE */
