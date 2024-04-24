@@ -4,8 +4,6 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "_comment": "Liste les dépendances requises pour le projet, avec la version minimale requise",
-
         "php": ">=7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
@@ -100,8 +98,6 @@
         }
     },
     "require-dev": {
-        "_comment": "Liste les dépendances requises uniquement pour le développement, comme les outils de test, les bundles Symfony pour le développement",
-
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "5.4.*",
         "symfony/css-selector": "5.4.*",
