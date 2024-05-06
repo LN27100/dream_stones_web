@@ -10,6 +10,9 @@
                 <img class="logo" src="{{ asset('assets/images/logo.JPG') }}" alt="logo dream stones">
             </a>
             <ul class="navbar-nav col-lg-6 justify-content-lg-center">
+            <li class="nav-item">
+                    <a class="nav-link active text-light" aria-current="page" href="{{ path('app') }}">Accueil</a>
+                </li>
 
                 <!-- Catégories par couleur -->
                 <li class="nav-item dropdown">
