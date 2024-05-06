@@ -70,7 +70,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{ path('app_profil') }}" data-categoryId="1">Profil</a></li>
                         <li><a class="dropdown-item" href="{{ path('app_history') }}" data-categoryId="1">Historique commandes</a></li>
-                        <li><a class="dropdown-item" href="{{ path('app_login') }}" data-categoryId="3">Connexion</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_logout') }}" data-categoryId="3">Déconnexion</a></li>
                     </ul>
                 </li>
             </ul>

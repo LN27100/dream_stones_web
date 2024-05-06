@@ -24,15 +24,21 @@ class HistoryController extends AbstractController
      */
     public function index(): Response
     {
-        // Récupère l'utilisateur connecté
-        $user = $this->getUser();
-
-        // Récupère toutes les commandes de l'utilisateur connecté depuis la base de données
+        
+         // Récupére l'utilisateur connecté depuis la session
+         $user = $this->getUser();
+         // Récupère toutes les commandes de l'utilisateur connecté depuis la base de données
         $orders = $this->entityManager->getRepository(Orders::class)->findBy(['userprofil' => $user]);
-
-        return $this->render('orders/historyOrder.html.twig', [
-            'orders' => $orders,
-        ]);
+         // Vérifie si l'utilisateur est connecté
+         if ($user) {
+             return $this->render('orders/historyOrder.html.twig', [
+                'orders' => $orders,
+            ]);
+    
+         } else {
+             // Redirige vers la page de connexion si pas connecté
+             return $this->redirectToRoute('app_login');
+         }
     }
 
     /**
