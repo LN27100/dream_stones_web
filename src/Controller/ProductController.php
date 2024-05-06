@@ -239,7 +239,7 @@ class ProductController extends AbstractController
     }
 
 
-    // RECHERCHE PRODUIT
+    // RECHERCHE PRODUIT PAR NOM
 
  /**
      * @Route("/search", name="search_product")
@@ -257,6 +257,9 @@ class ProductController extends AbstractController
             'searchResults' => $searchResults,
         ]);
     }
+    
+
+        // RECHERCHE PRODUIT MULTICRITERES
 
 /**
  * @Route("/products/search", name="search_products")

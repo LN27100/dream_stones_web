@@ -373,12 +373,15 @@ body > div.container > div {
 }
 
 #inputEmail {
+  width: 30rem;
   margin-top: 1rem;
 }
 
 #inputPassword {
+  width: 30rem;
   margin-top: 1rem;
 }
+
 
 body > div.container > div > form > div.text-center > button {
   margin-top: 1rem;
