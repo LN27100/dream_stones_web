@@ -8,6 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Doctrine\ORM\EntityManagerInterface; 
 use App\Entity\Orders;
+//  permet de définir des critères de sélection et de tri lors de la récupération d'entités à partir d'une bdd
+use Doctrine\Common\Collections\Criteria;
+
 
 class HistoryController extends AbstractController
 {
@@ -19,26 +22,30 @@ class HistoryController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    /**
+     /**
      * @Route("/history", name="app_history")
      */
     public function index(): Response
     {
-        
-         // Récupére l'utilisateur connecté depuis la session
-         $user = $this->getUser();
-         // Récupère toutes les commandes de l'utilisateur connecté depuis la base de données
-        $orders = $this->entityManager->getRepository(Orders::class)->findBy(['userprofil' => $user]);
-         // Vérifie si l'utilisateur est connecté
-         if ($user) {
-             return $this->render('orders/historyOrder.html.twig', [
+        // Récupère l'utilisateur connecté depuis la session
+        $user = $this->getUser();
+
+        // Récupère toutes les commandes de l'utilisateur connecté depuis la base de données, triées par date
+        $orders = $this->entityManager->getRepository(Orders::class)->findBy(
+            ['userprofil' => $user],
+            ['date' => Criteria::DESC] // Tri par date décroissante
+        );
+
+        // Vérifie si l'utilisateur est connecté
+        if ($user) {
+            return $this->render('orders/historyOrder.html.twig', [
                 'orders' => $orders,
             ]);
-    
-         } else {
-             // Redirige vers la page de connexion si pas connecté
-             return $this->redirectToRoute('app_login');
-         }
+
+        } else {
+            // Redirige vers la page de connexion si pas connecté
+            return $this->redirectToRoute('app_login');
+        }
     }
 
     /**
