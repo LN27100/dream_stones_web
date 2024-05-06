@@ -53,20 +53,8 @@
                 <li class="nav-item">
                     <a class="nav-link active text-light" aria-current="page" href="{{ path('products_by_category_jewelry') }}">Bracelets</a>
                 </li>
+                
 
-                <li class="nav-item">
-                    <a class="nav-link active text-light" href="{{ path('app_profil') }}">Profil utilisateur</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link active text-light" href="{{ path('app_history') }}">Historique commandes</a>
-                </li>
-
-
-                <li class="nav-item">
-                    <a class="nav-link active text-light" href="{{ path('app_login') }}">Me connecter</a>
-                </li>
 
                 <!-- Panier d'achat -->
                 <li class="nav-item">
@@ -74,7 +62,20 @@
                         Panier
                     </a>
                 </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i>                  
+                  </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{{ path('app_profil') }}" data-categoryId="1">Profil</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_history') }}" data-categoryId="1">Historique commandes</a></li>
+                        <li><a class="dropdown-item" href="{{ path('app_login') }}" data-categoryId="3">Me connecter</a></li>
+                    </ul>
+                </li>
             </ul>
+
+            
         </div>
     </div>
 
