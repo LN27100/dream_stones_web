@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Symfony\Component\Security\Core\Security;
 use App\Entity\Userprofil;
 use App\Form\RegistrationType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,7 +28,7 @@ class AuthentificationController extends AbstractController
     /**
      * @Route("/login", name="app_login")
      */
-    public function login(AuthenticationUtils $authenticationUtils, Request $request): Response
+    public function login(AuthenticationUtils $authenticationUtils, Request $request, Security $security): Response
     {
         // Si l'utilisateur est déjà authentifié, redirige vers la page de profil
         if ($this->getUser()) {
@@ -68,6 +69,7 @@ class AuthentificationController extends AbstractController
         return $this->render('security/login.html.twig', [
             'last_username' => $lastUsername,
             'error' => $error,
+            'user' => $security->getUser(),
         ]);
     }
 
