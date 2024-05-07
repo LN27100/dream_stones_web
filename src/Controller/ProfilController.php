@@ -10,6 +10,8 @@ use App\Form\UserprofilType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
+
 
 class ProfilController extends AbstractController
 {
@@ -48,11 +50,12 @@ class ProfilController extends AbstractController
     /**
      * @Route("/profil/update", name="app_profile_update")
      */
-    public function update(Request $request): Response
+    public function update(Request $request, TranslatorInterface $translator): Response
     {
         $user = $this->getUser();
         $form = $this->createForm(UserprofilType::class, $user);
         $form->handleRequest($request);
+        $translated = $translator->trans('email');
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->doctrine->getManager();
@@ -63,6 +66,7 @@ class ProfilController extends AbstractController
 
         return $this->render('profil/update.html.twig', [
             'form' => $form->createView(),
+
         ]);
     }
 

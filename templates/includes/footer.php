@@ -42,6 +42,6 @@
     </div>
 
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        © 2024 Copyright Hélène Poirier-Halley
+        © 2024 Hélène Poirier-Halley
     </div>
 </footer>
