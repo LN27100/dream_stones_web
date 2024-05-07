@@ -5,6 +5,6 @@ form:
     firstname: 'Prénom'
     phone: 'Téléphone'
     streetName: 'Nom de rue'
-    additionalAddress: 'Complément d'adresse'
+    additionalAddress: 'Complément d\'adresse'
     zipcode: 'Code postal'
     city: 'Ville'

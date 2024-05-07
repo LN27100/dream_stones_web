@@ -67,37 +67,63 @@
 						<div class="card-body">
 							{{ form_start(form) }}
 							<div class="form-group">
-								{{ form_row(form.email, {'attr': {'class': 'form-control'}}) }}
+								<label for="email">
+									<span class="highlight">Email:</span>
+								</label>
+								{{ form_row(form.email, {'attr': {'class': 'form-control'}, 'label': false}) }}
 							</div>
 							<div class="form-group">
-								{{ form_row(form.name, {'attr': {'class': 'form-control'}}) }}
+								<label for="name">
+									<span class="highlight">Nom:</span>
+								</label>
+								{{ form_row(form.name, {'attr': {'class': 'form-control'}, 'label': false}) }}
 							</div>
 							<div class="form-group">
-								{{ form_row(form.firstname, {'attr': {'class': 'form-control'}}) }}
+								<label for="firstname">
+									<span class="highlight">Prénom:</span>
+								</label>
+								{{ form_row(form.firstname, {'attr': {'class': 'form-control'}, 'label': false}) }}
 							</div>
 							<div class="form-group">
-								{{ form_row(form.phone, {'attr': {'class': 'form-control'}}) }}
+								<label for="phone">
+									<span class="highlight">Téléphone:</span>
+
+								</label>
+								{{ form_row(form.phone, {'attr': {'class': 'form-control'}, 'label': false}) }}
 							</div>
 							<div class="form-group">
-								{{ form_row(form.streetName, {'attr': {'class': 'form-control'}}) }}
+								<label for="streetName">
+									<span class="highlight">Nom de rue:</span>
+								</label>
+								{{ form_row(form.streetName, {'attr': {'class': 'form-control'}, 'label': false}) }}
 							</div>
 							<div class="form-group">
-								{{ form_row(form.additionalAddress, {'attr': {'class': 'form-control'}}) }}
+								<label for="additionalAddress">
+									<span class="highlight">Complément d'adresse:</span>
+								</label>
+								{{ form_row(form.additionalAddress, {'attr': {'class': 'form-control'}, 'label': false}) }}
 							</div>
 							<div class="form-group">
-								{{ form_row(form.zipcode, {'attr': {'class': 'form-control'}}) }}
+								<label for="zipcode">
+									<span class="highlight">Code postale:</span>
+								</label>
+								{{ form_row(form.zipcode, {'attr': {'class': 'form-control'}, 'label': false}) }}
 							</div>
 							<div class="form-group">
-								{{ form_row(form.city, {'attr': {'class': 'form-control'}}) }}
+								<label for="city">
+									<span class="highlight">Ville:</span>
+
+								</label>
+								{{ form_row(form.city, {'attr': {'class': 'form-control'}, 'label': false}) }}
 							</div>
 							<div class="text-center">
 								<button type="submit" class="btn2 btn-primary">Enregistrer</button>
 								<button type="button" class="btn2 btn-secondary" onclick="cancelModification()">Annuler</button>
-
 							</div>
 							{{ form_end(form) }}
 						</div>
 					</form>
+
 				</div>
 			</div>
 		{% endblock %}
