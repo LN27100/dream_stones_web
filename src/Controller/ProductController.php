@@ -285,6 +285,8 @@ public function searchProducts(Request $request, ProductRepository $productRepos
 
     return $this->render('products/searchCriteresProduct.html.twig', [
         'searchResults' => $searchResults,
+        'selectedCategories' => $categories,
+        'selectedColors' => $colors,
     ]);
 }
 

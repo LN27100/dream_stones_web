@@ -11,45 +11,45 @@
 				<label for="category">
 					<span style="font-weight: bold;">Catégorie :</span>
 				</label><br>
-				<input type="checkbox" id="category_pierres_roulees" name="category[]" value="pierres roulées">
+				<input type="checkbox" id="category_pierres_roulees" name="category[]" value="pierres roulées" {% if 'pierres roulées' in app.request.query.get('category', []) %} checked {% endif %}>
 				<label for="category_pierres_roulees">Pierres roulées</label><br>
-				<input type="checkbox" id="category_pierres_brutes" name="category[]" value="pierres brutes">
+				<input type="checkbox" id="category_pierres_brutes" name="category[]" value="pierres brutes" {% if 'pierres brutes' in app.request.query.get('category', []) %} checked {% endif %}>
 				<label for="category_pierres_brutes">Pierres brutes</label><br>
-				<input type="checkbox" id="category_bijoux" name="category[]" value="bijoux">
+				<input type="checkbox" id="category_bijoux" name="category[]" value="bijoux" {% if 'bijoux' in app.request.query.get('category', []) %} checked {% endif %}>
 				<label for="category_bijoux">Bijoux</label><br>
-				<input type="checkbox" id="category_geodes" name="category[]" value="géodes">
+				<input type="checkbox" id="category_geodes" name="category[]" value="géodes" {% if 'géodes' in app.request.query.get('category', []) %} checked {% endif %}>
 				<label for="category_geodes">Géodes</label><br>
-				<input type="checkbox" id="category_spheres" name="category[]" value="sphères">
+				<input type="checkbox" id="category_spheres" name="category[]" value="sphères" {% if 'sphères' in app.request.query.get('category', []) %} checked {% endif %}>
 				<label for="category_spheres">Sphères</label><br>
-				<input type="checkbox" id="category_pointes" name="category[]" value="pointes">
+				<input type="checkbox" id="category_pointes" name="category[]" value="pointes" {% if 'pointes' in app.request.query.get('category', []) %} checked {% endif %}>
 				<label for="category_pointes">Pointes</label><br>
 
 				<br><label for="color">
 					<span style="font-weight: bold;">Couleur :</span>
 				</label><br>
-				<input type="checkbox" id="color_bleue" name="color[]" value="bleue">
+				<input type="checkbox" id="color_bleue" name="color[]" value="bleue" {% if 'bleue' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_bleue">Bleue</label><br>
-				<input type="checkbox" id="color_verte" name="color[]" value="verte">
+				<input type="checkbox" id="color_verte" name="color[]" value="verte" {% if 'verte' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_verte">Verte</label><br>
-				<input type="checkbox" id="color_violette" name="color[]" value="violette">
+				<input type="checkbox" id="color_violette" name="color[]" value="violette" {% if 'violette' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_violette">Violette</label><br>
-				<input type="checkbox" id="color_jaune" name="color[]" value="jaune">
+				<input type="checkbox" id="color_jaune" name="color[]" value="jaune" {% if 'jaune' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_jaune">Jaune</label><br>
-				<input type="checkbox" id="color_noire" name="color[]" value="noire">
+				<input type="checkbox" id="color_noire" name="color[]" value="noire" {% if 'noire' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_noire">Noire</label><br>
-				<input type="checkbox" id="color_marron" name="color[]" value="marron">
+				<input type="checkbox" id="color_marron" name="color[]" value="marron" {% if 'marron' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_marron">Marron</label><br>
-				<input type="checkbox" id="color_orange" name="color[]" value="orange">
+				<input type="checkbox" id="color_orange" name="color[]" value="orange" {% if 'orange' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_orange">Orange</label><br>
-				<input type="checkbox" id="color_multicolore" name="color[]" value="multicolore">
+				<input type="checkbox" id="color_multicolore" name="color[]" value="multicolore" {% if 'multicolore' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_multicolore">Multicolore</label><br>
-				<input type="checkbox" id="color_rose" name="color[]" value="rose">
+				<input type="checkbox" id="color_rose" name="color[]" value="rose" {% if 'rose' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_rose">Rose</label><br>
-				<input type="checkbox" id="color_rouge" name="color[]" value="rouge">
+				<input type="checkbox" id="color_rouge" name="color[]" value="rouge" {% if 'rouge' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_rouge">Rouge</label><br>
-				<input type="checkbox" id="color_grise" name="color[]" value="grise">
+				<input type="checkbox" id="color_grise" name="color[]" value="grise" {% if 'grise' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_grise">Grise</label><br>
-				<input type="checkbox" id="color_blanche" name="color[]" value="blanche">
+				<input type="checkbox" id="color_blanche" name="color[]" value="blanche" {% if 'blanche' in app.request.query.get('color', []) %} checked {% endif %}>
 				<label for="color_blanche">Blanche</label><br>
 
 				<div class="mb-4 mt-4">
