@@ -1,2 +1,2 @@
-# Ignorer le fichier doctrine.yaml
+# Ignorer le fichier
 /config/packages/doctrine.yaml
