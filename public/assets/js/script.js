@@ -196,7 +196,7 @@ function commander() {
     
     // Vérifie si le formulaire est trouvé
     if (orderForm) {
-         // Récupére les IDs et les quantités des produits depuis votre panier
+         // Récupére les IDs et les quantités des produits depuis le panier et créé un tableau avec
          const productIds = cartItems.map(item => item.id);
          
          // Met à jour les valeurs des champs de formulaire cachés avec les IDs et les quantités des produits
