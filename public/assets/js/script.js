@@ -30,9 +30,11 @@ function updateCartView() {
 
     // Création du contenu du panier
     cartItems.forEach(item => {
+        // Création d'un élément div pour chaque produit dans le panier
         const productElement = document.createElement('div');
         productElement.classList.add('product');
         productElement.setAttribute('data-id', item.id);
+        // Définition du contenu HTML de l'élément div avec les informations du produit
         productElement.innerHTML = `
             <img src="/assets/images/${item.picture}" alt="Image de ${item.name}">
             <p style="color: white;">${item.name} - Quantité: ${item.quantity} - Total: €${item.total.toFixed(2)}</p>
